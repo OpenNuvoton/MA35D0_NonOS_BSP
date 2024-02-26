@@ -34,8 +34,8 @@
   *             - \ref VDEC_RST
   *             - \ref WRHO0_RST
   *             - \ref WRHO1_RST
-  *             - \ref GMAC0_RST
-  *             - \ref GMAC1_RST
+  *             - \ref EMAC0_RST
+  *             - \ref EMAC1_RST
   *             - \ref HWSEM_RST
   *             - \ref EBI_RST
   *             - \ref HSUSBH0_RST

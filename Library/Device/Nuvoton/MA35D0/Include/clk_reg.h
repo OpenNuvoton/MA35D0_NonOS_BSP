@@ -272,10 +272,10 @@ typedef struct
  * |[26]    |DCUEN     |DC Ultra Clock Enable Bit (TZNS)
  * |        |          |0 = DC Ultra clock Disabled.
  * |        |          |1 = DC Ultra clock Enabled.
- * |[27]    |GMAC0EN   |Gigabit Ethernet MAC 0 AXI Clock Enable Bit (TZNS)
+ * |[27]    |EMAC0EN   |Gigabit Ethernet MAC 0 AXI Clock Enable Bit (TZNS)
  * |        |          |0 = Gigabit Ethernet MAC 0 AXI clock Disabled.
  * |        |          |1 = Gigabit Ethernet MAC 0 AXI clock Enabled.
- * |[28]    |GMAC1EN   |Gigabit Ethernet MAC 1 AXI Clock Enable Bit (TZNS)
+ * |[28]    |EMAC1EN   |Gigabit Ethernet MAC 1 AXI Clock Enable Bit (TZNS)
  * |        |          |0 = Gigabit Ethernet MAC 1 AXI clock Disabled.
  * |        |          |1 = Gigabit Ethernet MAC 1 AXI clock Enabled.
  * |[29]    |CCAP0EN   |CCAP0 Clock Enable Bit (TZNS)

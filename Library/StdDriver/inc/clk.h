@@ -306,8 +306,8 @@ typedef enum
 #define CLK_CLKDIV0_CANFD1(x)              (((x) - 1UL) << CLK_CLKDIV0_CANFD1DIV_Pos) /*!< CLKDIV0 Setting for CANFD1 clock divider. It could be 1~8 \hideinitializer */
 #define CLK_CLKDIV0_CANFD2(x)              (((x) - 1UL) << CLK_CLKDIV0_CANFD2DIV_Pos) /*!< CLKDIV0 Setting for CANFD2 clock divider. It could be 1~8 \hideinitializer */
 #define CLK_CLKDIV0_CANFD3(x)              (((x) - 1UL) << CLK_CLKDIV0_CANFD3DIV_Pos) /*!< CLKDIV0 Setting for CANFD3 clock divider. It could be 1~8 \hideinitializer */
-#define CLK_CLKDIV0_GMAC1(x)               (((x) - 1UL) << CLK_CLKDIV0_GMAC1DIV_Pos)  /*!< CLKDIV0 Setting for GMAC1 clock divider. It could be 1~4 \hideinitializer */
-#define CLK_CLKDIV0_GMAC0(x)               (((x) - 1UL) << CLK_CLKDIV0_GMAC0DIV_Pos)  /*!< CLKDIV0 Setting for GMAC0 clock divider. It could be 1~4 \hideinitializer */
+#define CLK_CLKDIV0_EMAC1(x)               (((x) - 1UL) << CLK_CLKDIV0_EMAC1DIV_Pos)  /*!< CLKDIV0 Setting for EMAC1 clock divider. It could be 1~4 \hideinitializer */
+#define CLK_CLKDIV0_EMAC0(x)               (((x) - 1UL) << CLK_CLKDIV0_EMAC0DIV_Pos)  /*!< CLKDIV0 Setting for EMAC0 clock divider. It could be 1~4 \hideinitializer */
 #define CLK_CLKDIV0_ACLK0(x)               (((x) - 1UL) << CLK_CLKDIV0_ACLK0DIV_Pos)  /*!< CLKDIV0 Setting for ACLK0 clock divider. It could be 1~2 \hideinitializer */
 #define CLK_CLKDIV0_DCUP(x)                (((x) - 1UL) << CLK_CLKDIV0_DCUPDIV_Pos)   /*!< CLKDIV0 Setting for DCUP clock divider. It could be 1~8 \hideinitializer */
 
@@ -428,8 +428,8 @@ typedef enum
 #define VDEC_MODULE      ((0UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(25UL<<0)) /*!< VDEC Module \hideinitializer */
 #define DCU_MODULE       ((0UL<<29)|(0UL<<26)         |(0x1UL<<22)       |(24UL<<17)        |(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(26UL<<0)) /*!< DCU Module \hideinitializer */
 #define DCUP_MODULE      ((0UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(0UL<<14)         |(0x7UL<<10)       |(16UL<<5)        |(26UL<<0)) /*!< DCUP Module \hideinitializer */
-#define GMAC0_MODULE     ((0UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(0UL<<14)         |(0x3UL<<10)       |(28UL<<5)        |(27UL<<0)) /*!< GMAC0 Module \hideinitializer */
-#define GMAC1_MODULE     ((0UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(0UL<<14)         |(0x3UL<<10)       |(30UL<<5)        |(28UL<<0)) /*!< GMAC1 Module \hideinitializer */
+#define EMAC0_MODULE     ((0UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(0UL<<14)         |(0x3UL<<10)       |(28UL<<5)        |(27UL<<0)) /*!< EMAC0 Module \hideinitializer */
+#define EMAC1_MODULE     ((0UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(0UL<<14)         |(0x3UL<<10)       |(30UL<<5)        |(28UL<<0)) /*!< EMAC1 Module \hideinitializer */
 #define CCAP0_MODULE     ((0UL<<29)|(0UL<<26)         |(0x3UL<<22)       |(12UL<<17)        |(1UL<<14)         |(0xFUL<<10)       |(8UL<<5)         |(29UL<<0)) /*!< CCAP0 Module \hideinitializer */
 #define CCAP1_MODULE     ((0UL<<29)|(0UL<<26)         |(0x3UL<<22)       |(14UL<<17)        |(1UL<<14)         |(0xFUL<<10)       |(12UL<<5)        |(30UL<<0)) /*!< CCAP1 Module \hideinitializer */
 #define TMR0_MODULE      ((2UL<<29)|(1UL<<26)         |(0x7UL<<22)       |(0UL<<17)         |(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(0UL<<0))  /*!< TMR0 Module \hideinitializer */

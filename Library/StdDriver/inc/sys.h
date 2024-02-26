@@ -41,8 +41,8 @@ extern "C"
 #define VDEC_RST            ((0UL<<24) | SYS_IPRST0_VDECRST_Pos)        /*!< Reset VDEC \hideinitializer */
 #define WRHO0_RST           ((0UL<<24) | SYS_IPRST0_WRHO0RST_Pos)       /*!< Reset WRHO0 \hideinitializer */
 #define WRHO1_RST           ((0UL<<24) | SYS_IPRST0_WRHO1RST_Pos)       /*!< Reset WRHO1 \hideinitializer */
-#define GMAC0_RST           ((0UL<<24) | SYS_IPRST0_GMAC0RST_Pos)       /*!< Reset GMAC0 \hideinitializer */
-#define GMAC1_RST           ((0UL<<24) | SYS_IPRST0_GMAC1RST_Pos)       /*!< Reset GMAC1 \hideinitializer */
+#define EMAC0_RST           ((0UL<<24) | SYS_IPRST0_EMAC0RST_Pos)       /*!< Reset EMAC0 \hideinitializer */
+#define EMAC1_RST           ((0UL<<24) | SYS_IPRST0_EMAC1RST_Pos)       /*!< Reset EMAC1 \hideinitializer */
 #define HWSEM_RST           ((0UL<<24) | SYS_IPRST0_HWSEMRST_Pos)       /*!< Reset HWSEM \hideinitializer */
 #define EBI_RST             ((0UL<<24) | SYS_IPRST0_EBIRST_Pos)         /*!< Reset EBI \hideinitializer */
 #define HSUSBH0_RST         ((0UL<<24) | SYS_IPRST0_HSUSBH0RST_Pos)     /*!< Reset HSUSBH0 \hideinitializer */

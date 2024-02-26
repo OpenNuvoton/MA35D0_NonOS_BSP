@@ -515,8 +515,8 @@ void CLK_DisableXtalRC(uint32_t u32ClkMask)
   *             - \ref VDEC_MODULE
   *             - \ref DCU_MODULE
   *             - \ref DCUP_MODULE
-  *             - \ref GMAC0_MODULE
-  *             - \ref GMAC1_MODULE
+  *             - \ref EMAC0_MODULE
+  *             - \ref EMAC1_MODULE
   *             - \ref CCAP0_MODULE
   *             - \ref CCAP1_MODULE
   *             - \ref TMR0_MODULE
@@ -653,8 +653,8 @@ void CLK_EnableModuleClock(uint32_t u32ModuleIdx)
   *             - \ref VDEC_MODULE
   *             - \ref DCU_MODULE
   *             - \ref DCUP_MODULE
-  *             - \ref GMAC0_MODULE
-  *             - \ref GMAC1_MODULE
+  *             - \ref EMAC0_MODULE
+  *             - \ref EMAC1_MODULE
   *             - \ref CCAP0_MODULE
   *             - \ref CCAP1_MODULE
   *             - \ref TMR0_MODULE
@@ -977,8 +977,8 @@ uint64_t CLK_SetPLLClockFreq(uint32_t u32PllIdx, uint32_t u32OpMode, uint64_t u6
   *             - \ref VDEC_MODULE
   *             - \ref DCU_MODULE
   *             - \ref DCUP_MODULE
-  *             - \ref GMAC0_MODULE
-  *             - \ref GMAC1_MODULE
+  *             - \ref EMAC0_MODULE
+  *             - \ref EMAC1_MODULE
   *             - \ref CCAP0_MODULE
   *             - \ref CCAP1_MODULE
   *             - \ref TMR0_MODULE
@@ -1122,8 +1122,8 @@ uint32_t CLK_GetModuleClockSource(uint32_t u32ModuleIdx)
   *             - \ref VDEC_MODULE
   *             - \ref DCU_MODULE
   *             - \ref DCUP_MODULE
-  *             - \ref GMAC0_MODULE
-  *             - \ref GMAC1_MODULE
+  *             - \ref EMAC0_MODULE
+  *             - \ref EMAC1_MODULE
   *             - \ref CCAP0_MODULE
   *             - \ref CCAP1_MODULE
   *             - \ref TMR0_MODULE

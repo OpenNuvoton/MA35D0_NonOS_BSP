@@ -128,10 +128,10 @@ typedef enum IRQn
       PDMA0_IRQn        =   50,         /*!< Peripheral DMA 0 Interrupt                 */
       PDMA1_IRQn        =   51,         /*!< Peripheral DMA 1 Interrupt                 */
       DISP_IRQn         =   52,         /*!< Display Controller (DCUltra) Interrupt     */
-      GMAC0_IRQn        =   55,         /*!< GMAC0 RX Interrupt                         */
-      GMAC1_IRQn        =   56,         /*!< GMAC1 RX Interrupt                         */
-      SSMCC_IRQn        =   57,         /*!< GMAC0 TX Interrupt                         */
-      SSPCC_IRQn        =   58,         /*!< GMAC1 TX Interrupt                         */
+      EMAC0_IRQn        =   55,         /*!< EMAC0 Interrupt                            */
+      EMAC1_IRQn        =   56,         /*!< EMAC1 Interrupt                            */
+      SSMCC_IRQn        =   57,         /*!< SSMCC Interrupt                            */
+      SSPCC_IRQn        =   58,         /*!< SSPCC Interrupt                            */
       GFX_IRQn          =   59,         /*!< GFX GC520L Interrupt (Graphic Engine)      */
       VDE_IRQn          =   60,         /*!< Video Decoder (VC8000) Interrupt           */
       SDH0_IRQn         =   62,         /*!< SDH 0 Interrupt                            */
