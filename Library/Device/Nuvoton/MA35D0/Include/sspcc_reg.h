@@ -134,11 +134,6 @@ typedef struct
      * |        |          |01 = Set to TZNS.
      * |        |          |10 = Reserved.
      * |        |          |11 = Set to SubM.
-     * |[7:6]   |EADC0     |EADC 0 Security Attribution Bits
-     * |        |          |00 = Reserved.
-     * |        |          |01 = Set to TZNS.
-     * |        |          |10 = Reserved.
-     * |        |          |11 = Set to SubM.
      * |[9:8]   |WDTWWDT1  |WDTWWDT1 Security Attribution Bits
      * |        |          |00 = Set to TZS.
      * |        |          |01 = Set to TZNS.
@@ -404,36 +399,6 @@ typedef struct
      * ---------------------------------------------------------------------------------------------------
      * |Bits    |Field     |Descriptions
      * | :----: | :----:   | :---- |
-     * |[1:0]   |QEI0      |QEI0 Security Attribution Bits
-     * |        |          |00 = Reserved.
-     * |        |          |01 = Set to TZNS.
-     * |        |          |10 = Reserved.
-     * |        |          |11 = Set to SubM.
-     * |[3:2]   |QEI1      |QEI1 Security Attribution Bits
-     * |        |          |00 = Reserved.
-     * |        |          |01 = Set to TZNS.
-     * |        |          |10 = Reserved.
-     * |        |          |11 = Set to SubM.
-     * |[5:4]   |QEI2      |QEI2 Security Attribution Bits
-     * |        |          |00 = Reserved.
-     * |        |          |01 = Set to TZNS.
-     * |        |          |10 = Reserved.
-     * |        |          |11 = Set to SubM.
-     * |[9:8]   |ECAP0     |ECAP0 Security Attribution Bits
-     * |        |          |00 = Reserved.
-     * |        |          |01 = Set to TZNS.
-     * |        |          |10 = Reserved.
-     * |        |          |11 = Set to SubM.
-     * |[11:10] |ECAP1     |ECAP1 Security Attribution Bits
-     * |        |          |00 = Reserved.
-     * |        |          |01 = Set to TZNS.
-     * |        |          |10 = Reserved.
-     * |        |          |11 = Set to SubM.
-     * |[13:12] |ECAP2     |ECAP2 Security Attribution Bits
-     * |        |          |00 = Reserved.
-     * |        |          |01 = Set to TZNS.
-     * |        |          |10 = Reserved.
-     * |        |          |11 = Set to SubM.
      * |[19:18] |TRNG      |TRNG Security Attribution Bits
      * |        |          |00 = Set to TZS.
      * |        |          |01 = Set to TZNS.
@@ -2233,9 +2198,6 @@ typedef struct
 #define SSPCC_PSSET4_ADC0_Pos            (4)                                               /*!< SSPCC_T::PSSET4: ADC0 Position         */
 #define SSPCC_PSSET4_ADC0_Msk            (0x3ul << SSPCC_PSSET4_ADC0_Pos)                  /*!< SSPCC_T::PSSET4: ADC0 Mask             */
 
-#define SSPCC_PSSET4_EADC0_Pos           (6)                                               /*!< SSPCC_T::PSSET4: EADC0 Position        */
-#define SSPCC_PSSET4_EADC0_Msk           (0x3ul << SSPCC_PSSET4_EADC0_Pos)                 /*!< SSPCC_T::PSSET4: EADC0 Mask            */
-
 #define SSPCC_PSSET4_WDTWWDT1_Pos        (8)                                               /*!< SSPCC_T::PSSET4: WDTWWDT1 Position     */
 #define SSPCC_PSSET4_WDTWWDT1_Msk        (0x3ul << SSPCC_PSSET4_WDTWWDT1_Pos)              /*!< SSPCC_T::PSSET4: WDTWWDT1 Mask         */
 
@@ -2373,24 +2335,6 @@ typedef struct
 
 #define SSPCC_PSSET9_SC1_Pos             (2)                                               /*!< SSPCC_T::PSSET9: SC1 Position          */
 #define SSPCC_PSSET9_SC1_Msk             (0x3ul << SSPCC_PSSET9_SC1_Pos)                   /*!< SSPCC_T::PSSET9: SC1 Mask              */
-
-#define SSPCC_PSSET11_QEI0_Pos           (0)                                               /*!< SSPCC_T::PSSET11: QEI0 Position        */
-#define SSPCC_PSSET11_QEI0_Msk           (0x3ul << SSPCC_PSSET11_QEI0_Pos)                 /*!< SSPCC_T::PSSET11: QEI0 Mask            */
-
-#define SSPCC_PSSET11_QEI1_Pos           (2)                                               /*!< SSPCC_T::PSSET11: QEI1 Position        */
-#define SSPCC_PSSET11_QEI1_Msk           (0x3ul << SSPCC_PSSET11_QEI1_Pos)                 /*!< SSPCC_T::PSSET11: QEI1 Mask            */
-
-#define SSPCC_PSSET11_QEI2_Pos           (4)                                               /*!< SSPCC_T::PSSET11: QEI2 Position        */
-#define SSPCC_PSSET11_QEI2_Msk           (0x3ul << SSPCC_PSSET11_QEI2_Pos)                 /*!< SSPCC_T::PSSET11: QEI2 Mask            */
-
-#define SSPCC_PSSET11_ECAP0_Pos          (8)                                               /*!< SSPCC_T::PSSET11: ECAP0 Position       */
-#define SSPCC_PSSET11_ECAP0_Msk          (0x3ul << SSPCC_PSSET11_ECAP0_Pos)                /*!< SSPCC_T::PSSET11: ECAP0 Mask           */
-
-#define SSPCC_PSSET11_ECAP1_Pos          (10)                                              /*!< SSPCC_T::PSSET11: ECAP1 Position       */
-#define SSPCC_PSSET11_ECAP1_Msk          (0x3ul << SSPCC_PSSET11_ECAP1_Pos)                /*!< SSPCC_T::PSSET11: ECAP1 Mask           */
-
-#define SSPCC_PSSET11_ECAP2_Pos          (12)                                              /*!< SSPCC_T::PSSET11: ECAP2 Position       */
-#define SSPCC_PSSET11_ECAP2_Msk          (0x3ul << SSPCC_PSSET11_ECAP2_Pos)                /*!< SSPCC_T::PSSET11: ECAP2 Mask           */
 
 #define SSPCC_PSSET11_TRNG_Pos           (18)                                              /*!< SSPCC_T::PSSET11: TRNG Position        */
 #define SSPCC_PSSET11_TRNG_Msk           (0x3ul << SSPCC_PSSET11_TRNG_Pos)                 /*!< SSPCC_T::PSSET11: TRNG Mask            */

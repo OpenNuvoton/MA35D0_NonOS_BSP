@@ -491,12 +491,6 @@ typedef enum
 #define SPI1_MODULE      ((4UL<<29)|(4UL<<26)         |(3UL<<22)         |(2UL<<17)         |(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(5UL<<0))  /*!< SPI1 Module \hideinitializer */
 #define SPI2_MODULE      ((4UL<<29)|(4UL<<26)         |(3UL<<22)         |(4UL<<17)         |(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(6UL<<0))  /*!< SPI2 Module \hideinitializer */
 #define SPI3_MODULE      ((4UL<<29)|(4UL<<26)         |(3UL<<22)         |(6UL<<17)         |(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(7UL<<0))  /*!< SPI3 Module \hideinitializer */
-#define ECAP0_MODULE     ((4UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(8UL<<0))  /*!< ECAP0 Module \hideinitializer */
-#define ECAP1_MODULE     ((4UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(9UL<<0))  /*!< ECAP1 Module \hideinitializer */
-#define ECAP2_MODULE     ((4UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(10UL<<0)) /*!< ECAP2 Module \hideinitializer */
-#define QEI0_MODULE      ((4UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(12UL<<0)) /*!< QEI0 Module \hideinitializer */
-#define QEI1_MODULE      ((4UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(13UL<<0)) /*!< QEI1 Module \hideinitializer */
-#define QEI2_MODULE      ((4UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(14UL<<0)) /*!< QEI2 Module \hideinitializer */
 #define ADC_MODULE       ((4UL<<29)|(MODULE_NoMsk<<26)|(MODULE_NoMsk<<22)|(MODULE_NoMsk<<17)|(MODULE_NoMsk<<14)|(MODULE_NoMsk<<10)|(MODULE_NoMsk<<5)|(24UL<<0)) /*!< ADCModule \hideinitializer */
 
 /*! @}*/ /* end of group CLK_EXPORTED_CONSTANTS */

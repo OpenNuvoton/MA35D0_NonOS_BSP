@@ -175,7 +175,6 @@ extern "C"
 #define PDMA_EPWM2_CH3_TX       137UL /*!<DMA Connect to EPWM2_CH3_TX \hideinitializer */
 #define PDMA_EPWM2_CH4_TX       138UL /*!<DMA Connect to EPWM2_CH4_TX \hideinitializer */
 #define PDMA_EPWM2_CH5_TX       139UL /*!<DMA Connect to EPWM2_CH5_TX \hideinitializer */
-#define PDMA_EADC0_RX           146UL /*!<DMA Connect to EADC0_RX \hideinitializer */
 /*---------------------------------------------------------------------------------------------------------*/
 /*  Interrupt Type Constant Definitions                                                                    */
 /*---------------------------------------------------------------------------------------------------------*/

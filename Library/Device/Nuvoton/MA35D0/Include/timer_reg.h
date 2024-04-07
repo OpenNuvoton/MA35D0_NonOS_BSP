@@ -240,12 +240,6 @@ typedef struct
  * |        |          |1 = Timer interrupt trigger EPWM and BPWM Enabled.
  * |        |          |Note: If TRGSSEL (TIMERx_TRGCTL[0]) = 0, time-out interrupt signal as EPWM and BPWM counter clock source.
  * |        |          |If TRGSSEL (TIMERx_TRGCTL[0]) = 1, capture interrupt signal as EPWM and BPWM counter clock source.
- * |[2]     |TRGEADC   |Trigger EADC Enable Bit
- * |        |          |If this bit is set to 1, each timer time-out event or capture event can be triggered EADC conversion.
- * |        |          |0 = Timer interrupt trigger EADC Disabled.
- * |        |          |1 = Timer interrupt trigger EADC Enabled.
- * |        |          |Note: If TRGSSEL (TIMERx_TRGCTL[0]) = 0, time-out interrupt signal will trigger EADC conversion.
- * |        |          |If TRGSSEL (TIMERx_TRGCTL[0]) = 1, capture interrupt signal will trigger EADC conversion.
  * |[4]     |TRGPDMA   |Trigger PDMA Enable Bit
  * |        |          |If this bit is set to 1, each timer time-out event or capture event can be triggered PDMA transfer.
  * |        |          |0 = Timer interrupt trigger PDMA Disabled.
@@ -635,21 +629,6 @@ typedef struct
  * |        |          |0 = PWMx_CH1 level-detect brake state is released.
  * |        |          |1 = PWMx_CH1 at level-detect brake state.
  * |        |          |Note: If TIMERx_PWM level-detect brake source has released, both PWMx_CH0 and PWMx_CH1 will release brake state when current PWM period finished and resume PWMx_CH0 and PWMx_CH1 output waveform start from next full PWM period.
- * @var TIMER_T::PWMEADCTS
- * Offset: 0x90  Timer PWM EADC Trigger Source Select Register
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[2:0]   |TRGSEL    |PWM Counter Event Source Select to Trigger EADC Conversion
- * |        |          |000 = Trigger EADC conversion at zero point (ZIF).
- * |        |          |001 = Trigger EADC conversion at period point (PIF).
- * |        |          |010 = Trigger EADC conversion at zero or period point (ZIF or PIF).
- * |        |          |011 = Trigger EADC conversion at compare up count point (CMPUIF).
- * |        |          |100 = Trigger EADC conversion at compare down count point (CMPDIF).
- * |        |          |Others = Reserved.
- * |[7]     |TRGEN     |PWM Counter Event Trigger EADC Conversion Enable Bit
- * |        |          |0 = PWM counter event trigger EADC conversion Disabled.
- * |        |          |1 = PWM counter event trigger EADC conversion Enabled.
  * @var TIMER_T::PWMSCTL
  * Offset: 0x94  Timer PWM Synchronous Control Register
  * ---------------------------------------------------------------------------------------------------
@@ -685,10 +664,6 @@ typedef struct
  * |[0]     |CNTMAXF   |PWM Counter Equal to 0xFFFF Flag
  * |        |          |0 = The PWM counter value never reached its maximum value 0xFFFF.
  * |        |          |1 = The PWM counter value has reached its maximum value.
- * |        |          |Note: This bit is cleared by writing 1 to it.
- * |[16]    |EADCTRGF  |Trigger EADC Start Conversion Flag
- * |        |          |0 = PWM counter event trigger EADC start conversion is not occurred.
- * |        |          |1 = PWM counter event trigger EADC start conversion has occurred.
  * |        |          |Note: This bit is cleared by writing 1 to it.
  * @var TIMER_T::PWMPBUF
  * Offset: 0xA0  Timer PWM Period Buffer Register
@@ -735,7 +710,7 @@ typedef struct
     __IO uint32_t PWMINTEN1;             /*!< [0x0084] Timer PWM Interrupt Enable Register 1                           */
     __IO uint32_t PWMINTSTS0;            /*!< [0x0088] Timer PWM Interrupt Status Register 0                           */
     __IO uint32_t PWMINTSTS1;            /*!< [0x008c] Timer PWM Interrupt Status Register 1                           */
-    __IO uint32_t PWMEADCTS;             /*!< [0x0090] Timer PWM EADC Trigger Source Select Register                   */
+    __I  uint32_t RESERVE1[1];
     __IO uint32_t PWMSCTL;               /*!< [0x0094] Timer PWM Synchronous Control Register                          */
     __O  uint32_t PWMSTRG;               /*!< [0x0098] Timer PWM Synchronous Trigger Register                          */
     __IO uint32_t PWMSTATUS;             /*!< [0x009c] Timer PWM Status Register                                       */
@@ -841,9 +816,6 @@ typedef struct
 
 #define TIMER_TRGCTL_TRGPWM_Pos          (1)                                               /*!< TIMER_T::TRGCTL: TRGPWM Position       */
 #define TIMER_TRGCTL_TRGPWM_Msk          (0x1ul << TIMER_TRGCTL_TRGPWM_Pos)                /*!< TIMER_T::TRGCTL: TRGPWM Mask           */
-
-#define TIMER_TRGCTL_TRGEADC_Pos         (2)                                               /*!< TIMER_T::TRGCTL: TRGEADC Position      */
-#define TIMER_TRGCTL_TRGEADC_Msk         (0x1ul << TIMER_TRGCTL_TRGEADC_Pos)               /*!< TIMER_T::TRGCTL: TRGEADC Mask          */
 
 #define TIMER_TRGCTL_TRGPDMA_Pos         (4)                                               /*!< TIMER_T::TRGCTL: TRGPDMA Position      */
 #define TIMER_TRGCTL_TRGPDMA_Msk         (0x1ul << TIMER_TRGCTL_TRGPDMA_Pos)               /*!< TIMER_T::TRGCTL: TRGPDMA Mask          */
@@ -1031,12 +1003,6 @@ typedef struct
 #define TIMER_PWMINTSTS1_BRKLSTS1_Pos    (25)                                              /*!< TIMER_T::PWMINTSTS1: BRKLSTS1 Position */
 #define TIMER_PWMINTSTS1_BRKLSTS1_Msk    (0x1ul << TIMER_PWMINTSTS1_BRKLSTS1_Pos)          /*!< TIMER_T::PWMINTSTS1: BRKLSTS1 Mask     */
 
-#define TIMER_PWMEADCTS_TRGSEL_Pos       (0)                                               /*!< TIMER_T::PWMEADCTS: TRGSEL Position    */
-#define TIMER_PWMEADCTS_TRGSEL_Msk       (0x7ul << TIMER_PWMEADCTS_TRGSEL_Pos)             /*!< TIMER_T::PWMEADCTS: TRGSEL Mask        */
-
-#define TIMER_PWMEADCTS_TRGEN_Pos        (7)                                               /*!< TIMER_T::PWMEADCTS: TRGEN Position     */
-#define TIMER_PWMEADCTS_TRGEN_Msk        (0x1ul << TIMER_PWMEADCTS_TRGEN_Pos)              /*!< TIMER_T::PWMEADCTS: TRGEN Mask         */
-
 #define TIMER_PWMSCTL_SYNCMODE_Pos       (0)                                               /*!< TIMER_T::PWMSCTL: SYNCMODE Position    */
 #define TIMER_PWMSCTL_SYNCMODE_Msk       (0x3ul << TIMER_PWMSCTL_SYNCMODE_Pos)             /*!< TIMER_T::PWMSCTL: SYNCMODE Mask        */
 
@@ -1048,9 +1014,6 @@ typedef struct
 
 #define TIMER_PWMSTATUS_CNTMAXF_Pos      (0)                                               /*!< TIMER_T::PWMSTATUS: CNTMAXF Position   */
 #define TIMER_PWMSTATUS_CNTMAXF_Msk      (0x1ul << TIMER_PWMSTATUS_CNTMAXF_Pos)            /*!< TIMER_T::PWMSTATUS: CNTMAXF Mask       */
-
-#define TIMER_PWMSTATUS_EADCTRGF_Pos     (16)                                              /*!< TIMER_T::PWMSTATUS: EADCTRGF Position  */
-#define TIMER_PWMSTATUS_EADCTRGF_Msk     (0x1ul << TIMER_PWMSTATUS_EADCTRGF_Pos)           /*!< TIMER_T::PWMSTATUS: EADCTRGF Mask      */
 
 #define TIMER_PWMPBUF_PBUF_Pos           (0)                                               /*!< TIMER_T::PWMPBUF: PBUF Position        */
 #define TIMER_PWMPBUF_PBUF_Msk           (0xfffful << TIMER_PWMPBUF_PBUF_Pos)              /*!< TIMER_T::PWMPBUF: PBUF Mask            */

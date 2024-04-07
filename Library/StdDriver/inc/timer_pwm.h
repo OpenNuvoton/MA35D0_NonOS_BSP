@@ -54,15 +54,6 @@ extern "C"
 #define TPWM_OUTPUT_HIGH                        (3UL)      /*!< Timer PWM output high \hideinitializer */
 
 /*---------------------------------------------------------------------------------------------------------*/
-/*  Trigger ADC Source Select Constant Definitions                                                        */
-/*---------------------------------------------------------------------------------------------------------*/
-#define TPWM_TRIGGER_ADC_AT_ZERO_POINT                      (0UL << TIMER_PWMEADCTS_TRGSEL_Pos)     /*!< Timer PWM trigger ADC while counter zero point event occurred \hideinitializer */
-#define TPWM_TRIGGER_ADC_AT_PERIOD_POINT                    (1UL << TIMER_PWMEADCTS_TRGSEL_Pos)     /*!< Timer PWM trigger ADC while counter period point event occurred \hideinitializer */
-#define TPWM_TRIGGER_ADC_AT_ZERO_OR_PERIOD_POINT            (2UL << TIMER_PWMEADCTS_TRGSEL_Pos)     /*!< Timer PWM trigger ADC while counter zero or period point event occurred \hideinitializer */
-#define TPWM_TRIGGER_ADC_AT_COMPARE_UP_COUNT_POINT          (3UL << TIMER_PWMEADCTS_TRGSEL_Pos)     /*!< Timer PWM trigger ADC while counter up count compare point event occurred \hideinitializer */
-#define TPWM_TRIGGER_ADC_AT_COMPARE_DOWN_COUNT_POINT        (4UL << TIMER_PWMEADCTS_TRGSEL_Pos)     /*!< Timer PWM trigger ADC while counter down count compare point event occurred \hideinitializer */
-
-/*---------------------------------------------------------------------------------------------------------*/
 /*  Brake Control Constant Definitions                                                                     */
 /*---------------------------------------------------------------------------------------------------------*/
 #define TPWM_BRAKE_SOURCE_EDGE_ACMP0            (TIMER_PWMBRKCTL_CPO0EBEN_Msk) /*!< Comparator 0 as edge-detect fault brake source \hideinitializer */
@@ -587,29 +578,6 @@ extern "C"
   * \hideinitializer
   */
 #define TPWM_CLEAR_REACH_MAX_CNT_STATUS(timer)  ((timer)->PWMSTATUS = TIMER_PWMSTATUS_CNTMAXF_Msk)
-
-/**
-  * @brief      Get Trigger ADC Status
-  *
-  * @param[in]  timer   The pointer of the specified Timer module. It could be TIMER0~11.
-  *
-  * @retval     0       Trigger ADC start conversion is not occur
-  * @retval     1       Specified counter compare event has trigger ADC start conversion
-  *
-  * @details    This macro is used to indicate PWM counter compare event has triggered ADC start conversion.
-  * \hideinitializer
-  */
-#define TPWM_GET_TRG_ADC_STATUS(timer)          (((timer)->PWMSTATUS & TIMER_PWMSTATUS_EADCTRGF_Msk)? 1 : 0)
-
-/**
-  * @brief      Clear Trigger ADC Status
-  *
-  * @param[in]  timer   The pointer of the specified Timer module. It could be TIMER0~11.
-  *
-  * @details    This macro is used to clear PWM counter compare event trigger ADC status.
-  * \hideinitializer
-  */
-#define TPWM_CLEAR_TRG_ADC_STATUS(timer)        ((timer)->PWMSTATUS = TIMER_PWMSTATUS_EADCTRGF_Msk)
 
 /**
   * @brief      Set Brake Event at Brake Pin High or Low-to-High

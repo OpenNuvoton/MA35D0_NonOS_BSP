@@ -572,7 +572,7 @@ typedef struct
  * |Bits    |Field     |Descriptions
  * | :----: | :----:   | :---- |
  * |[15:0]  |CMP       |EPWM Comparator Register
- * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform, interrupt and trigger EADC.
+ * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform and interrupt.
  * |        |          |In independent mode, CMPDAT0~5 is denoted as 6 independent EPWM_CH0~5 compared point.
  * |        |          |In complementary mode, CMPDAT0, 2, 4 is denoted as the first compared point, and CMPDAT1, 3, 5 is denoted as the second compared point for the corresponding 3 complementary pairs EPWM_CH0 and EPWM_CH1, EPWM_CH2 and EPWM_CH3, EPWM_CH4 and EPWM_CH5.
  * @var EPWM_T::CMPDAT1
@@ -581,7 +581,7 @@ typedef struct
  * |Bits    |Field     |Descriptions
  * | :----: | :----:   | :---- |
  * |[15:0]  |CMP       |EPWM Comparator Register
- * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform, interrupt and trigger EADC.
+ * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform and interrupt.
  * |        |          |In independent mode, CMPDAT0~5 is denoted as 6 independent EPWM_CH0~5 compared point.
  * |        |          |In complementary mode, CMPDAT0, 2, 4 is denoted as the first compared point, and CMPDAT1, 3, 5 is denoted as the second compared point for the corresponding 3 complementary pairs EPWM_CH0 and EPWM_CH1, EPWM_CH2 and EPWM_CH3, EPWM_CH4 and EPWM_CH5.
  * @var EPWM_T::CMPDAT2
@@ -590,7 +590,7 @@ typedef struct
  * |Bits    |Field     |Descriptions
  * | :----: | :----:   | :---- |
  * |[15:0]  |CMP       |EPWM Comparator Register
- * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform, interrupt and trigger EADC.
+ * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform and interrupt.
  * |        |          |In independent mode, CMPDAT0~5 is denoted as 6 independent EPWM_CH0~5 compared point.
  * |        |          |In complementary mode, CMPDAT0, 2, 4 is denoted as the first compared point, and CMPDAT1, 3, 5 is denoted as the second compared point for the corresponding 3 complementary pairs EPWM_CH0 and EPWM_CH1, EPWM_CH2 and EPWM_CH3, EPWM_CH4 and EPWM_CH5.
  * @var EPWM_T::CMPDAT3
@@ -599,7 +599,7 @@ typedef struct
  * |Bits    |Field     |Descriptions
  * | :----: | :----:   | :---- |
  * |[15:0]  |CMP       |EPWM Comparator Register
- * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform, interrupt and trigger EADC.
+ * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform and interrupt.
  * |        |          |In independent mode, CMPDAT0~5 is denoted as 6 independent EPWM_CH0~5 compared point.
  * |        |          |In complementary mode, CMPDAT0, 2, 4 is denoted as the first compared point, and CMPDAT1, 3, 5 is denoted as the second compared point for the corresponding 3 complementary pairs EPWM_CH0 and EPWM_CH1, EPWM_CH2 and EPWM_CH3, EPWM_CH4 and EPWM_CH5.
  * @var EPWM_T::CMPDAT4
@@ -608,7 +608,7 @@ typedef struct
  * |Bits    |Field     |Descriptions
  * | :----: | :----:   | :---- |
  * |[15:0]  |CMP       |EPWM Comparator Register
- * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform, interrupt and trigger EADC.
+ * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform and interrupt.
  * |        |          |In independent mode, CMPDAT0~5 is denoted as 6 independent EPWM_CH0~5 compared point.
  * |        |          |In complementary mode, CMPDAT0, 2, 4 is denoted as the first compared point, and CMPDAT1, 3, 5 is denoted as the second compared point for the corresponding 3 complementary pairs EPWM_CH0 and EPWM_CH1, EPWM_CH2 and EPWM_CH3, EPWM_CH4 and EPWM_CH5.
  * @var EPWM_T::CMPDAT5
@@ -617,7 +617,7 @@ typedef struct
  * |Bits    |Field     |Descriptions
  * | :----: | :----:   | :---- |
  * |[15:0]  |CMP       |EPWM Comparator Register
- * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform, interrupt and trigger EADC.
+ * |        |          |CMP is used to compare with CNT (EPWM_CNTn[15:0]) bits to generate EPWM waveform and interrupt.
  * |        |          |In independent mode, CMPDAT0~5 is denoted as 6 independent EPWM_CH0~5 compared point.
  * |        |          |In complementary mode, CMPDAT0, 2, 4 is denoted as the first compared point, and CMPDAT1, 3, 5 is denoted as the second compared point for the corresponding 3 complementary pairs EPWM_CH0 and EPWM_CH1, EPWM_CH2 and EPWM_CH3, EPWM_CH4 and EPWM_CH5.
  * @var EPWM_T::DTCTL0_1
@@ -1134,16 +1134,6 @@ typedef struct
  * |        |          |11 = EPWM odd channel output high level when EPWMx brake event happened.
  * |        |          |Note: This bit is write protected
  * |        |          |Refer to the SYS_RLKTZS register or SYS_RLKTZNS register or SYS_RLKSUBM register
- * |[20]    |EADCEBEN  |Enable EADC Result Monitor As Edge-detect Brake Source (Write Protect)
- * |        |          |0 = EADCRM as edge-detect brake source Disabled.
- * |        |          |1 = EADCRM as edge-detect brake source Enabled.
- * |        |          |Note: This bit is write protected
- * |        |          |Refer to the SYS_RLKTZS register or SYS_RLKTZNS register or SYS_RLKSUBM register
- * |[28]    |EADCLBEN  |Enable EADC Result Monitor As Level-detect Brake Source (Write Protect)
- * |        |          |0 = EADCRM as level-detect brake source Disabled.
- * |        |          |1 = EADCRM as level-detect brake source Enabled.
- * |        |          |Note: This bit is write protected
- * |        |          |Refer to the SYS_RLKTZS register or SYS_RLKTZNS register or SYS_RLKSUBM register
  * @var EPWM_T::BRKCTL2_3
  * Offset: 0xCC  EPWM Brake Edge Detect Control Register 2/3
  * ---------------------------------------------------------------------------------------------------
@@ -1193,16 +1183,6 @@ typedef struct
  * |        |          |11 = EPWM odd channel output high level when EPWMx brake event happened.
  * |        |          |Note: This bit is write protected
  * |        |          |Refer to the SYS_RLKTZS register or SYS_RLKTZNS register or SYS_RLKSUBM register
- * |[20]    |EADCEBEN  |Enable EADC Result Monitor As Edge-detect Brake Source (Write Protect)
- * |        |          |0 = EADCRM as edge-detect brake source Disabled.
- * |        |          |1 = EADCRM as edge-detect brake source Enabled.
- * |        |          |Note: This bit is write protected
- * |        |          |Refer to the SYS_RLKTZS register or SYS_RLKTZNS register or SYS_RLKSUBM register
- * |[28]    |EADCLBEN  |Enable EADC Result Monitor As Level-detect Brake Source (Write Protect)
- * |        |          |0 = EADCRM as level-detect brake source Disabled.
- * |        |          |1 = EADCRM as level-detect brake source Enabled.
- * |        |          |Note: This bit is write protected
- * |        |          |Refer to the SYS_RLKTZS register or SYS_RLKTZNS register or SYS_RLKSUBM register
  * @var EPWM_T::BRKCTL4_5
  * Offset: 0xD0  EPWM Brake Edge Detect Control Register 4/5
  * ---------------------------------------------------------------------------------------------------
@@ -1250,16 +1230,6 @@ typedef struct
  * |        |          |01 = EPWM odd channel output tri-state when EPWMx brake event happened.
  * |        |          |10 = EPWM odd channel output low level when EPWMx brake event happened.
  * |        |          |11 = EPWM odd channel output high level when EPWMx brake event happened.
- * |        |          |Note: This bit is write protected
- * |        |          |Refer to the SYS_RLKTZS register or SYS_RLKTZNS register or SYS_RLKSUBM register
- * |[20]    |EADCEBEN  |Enable EADC Result Monitor As Edge-detect Brake Source (Write Protect)
- * |        |          |0 = EADCRM as edge-detect brake source Disabled.
- * |        |          |1 = EADCRM as edge-detect brake source Enabled.
- * |        |          |Note: This bit is write protected
- * |        |          |Refer to the SYS_RLKTZS register or SYS_RLKTZNS register or SYS_RLKSUBM register
- * |[28]    |EADCLBEN  |Enable EADC Result Monitor As Level-detect Brake Source (Write Protect)
- * |        |          |0 = EADCRM as level-detect brake source Disabled.
- * |        |          |1 = EADCRM as level-detect brake source Enabled.
  * |        |          |Note: This bit is write protected
  * |        |          |Refer to the SYS_RLKTZS register or SYS_RLKTZNS register or SYS_RLKSUBM register
  * @var EPWM_T::POLCTL
@@ -1699,160 +1669,6 @@ typedef struct
  * |        |          |Note: This bit is read only and auto cleared by hardware
  * |        |          |When enabled brake source return to high level, EPWM will release brake state until current EPWM period finished
  * |        |          |The EPWM waveform will start output from next full EPWM period.
- * @var EPWM_T::EADCTS0
- * Offset: 0xF8  EPWM Trigger EADC Source Select Register 0
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[3:0]   |TRGSEL0   |EPWM_CH0 Trigger EADC Source Select
- * |        |          |0000 = EPWM_CH0 zero point.
- * |        |          |0001 = EPWM_CH0 period point.
- * |        |          |0010 = EPWM_CH0 zero or period point.
- * |        |          |0011 = EPWM_CH0 up-count compared point.
- * |        |          |0100 = EPWM_CH0 down-count compared point.
- * |        |          |0101 = EPWM_CH1 zero point.
- * |        |          |0110 = EPWM_CH1 period point.
- * |        |          |0111 = EPWM_CH1 zero or period point.
- * |        |          |1000 = EPWM_CH1 up-count compared point.
- * |        |          |1001 = EPWM_CH1 down-count compared point.
- * |        |          |1010 = EPWM_CH0 up-count free trigger compared point.
- * |        |          |1011 = EPWM_CH0 down-count free trigger compared point.
- * |        |          |1100 = EPWM_CH2 up-count free trigger compared point.
- * |        |          |1101 = EPWM_CH2 down-count free trigger compared point.
- * |        |          |1110 = EPWM_CH4 up-count free trigger compared point.
- * |        |          |1111 = EPWM_CH4 down-count free trigger compared point.
- * |[7]     |TRGEN0    |EPWM_CH0 Trigger EADC Enable Bit
- * |        |          |0 = EPWM_CH0 Trigger EADC function Disabled.
- * |        |          |1 = EPWM_CH0 Trigger EADC function Enabled.
- * |[11:8]  |TRGSEL1   |EPWM_CH1 Trigger EADC Source Select
- * |        |          |0000 = EPWM_CH0 zero point.
- * |        |          |0001 = EPWM_CH0 period point.
- * |        |          |0010 = EPWM_CH0 zero or period point.
- * |        |          |0011 = EPWM_CH0 up-count compared point.
- * |        |          |0100 = EPWM_CH0 down-count compared point.
- * |        |          |0101 = EPWM_CH1 zero point.
- * |        |          |0110 = EPWM_CH1 period point.
- * |        |          |0111 = EPWM_CH1 zero or period point.
- * |        |          |1000 = EPWM_CH1 up-count compared point.
- * |        |          |1001 = EPWM_CH1 down-count compared point.
- * |        |          |1010 = EPWM_CH0 up-count free trigger compared point.
- * |        |          |1011 = EPWM_CH0 down-count free trigger compared point.
- * |        |          |1100 = EPWM_CH2 up-count free trigger compared point.
- * |        |          |1101 = EPWM_CH2 down-count free trigger compared point.
- * |        |          |1110 = EPWM_CH4 up-count free trigger compared point.
- * |        |          |1111 = EPWM_CH4 down-count free trigger compared point.
- * |[15]    |TRGEN1    |EPWM_CH1 Trigger EADC Enable Bit
- * |        |          |0 = EPWM_CH1 Trigger EADC function Disabled.
- * |        |          |1 = EPWM_CH1 Trigger EADC function Enabled.
- * |[19:16] |TRGSEL2   |EPWM_CH2 Trigger EADC Source Select
- * |        |          |0000 = EPWM_CH2 zero point.
- * |        |          |0001 = EPWM_CH2 period point.
- * |        |          |0010 = EPWM_CH2 zero or period point.
- * |        |          |0011 = EPWM_CH2 up-count compared point.
- * |        |          |0100 = EPWM_CH2 down-count compared point.
- * |        |          |0101 = EPWM_CH3 zero point.
- * |        |          |0110 = EPWM_CH3 period point.
- * |        |          |0111 = EPWM_CH3 zero or period point.
- * |        |          |1000 = EPWM_CH3 up-count compared point.
- * |        |          |1001 = EPWM_CH3 down-count compared point.
- * |        |          |1010 = EPWM_CH0 up-count free trigger compared point.
- * |        |          |1011 = EPWM_CH0 down-count free trigger compared point.
- * |        |          |1100 = EPWM_CH2 up-count free trigger compared point.
- * |        |          |1101 = EPWM_CH2 down-count free trigger compared point.
- * |        |          |1110 = EPWM_CH4 up-count free trigger compared point.
- * |        |          |1111 = EPWM_CH4 down-count free trigger compared point.
- * |[23]    |TRGEN2    |EPWM_CH2 Trigger EADC Enable Bit
- * |        |          |0 = EPWM_CH2 Trigger EADC function Disabled.
- * |        |          |1 = EPWM_CH2 Trigger EADC function Enabled.
- * |[27:24] |TRGSEL3   |EPWM_CH3 Trigger EADC Source Select
- * |        |          |0000 = EPWM_CH2 zero point.
- * |        |          |0001 = EPWM_CH2 period point.
- * |        |          |0010 = EPWM_CH2 zero or period point.
- * |        |          |0011 = EPWM_CH2 up-count compared point.
- * |        |          |0100 = EPWM_CH2 down-count compared point.
- * |        |          |0101 = EPWM_CH3 zero point.
- * |        |          |0110 = EPWM_CH3 period point.
- * |        |          |0111 = EPWM_CH3 zero or period point.
- * |        |          |1000 = EPWM_CH3 up-count compared point.
- * |        |          |1001 = EPWM_CH3 down-count compared point.
- * |        |          |1010 = EPWM_CH0 up-count free trigger compared point.
- * |        |          |1011 = EPWM_CH0 down-count free trigger compared point.
- * |        |          |1100 = EPWM_CH2 up-count free trigger compared point.
- * |        |          |1101 = EPWM_CH2 down-count free trigger compared point.
- * |        |          |1110 = EPWM_CH4 up-count free trigger compared point.
- * |        |          |1111 = EPWM_CH4 down-count free trigger compared point.
- * |[31]    |TRGEN3    |EPWM_CH3 Trigger EADC Enable Bit
- * |        |          |0 = EPWM_CH3 Trigger EADC function Disabled.
- * |        |          |1 = EPWM_CH3 Trigger EADC function Enabled.
- * @var EPWM_T::EADCTS1
- * Offset: 0xFC  EPWM Trigger EADC Source Select Register 1
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[3:0]   |TRGSEL4   |EPWM_CH4 Trigger EADC Source Select
- * |        |          |0000 = EPWM_CH4 zero point.
- * |        |          |0001 = EPWM_CH4 period point.
- * |        |          |0010 = EPWM_CH4 zero or period point.
- * |        |          |0011 = EPWM_CH4 up-count compared point.
- * |        |          |0100 = EPWM_CH4 down-count compared point.
- * |        |          |0101 = EPWM_CH5 zero point.
- * |        |          |0110 = EPWM_CH5 period point.
- * |        |          |0111 = EPWM_CH5 zero or period point.
- * |        |          |1000 = EPWM_CH5 up-count compared point.
- * |        |          |1001 = EPWM_CH5 down-count compared point.
- * |        |          |1010 = EPWM_CH0 up-count free trigger compared point.
- * |        |          |1011 = EPWM_CH0 down-count free trigger compared point.
- * |        |          |1100 = EPWM_CH2 up-count free trigger compared point.
- * |        |          |1101 = EPWM_CH2 down-count free trigger compared point.
- * |        |          |1110 = EPWM_CH4 up-count free trigger compared point.
- * |        |          |1111 = EPWM_CH4 down-count free trigger compared point.
- * |[7]     |TRGEN4    |EPWM_CH4 Trigger EADC Enable Bit
- * |        |          |0 = EPWM_CH4 Trigger EADC function Disabled.
- * |        |          |1 = EPWM_CH4 Trigger EADC function Enabled.
- * |[11:8]  |TRGSEL5   |EPWM_CH5 Trigger EADC Source Select
- * |        |          |0000 = EPWM_CH4 zero point.
- * |        |          |0001 = EPWM_CH4 period point.
- * |        |          |0010 = EPWM_CH4 zero or period point.
- * |        |          |0011 = EPWM_CH4 up-count compared point.
- * |        |          |0100 = EPWM_CH4 down-count compared point.
- * |        |          |0101 = EPWM_CH5 zero point.
- * |        |          |0110 = EPWM_CH5 period point.
- * |        |          |0111 = EPWM_CH5 zero or period point.
- * |        |          |1000 = EPWM_CH5 up-count compared point.
- * |        |          |1001 = EPWM_CH5 down-count compared point.
- * |        |          |1010 = EPWM_CH0 up-count free trigger compared point.
- * |        |          |1011 = EPWM_CH0 down-count free trigger compared point.
- * |        |          |1100 = EPWM_CH2 up-count free trigger compared point.
- * |        |          |1101 = EPWM_CH2 down-count free trigger compared point.
- * |        |          |1110 = EPWM_CH4 up-count free trigger compared point.
- * |        |          |1111 = EPWM_CH4 down-count free trigger compared point.
- * |[15]    |TRGEN5    |EPWM_CH5 Trigger EADC Enable Bit
- * |        |          |0 = EPWM_CH5 Trigger EADC function Disabled.
- * |        |          |1 = EPWM_CH5 Trigger EADC function Enabled.
- * @var EPWM_T::FTCMPDAT0_1
- * Offset: 0x100  EPWM Free Trigger Compare Register 0/1
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[15:0]  |FTCMP     |EPWM Free Trigger Compare Register
- * |        |          |FTCMP uses to compare with even CNT (EPWM_CNTm[15:0], m=0,2,4) to trigger EADC
- * |        |          |FTCMPDAT0, 2, 4 corresponding complementary pairs EPWM_CH0and EPWM_CH1, EPWM_CH2 and EPWM_CH3, EPWM_CH4 and EPWM_CH5.
- * @var EPWM_T::FTCMPDAT2_3
- * Offset: 0x104  EPWM Free Trigger Compare Register 2/3
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[15:0]  |FTCMP     |EPWM Free Trigger Compare Register
- * |        |          |FTCMP uses to compare with even CNT (EPWM_CNTm[15:0], m=0,2,4) to trigger EADC
- * |        |          |FTCMPDAT0, 2, 4 corresponding complementary pairs EPWM_CH0and EPWM_CH1, EPWM_CH2 and EPWM_CH3, EPWM_CH4 and EPWM_CH5.
- * @var EPWM_T::FTCMPDAT4_5
- * Offset: 0x108  EPWM Free Trigger Compare Register 4/5
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[15:0]  |FTCMP     |EPWM Free Trigger Compare Register
- * |        |          |FTCMP uses to compare with even CNT (EPWM_CNTm[15:0], m=0,2,4) to trigger EADC
- * |        |          |FTCMPDAT0, 2, 4 corresponding complementary pairs EPWM_CH0and EPWM_CH1, EPWM_CH2 and EPWM_CH3, EPWM_CH4 and EPWM_CH5.
  * @var EPWM_T::SSCTL
  * Offset: 0x110  EPWM Synchronous Start Control Register
  * ---------------------------------------------------------------------------------------------------
@@ -1965,30 +1781,6 @@ typedef struct
  * |[10]    |SYNCINF4  |Input Synchronization Latched Flag
  * |        |          |0 = No SYNC_IN event occurred.
  * |        |          |1 = A SYNC_IN event occurred.
- * |        |          |Note: This bit can be cleared by software writing 1.
- * |[16]    |EADCTRGF0 |EADC Start of Conversion Flag
- * |        |          |0 = No EADC start of conversion trigger event occurred.
- * |        |          |1 = An EADC start of conversion trigger event occurred.
- * |        |          |Note: This bit can be cleared by software writing 1.
- * |[17]    |EADCTRGF1 |EADC Start of Conversion Flag
- * |        |          |0 = No EADC start of conversion trigger event occurred.
- * |        |          |1 = An EADC start of conversion trigger event occurred.
- * |        |          |Note: This bit can be cleared by software writing 1.
- * |[18]    |EADCTRGF2 |EADC Start of Conversion Flag
- * |        |          |0 = No EADC start of conversion trigger event occurred.
- * |        |          |1 = An EADC start of conversion trigger event occurred.
- * |        |          |Note: This bit can be cleared by software writing 1.
- * |[19]    |EADCTRGF3 |EADC Start of Conversion Flag
- * |        |          |0 = No EADC start of conversion trigger event occurred.
- * |        |          |1 = An EADC start of conversion trigger event occurred.
- * |        |          |Note: This bit can be cleared by software writing 1.
- * |[20]    |EADCTRGF4 |EADC Start of Conversion Flag
- * |        |          |0 = No EADC start of conversion trigger event occurred.
- * |        |          |1 = An EADC start of conversion trigger event occurred.
- * |        |          |Note: This bit can be cleared by software writing 1.
- * |[21]    |EADCTRGF5 |EADC Start of Conversion Flag
- * |        |          |0 = No EADC start of conversion trigger event occurred.
- * |        |          |1 = An EADC start of conversion trigger event occurred.
  * |        |          |Note: This bit can be cleared by software writing 1.
  * @var EPWM_T::IFA0
  * Offset: 0x130  EPWM Interrupt Flag Accumulator Register 0
@@ -2494,85 +2286,6 @@ typedef struct
  * |[5:0]   |FDIFn     |EPWM Channel n Fault Detect Interrupt Flag Bit
  * |        |          |Fault Detect Interrupt Flag will be set when EPWM output short
  * |        |          |Software can clear this bit by writing 1 to it.
- * @var EPWM_T::EADCPSCCTL
- * Offset: 0x184  EPWM Trigger EADC Prescale Control Register
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[0]     |PSCEN0    |EPWM Trigger EADC Pre-scale Function Enable Bits
- * |        |          |0 = EPWM Trigger EADC Pre-scale Function Disabled.
- * |        |          |1 = EPWM Trigger EADC Pre-scale Function Enabled.
- * |[1]     |PSCEN1    |EPWM Trigger EADC Pre-scale Function Enable Bits
- * |        |          |0 = EPWM Trigger EADC Pre-scale Function Disabled.
- * |        |          |1 = EPWM Trigger EADC Pre-scale Function Enabled.
- * |[2]     |PSCEN2    |EPWM Trigger EADC Pre-scale Function Enable Bits
- * |        |          |0 = EPWM Trigger EADC Pre-scale Function Disabled.
- * |        |          |1 = EPWM Trigger EADC Pre-scale Function Enabled.
- * |[3]     |PSCEN3    |EPWM Trigger EADC Pre-scale Function Enable Bits
- * |        |          |0 = EPWM Trigger EADC Pre-scale Function Disabled.
- * |        |          |1 = EPWM Trigger EADC Pre-scale Function Enabled.
- * |[4]     |PSCEN4    |EPWM Trigger EADC Pre-scale Function Enable Bits
- * |        |          |0 = EPWM Trigger EADC Pre-scale Function Disabled.
- * |        |          |1 = EPWM Trigger EADC Pre-scale Function Enabled.
- * |[5]     |PSCEN5    |EPWM Trigger EADC Pre-scale Function Enable Bits
- * |        |          |0 = EPWM Trigger EADC Pre-scale Function Disabled.
- * |        |          |1 = EPWM Trigger EADC Pre-scale Function Enabled.
- * @var EPWM_T::EADCPSC0
- * Offset: 0x188  EPWM Trigger EADC Prescale Register 0
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[3:0]   |EADCPSC0  |EPWM Channel 0 Trigger EADC Prescale
- * |        |          |The register sets the count number which defines (EADCPSC0+1) times of EPWM_CH0 trigger EADC event occurs to trigger EADC and set trigger EADC flag bit EADCTRGF0.
- * |[11:8]  |EADCPSC1  |EPWM Channel 1 Trigger EADC Prescale
- * |        |          |The register sets the count number which defines (EADCPSC1+1) times of EPWM_CH1 trigger EADC event occurs to trigger EADC and set trigger EADC flag bit EADCTRGF1.
- * |[19:16] |EADCPSC2  |EPWM Channel 2 Trigger EADC Prescale
- * |        |          |The register sets the count number which defines (EADCPSC2+1) times of EPWM_CH2 trigger EADC event occurs to trigger EADC and set trigger EADC flag bit EADCTRGF3.
- * |[27:24] |EADCPSC3  |EPWM Channel 3 Trigger EADC Prescale
- * |        |          |The register sets the count number which defines (EADCPSC3+1) times of EPWM_CH3 trigger EADC event occurs to trigger EADC and set trigger EADC flag bit EADCTRGF3.
- * @var EPWM_T::EADCPSC1
- * Offset: 0x18C  EPWM Trigger EADC Prescale Register 1
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[3:0]   |EADCPSC4  |EPWM Channel 4 Trigger EADC Prescale
- * |        |          |The register sets the count number which defines (EADCPSC4+1) times of EPWM_CH3 trigger EADC event occurs to trigger EADC and set trigger EADC flag bit EADCTRGF4.
- * |[11:8]  |EADCPSC5  |EPWM Channel 5 Trigger EADC Prescale
- * |        |          |The register sets the count number which defines (EADCPSC5+1) times of EPWM_CH3 trigger EADC event occurs to trigger EADC and set trigger EADC flag bit EADCTRGF5.
- * @var EPWM_T::EADCPSCNT0
- * Offset: 0x190  EPWM Trigger EADC Prescale Counter Register 0
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[3:0]   |PSCNT0    |EPWM Trigger EADC Prescale Counter 0
- * |        |          |User can monitor PSCNT0 to know the current value in 4-bit trigger EADC prescale counter.
- * |        |          |Note 1: user can write only when PSCEN0 is 0.
- * |        |          |Note 2: Write data limitation: PSCNT0 < EADCPSC0.
- * |[11:8]  |PSCNT1    |EPWM Trigger EADC Prescale Counter 1
- * |        |          |User can monitor PSCNT1 to know the current value in 4-bit trigger EADC prescale counter.
- * |        |          |Note 1: user can write only when PSCEN1 is 0.
- * |        |          |Note 2: Write data limitation: PSCNT1 < EADCPSC1.
- * |[19:16] |PSCNT2    |EPWM Trigger EADC Prescale Counter 2
- * |        |          |User can monitor PSCNT2 to know the current value in 4-bit trigger EADC prescale counter.
- * |        |          |Note 1: user can write only when PSCEN2 is 0.
- * |        |          |Note 2: Write data limitation: PSCNT2 < EADCPSC2.
- * |[27:24] |PSCNT3    |EPWM Trigger EADC Prescale Counter 3
- * |        |          |User can monitor PSCNT3 to know the current value in 4-bit trigger EADC prescale counter.
- * |        |          |Note 1: user can write only when PSCEN3 is 0.
- * |        |          |Note 2: Write data limitation: PSCNT3 < EADCPSC3.
- * @var EPWM_T::EADCPSCNT1
- * Offset: 0x194  EPWM Trigger EADC Prescale Counter Register 1
- * ---------------------------------------------------------------------------------------------------
- * |Bits    |Field     |Descriptions
- * | :----: | :----:   | :---- |
- * |[3:0]   |PSCNT4    |EPWM Trigger EADC Prescale Counter 4
- * |        |          |User can monitor PSCNT4 to know the current value in 4-bit trigger EADC prescale counter.
- * |        |          |Note 1: user can write only when PSCEN4 is 0.
- * |        |          |Note 2: Write data limitation: PSCNT4 < EADCPSC4.
- * |[11:8]  |PSCNT5    |EPWM Trigger EADC Prescale Counter 5
- * |        |          |User can monitor PSCNT5 to know the current value in 4-bit trigger EADC prescale counter.
- * |        |          |Note 1: user can write only when PSCEN5 is 0.
- * |        |          |Note 2: Write data limitation: PSCNT5 < EADCPSC5.
  * @var EPWM_T::CAPINEN
  * Offset: 0x200  EPWM Capture Input Enable Register
  * ---------------------------------------------------------------------------------------------------
@@ -3187,11 +2900,8 @@ typedef struct
     __I  uint32_t RESERVE6[1];
     /// @endcond //HIDDEN_SYMBOLS
     __IO uint32_t DACTRGEN;              /*!< [0x00f4] EPWM Trigger DAC Enable Register                                  */
-    __IO uint32_t EADCTS0;               /*!< [0x00f8] EPWM Trigger EADC Source Select Register 0                        */
-    __IO uint32_t EADCTS1;               /*!< [0x00fc] EPWM Trigger EADC Source Select Register 1                        */
-    __IO uint32_t FTCMPDAT[3];           /*!< [0x0100] EPWM Free Trigger Compare Register 0/1,2/3,4/5                    */
     /// @cond HIDDEN_SYMBOLS
-    __I  uint32_t RESERVE7[1];
+    __I  uint32_t RESERVE7[6];
     /// @endcond //HIDDEN_SYMBOLS
     __IO uint32_t SSCTL;                 /*!< [0x0110] EPWM Synchronous Start Control Register                           */
     __O  uint32_t SSTRG;                 /*!< [0x0114] EPWM Synchronous Start Trigger Register                           */
@@ -3215,13 +2925,8 @@ typedef struct
     __IO uint32_t FDCTL[6];              /*!< [0x0164~0x178] EPWM Fault Detect Control Register 0~5                      */
     __IO uint32_t FDIEN;                 /*!< [0x017C] EPWM Fault Detect Interrupt Enable Register                       */
     __IO uint32_t FDSTS;                 /*!< [0x0180] EPWM Fault Detect Interrupt Flag Register                         */
-    __IO uint32_t EADCPSCCTL;            /*!< [0x0184] EPWM Trigger EADC Prescale Control Register                       */
-    __IO uint32_t EADCPSC0;              /*!< [0x0188] EPWM Trigger EADC Prescale Register 0                             */
-    __IO uint32_t EADCPSC1;              /*!< [0x018C] EPWM Trigger EADC Prescale Register 1                             */
-    __IO uint32_t EADCPSCNT0;            /*!< [0x0190] EPWM Trigger EADC Prescale Counter Register 0                     */
-    __IO uint32_t EADCPSCNT1;            /*!< [0x0194] EPWM Trigger EADC Prescale Counter Register 1                     */
     /// @cond HIDDEN_SYMBOLS
-    __I  uint32_t RESERVE11[26];
+    __I  uint32_t RESERVE11[31];
     /// @endcond //HIDDEN_SYMBOLS
     __IO uint32_t CAPINEN;               /*!< [0x0200] EPWM Capture Input Enable Register                                */
     __IO uint32_t CAPCTL;                /*!< [0x0204] EPWM Capture Control Register                                     */
@@ -3763,12 +3468,6 @@ typedef struct
 #define EPWM_BRKCTL0_1_BRKAODD_Pos       (18)                                              /*!< EPWM_T::BRKCTL0_1: BRKAODD Position    */
 #define EPWM_BRKCTL0_1_BRKAODD_Msk       (0x3ul << EPWM_BRKCTL0_1_BRKAODD_Pos)             /*!< EPWM_T::BRKCTL0_1: BRKAODD Mask        */
 
-#define EPWM_BRKCTL0_1_EADCEBEN_Pos      (20)                                              /*!< EPWM_T::BRKCTL0_1: EADCEBEN Position   */
-#define EPWM_BRKCTL0_1_EADCEBEN_Msk      (0x1ul << EPWM_BRKCTL0_1_EADCEBEN_Pos)            /*!< EPWM_T::BRKCTL0_1: EADCEBEN Mask       */
-
-#define EPWM_BRKCTL0_1_EADCLBEN_Pos      (28)                                              /*!< EPWM_T::BRKCTL0_1: EADCLBEN Position   */
-#define EPWM_BRKCTL0_1_EADCLBEN_Msk      (0x1ul << EPWM_BRKCTL0_1_EADCLBEN_Pos)            /*!< EPWM_T::BRKCTL0_1: EADCLBEN Mask       */
-
 #define EPWM_BRKCTL2_3_BRKP0EEN_Pos      (4)                                               /*!< EPWM_T::BRKCTL2_3: BRKP0EEN Position   */
 #define EPWM_BRKCTL2_3_BRKP0EEN_Msk      (0x1ul << EPWM_BRKCTL2_3_BRKP0EEN_Pos)            /*!< EPWM_T::BRKCTL2_3: BRKP0EEN Mask       */
 
@@ -3793,12 +3492,6 @@ typedef struct
 #define EPWM_BRKCTL2_3_BRKAODD_Pos       (18)                                              /*!< EPWM_T::BRKCTL2_3: BRKAODD Position    */
 #define EPWM_BRKCTL2_3_BRKAODD_Msk       (0x3ul << EPWM_BRKCTL2_3_BRKAODD_Pos)             /*!< EPWM_T::BRKCTL2_3: BRKAODD Mask        */
 
-#define EPWM_BRKCTL2_3_EADCEBEN_Pos      (20)                                              /*!< EPWM_T::BRKCTL2_3: EADCEBEN Position   */
-#define EPWM_BRKCTL2_3_EADCEBEN_Msk      (0x1ul << EPWM_BRKCTL2_3_EADCEBEN_Pos)            /*!< EPWM_T::BRKCTL2_3: EADCEBEN Mask       */
-
-#define EPWM_BRKCTL2_3_EADCLBEN_Pos      (28)                                              /*!< EPWM_T::BRKCTL2_3: EADCLBEN Position   */
-#define EPWM_BRKCTL2_3_EADCLBEN_Msk      (0x1ul << EPWM_BRKCTL2_3_EADCLBEN_Pos)            /*!< EPWM_T::BRKCTL2_3: EADCLBEN Mask       */
-
 #define EPWM_BRKCTL4_5_BRKP0EEN_Pos      (4)                                               /*!< EPWM_T::BRKCTL4_5: BRKP0EEN Position   */
 #define EPWM_BRKCTL4_5_BRKP0EEN_Msk      (0x1ul << EPWM_BRKCTL4_5_BRKP0EEN_Pos)            /*!< EPWM_T::BRKCTL4_5: BRKP0EEN Mask       */
 
@@ -3822,12 +3515,6 @@ typedef struct
 
 #define EPWM_BRKCTL4_5_BRKAODD_Pos       (18)                                              /*!< EPWM_T::BRKCTL4_5: BRKAODD Position    */
 #define EPWM_BRKCTL4_5_BRKAODD_Msk       (0x3ul << EPWM_BRKCTL4_5_BRKAODD_Pos)             /*!< EPWM_T::BRKCTL4_5: BRKAODD Mask        */
-
-#define EPWM_BRKCTL4_5_EADCEBEN_Pos      (20)                                              /*!< EPWM_T::BRKCTL4_5: EADCEBEN Position   */
-#define EPWM_BRKCTL4_5_EADCEBEN_Msk      (0x1ul << EPWM_BRKCTL4_5_EADCEBEN_Pos)            /*!< EPWM_T::BRKCTL4_5: EADCEBEN Mask       */
-
-#define EPWM_BRKCTL4_5_EADCLBEN_Pos      (28)                                              /*!< EPWM_T::BRKCTL4_5: EADCLBEN Position   */
-#define EPWM_BRKCTL4_5_EADCLBEN_Msk      (0x1ul << EPWM_BRKCTL4_5_EADCLBEN_Pos)            /*!< EPWM_T::BRKCTL4_5: EADCLBEN Mask       */
 
 #define EPWM_POLCTL_PINV0_Pos            (0)                                               /*!< EPWM_T::POLCTL: PINV0 Position         */
 #define EPWM_POLCTL_PINV0_Msk            (0x1ul << EPWM_POLCTL_PINV0_Pos)                  /*!< EPWM_T::POLCTL: PINV0 Mask             */
@@ -4117,51 +3804,6 @@ typedef struct
 #define EPWM_INTSTS1_BRKLSTS5_Pos        (29)                                              /*!< EPWM_T::INTSTS1: BRKLSTS5 Position     */
 #define EPWM_INTSTS1_BRKLSTS5_Msk        (0x1ul << EPWM_INTSTS1_BRKLSTS5_Pos)              /*!< EPWM_T::INTSTS1: BRKLSTS5 Mask         */
 
-#define EPWM_EADCTS0_TRGSEL0_Pos         (0)                                               /*!< EPWM_T::EADCTS0: TRGSEL0 Position      */
-#define EPWM_EADCTS0_TRGSEL0_Msk         (0xful << EPWM_EADCTS0_TRGSEL0_Pos)               /*!< EPWM_T::EADCTS0: TRGSEL0 Mask          */
-
-#define EPWM_EADCTS0_TRGEN0_Pos          (7)                                               /*!< EPWM_T::EADCTS0: TRGEN0 Position       */
-#define EPWM_EADCTS0_TRGEN0_Msk          (0x1ul << EPWM_EADCTS0_TRGEN0_Pos)                /*!< EPWM_T::EADCTS0: TRGEN0 Mask           */
-
-#define EPWM_EADCTS0_TRGSEL1_Pos         (8)                                               /*!< EPWM_T::EADCTS0: TRGSEL1 Position      */
-#define EPWM_EADCTS0_TRGSEL1_Msk         (0xful << EPWM_EADCTS0_TRGSEL1_Pos)               /*!< EPWM_T::EADCTS0: TRGSEL1 Mask          */
-
-#define EPWM_EADCTS0_TRGEN1_Pos          (15)                                              /*!< EPWM_T::EADCTS0: TRGEN1 Position       */
-#define EPWM_EADCTS0_TRGEN1_Msk          (0x1ul << EPWM_EADCTS0_TRGEN1_Pos)                /*!< EPWM_T::EADCTS0: TRGEN1 Mask           */
-
-#define EPWM_EADCTS0_TRGSEL2_Pos         (16)                                              /*!< EPWM_T::EADCTS0: TRGSEL2 Position      */
-#define EPWM_EADCTS0_TRGSEL2_Msk         (0xful << EPWM_EADCTS0_TRGSEL2_Pos)               /*!< EPWM_T::EADCTS0: TRGSEL2 Mask          */
-
-#define EPWM_EADCTS0_TRGEN2_Pos          (23)                                              /*!< EPWM_T::EADCTS0: TRGEN2 Position       */
-#define EPWM_EADCTS0_TRGEN2_Msk          (0x1ul << EPWM_EADCTS0_TRGEN2_Pos)                /*!< EPWM_T::EADCTS0: TRGEN2 Mask           */
-
-#define EPWM_EADCTS0_TRGSEL3_Pos         (24)                                              /*!< EPWM_T::EADCTS0: TRGSEL3 Position      */
-#define EPWM_EADCTS0_TRGSEL3_Msk         (0xful << EPWM_EADCTS0_TRGSEL3_Pos)               /*!< EPWM_T::EADCTS0: TRGSEL3 Mask          */
-
-#define EPWM_EADCTS0_TRGEN3_Pos          (31)                                              /*!< EPWM_T::EADCTS0: TRGEN3 Position       */
-#define EPWM_EADCTS0_TRGEN3_Msk          (0x1ul << EPWM_EADCTS0_TRGEN3_Pos)                /*!< EPWM_T::EADCTS0: TRGEN3 Mask           */
-
-#define EPWM_EADCTS1_TRGSEL4_Pos         (0)                                               /*!< EPWM_T::EADCTS1: TRGSEL4 Position      */
-#define EPWM_EADCTS1_TRGSEL4_Msk         (0xful << EPWM_EADCTS1_TRGSEL4_Pos)               /*!< EPWM_T::EADCTS1: TRGSEL4 Mask          */
-
-#define EPWM_EADCTS1_TRGEN4_Pos          (7)                                               /*!< EPWM_T::EADCTS1: TRGEN4 Position       */
-#define EPWM_EADCTS1_TRGEN4_Msk          (0x1ul << EPWM_EADCTS1_TRGEN4_Pos)                /*!< EPWM_T::EADCTS1: TRGEN4 Mask           */
-
-#define EPWM_EADCTS1_TRGSEL5_Pos         (8)                                               /*!< EPWM_T::EADCTS1: TRGSEL5 Position      */
-#define EPWM_EADCTS1_TRGSEL5_Msk         (0xful << EPWM_EADCTS1_TRGSEL5_Pos)               /*!< EPWM_T::EADCTS1: TRGSEL5 Mask          */
-
-#define EPWM_EADCTS1_TRGEN5_Pos          (15)                                              /*!< EPWM_T::EADCTS1: TRGEN5 Position       */
-#define EPWM_EADCTS1_TRGEN5_Msk          (0x1ul << EPWM_EADCTS1_TRGEN5_Pos)                /*!< EPWM_T::EADCTS1: TRGEN5 Mask           */
-
-#define EPWM_FTCMPDAT0_1_FTCMP_Pos       (0)                                               /*!< EPWM_T::FTCMPDAT0_1: FTCMP Position    */
-#define EPWM_FTCMPDAT0_1_FTCMP_Msk       (0xfffful << EPWM_FTCMPDAT0_1_FTCMP_Pos)          /*!< EPWM_T::FTCMPDAT0_1: FTCMP Mask        */
-
-#define EPWM_FTCMPDAT2_3_FTCMP_Pos       (0)                                               /*!< EPWM_T::FTCMPDAT2_3: FTCMP Position    */
-#define EPWM_FTCMPDAT2_3_FTCMP_Msk       (0xfffful << EPWM_FTCMPDAT2_3_FTCMP_Pos)          /*!< EPWM_T::FTCMPDAT2_3: FTCMP Mask        */
-
-#define EPWM_FTCMPDAT4_5_FTCMP_Pos       (0)                                               /*!< EPWM_T::FTCMPDAT4_5: FTCMP Position    */
-#define EPWM_FTCMPDAT4_5_FTCMP_Msk       (0xfffful << EPWM_FTCMPDAT4_5_FTCMP_Pos)          /*!< EPWM_T::FTCMPDAT4_5: FTCMP Mask        */
-
 #define EPWM_SSCTL_SSEN0_Pos             (0)                                               /*!< EPWM_T::SSCTL: SSEN0 Position          */
 #define EPWM_SSCTL_SSEN0_Msk             (0x1ul << EPWM_SSCTL_SSEN0_Pos)                   /*!< EPWM_T::SSCTL: SSEN0 Mask              */
 
@@ -4230,24 +3872,6 @@ typedef struct
 
 #define EPWM_STATUS_SYNCINF4_Pos         (10)                                              /*!< EPWM_T::STATUS: SYNCINF4 Position      */
 #define EPWM_STATUS_SYNCINF4_Msk         (0x1ul << EPWM_STATUS_SYNCINF4_Pos)               /*!< EPWM_T::STATUS: SYNCINF4 Mask          */
-
-#define EPWM_STATUS_EADCTRGF0_Pos        (16)                                              /*!< EPWM_T::STATUS: EADCTRGF0 Position     */
-#define EPWM_STATUS_EADCTRGF0_Msk        (0x1ul << EPWM_STATUS_EADCTRGF0_Pos)              /*!< EPWM_T::STATUS: EADCTRGF0 Mask         */
-
-#define EPWM_STATUS_EADCTRGF1_Pos        (17)                                              /*!< EPWM_T::STATUS: EADCTRGF1 Position     */
-#define EPWM_STATUS_EADCTRGF1_Msk        (0x1ul << EPWM_STATUS_EADCTRGF1_Pos)              /*!< EPWM_T::STATUS: EADCTRGF1 Mask         */
-
-#define EPWM_STATUS_EADCTRGF2_Pos        (18)                                              /*!< EPWM_T::STATUS: EADCTRGF2 Position     */
-#define EPWM_STATUS_EADCTRGF2_Msk        (0x1ul << EPWM_STATUS_EADCTRGF2_Pos)              /*!< EPWM_T::STATUS: EADCTRGF2 Mask         */
-
-#define EPWM_STATUS_EADCTRGF3_Pos        (19)                                              /*!< EPWM_T::STATUS: EADCTRGF3 Position     */
-#define EPWM_STATUS_EADCTRGF3_Msk        (0x1ul << EPWM_STATUS_EADCTRGF3_Pos)              /*!< EPWM_T::STATUS: EADCTRGF3 Mask         */
-
-#define EPWM_STATUS_EADCTRGF4_Pos        (20)                                              /*!< EPWM_T::STATUS: EADCTRGF4 Position     */
-#define EPWM_STATUS_EADCTRGF4_Msk        (0x1ul << EPWM_STATUS_EADCTRGF4_Pos)              /*!< EPWM_T::STATUS: EADCTRGF4 Mask         */
-
-#define EPWM_STATUS_EADCTRGF5_Pos        (21)                                              /*!< EPWM_T::STATUS: EADCTRGF5 Position     */
-#define EPWM_STATUS_EADCTRGF5_Msk        (0x1ul << EPWM_STATUS_EADCTRGF5_Pos)              /*!< EPWM_T::STATUS: EADCTRGF5 Mask         */
 
 #define EPWM_IFA0_IFACNT_Pos             (0)                                               /*!< EPWM_T::IFA0: IFACNT Position          */
 #define EPWM_IFA0_IFACNT_Msk             (0xfffful << EPWM_IFA0_IFACNT_Pos)                /*!< EPWM_T::IFA0: IFACNT Mask              */
@@ -4560,60 +4184,6 @@ typedef struct
 
 #define EPWM_FDSTS_FDIF5_Pos              (5)                                               /*!< EPWM_T::FDSTS: FDIF5 Position           */
 #define EPWM_FDSTS_FDIF5_Msk              (0x1ul << EPWM_FDSTS_FDIF5_Pos)                    /*!< EPWM_T::FDSTS: FDIF5 Mask               */
-
-#define EPWM_EADCPSCCTL_PSCEN0_Pos       (0)                                               /*!< EPWM_T::EADCPSCCTL: PSCEN0 Position    */
-#define EPWM_EADCPSCCTL_PSCEN0_Msk       (0x1ul << EPWM_EADCPSCCTL_PSCEN0_Pos)             /*!< EPWM_T::EADCPSCCTL: PSCEN0 Mask        */
-
-#define EPWM_EADCPSCCTL_PSCEN1_Pos       (1)                                               /*!< EPWM_T::EADCPSCCTL: PSCEN1 Position    */
-#define EPWM_EADCPSCCTL_PSCEN1_Msk       (0x1ul << EPWM_EADCPSCCTL_PSCEN1_Pos)             /*!< EPWM_T::EADCPSCCTL: PSCEN1 Mask        */
-
-#define EPWM_EADCPSCCTL_PSCEN2_Pos       (2)                                               /*!< EPWM_T::EADCPSCCTL: PSCEN2 Position    */
-#define EPWM_EADCPSCCTL_PSCEN2_Msk       (0x1ul << EPWM_EADCPSCCTL_PSCEN2_Pos)             /*!< EPWM_T::EADCPSCCTL: PSCEN2 Mask        */
-
-#define EPWM_EADCPSCCTL_PSCEN3_Pos       (3)                                               /*!< EPWM_T::EADCPSCCTL: PSCEN3 Position    */
-#define EPWM_EADCPSCCTL_PSCEN3_Msk       (0x1ul << EPWM_EADCPSCCTL_PSCEN3_Pos)             /*!< EPWM_T::EADCPSCCTL: PSCEN3 Mask        */
-
-#define EPWM_EADCPSCCTL_PSCEN4_Pos       (4)                                               /*!< EPWM_T::EADCPSCCTL: PSCEN4 Position    */
-#define EPWM_EADCPSCCTL_PSCEN4_Msk       (0x1ul << EPWM_EADCPSCCTL_PSCEN4_Pos)             /*!< EPWM_T::EADCPSCCTL: PSCEN4 Mask        */
-
-#define EPWM_EADCPSCCTL_PSCEN5_Pos       (5)                                               /*!< EPWM_T::EADCPSCCTL: PSCEN5 Position    */
-#define EPWM_EADCPSCCTL_PSCEN5_Msk       (0x1ul << EPWM_EADCPSCCTL_PSCEN5_Pos)             /*!< EPWM_T::EADCPSCCTL: PSCEN5 Mask        */
-
-#define EPWM_EADCPSC0_EADCPSC0_Pos       (0)                                               /*!< EPWM_T::EADCPSC0: EADCPSC0 Position    */
-#define EPWM_EADCPSC0_EADCPSC0_Msk       (0xful << EPWM_EADCPSC0_EADCPSC0_Pos)             /*!< EPWM_T::EADCPSC0: EADCPSC0 Mask        */
-
-#define EPWM_EADCPSC0_EADCPSC1_Pos       (8)                                               /*!< EPWM_T::EADCPSC0: EADCPSC1 Position    */
-#define EPWM_EADCPSC0_EADCPSC1_Msk       (0xful << EPWM_EADCPSC0_EADCPSC1_Pos)             /*!< EPWM_T::EADCPSC0: EADCPSC1 Mask        */
-
-#define EPWM_EADCPSC0_EADCPSC2_Pos       (16)                                              /*!< EPWM_T::EADCPSC0: EADCPSC2 Position    */
-#define EPWM_EADCPSC0_EADCPSC2_Msk       (0xful << EPWM_EADCPSC0_EADCPSC2_Pos)             /*!< EPWM_T::EADCPSC0: EADCPSC2 Mask        */
-
-#define EPWM_EADCPSC0_EADCPSC3_Pos       (24)                                              /*!< EPWM_T::EADCPSC0: EADCPSC3 Position    */
-#define EPWM_EADCPSC0_EADCPSC3_Msk       (0xful << EPWM_EADCPSC0_EADCPSC3_Pos)             /*!< EPWM_T::EADCPSC0: EADCPSC3 Mask        */
-
-#define EPWM_EADCPSC1_EADCPSC4_Pos       (0)                                               /*!< EPWM_T::EADCPSC1: EADCPSC4 Position    */
-#define EPWM_EADCPSC1_EADCPSC4_Msk       (0xful << EPWM_EADCPSC1_EADCPSC4_Pos)             /*!< EPWM_T::EADCPSC1: EADCPSC4 Mask        */
-
-#define EPWM_EADCPSC1_EADCPSC5_Pos       (8)                                               /*!< EPWM_T::EADCPSC1: EADCPSC5 Position    */
-#define EPWM_EADCPSC1_EADCPSC5_Msk       (0xful << EPWM_EADCPSC1_EADCPSC5_Pos)             /*!< EPWM_T::EADCPSC1: EADCPSC5 Mask        */
-
-#define EPWM_EADCPSCNT0_PSCNT0_Pos       (0)                                               /*!< EPWM_T::EADCPSCNT0: PSCNT0 Position    */
-#define EPWM_EADCPSCNT0_PSCNT0_Msk       (0xful << EPWM_EADCPSCNT0_PSCNT0_Pos)             /*!< EPWM_T::EADCPSCNT0: PSCNT0 Mask        */
-
-#define EPWM_EADCPSCNT0_PSCNT1_Pos       (8)                                               /*!< EPWM_T::EADCPSCNT0: PSCNT1 Position    */
-#define EPWM_EADCPSCNT0_PSCNT1_Msk       (0xful << EPWM_EADCPSCNT0_PSCNT1_Pos)             /*!< EPWM_T::EADCPSCNT0: PSCNT1 Mask        */
-
-#define EPWM_EADCPSCNT0_PSCNT2_Pos       (16)                                              /*!< EPWM_T::EADCPSCNT0: PSCNT2 Position    */
-#define EPWM_EADCPSCNT0_PSCNT2_Msk       (0xful << EPWM_EADCPSCNT0_PSCNT2_Pos)             /*!< EPWM_T::EADCPSCNT0: PSCNT2 Mask        */
-
-#define EPWM_EADCPSCNT0_PSCNT3_Pos       (24)                                              /*!< EPWM_T::EADCPSCNT0: PSCNT3 Position    */
-#define EPWM_EADCPSCNT0_PSCNT3_Msk       (0xful << EPWM_EADCPSCNT0_PSCNT3_Pos)             /*!< EPWM_T::EADCPSCNT0: PSCNT3 Mask        */
-
-#define EPWM_EADCPSCNT1_PSCNT4_Pos       (0)                                               /*!< EPWM_T::EADCPSCNT1: PSCNT4 Position    */
-#define EPWM_EADCPSCNT1_PSCNT4_Msk       (0xful << EPWM_EADCPSCNT1_PSCNT4_Pos)             /*!< EPWM_T::EADCPSCNT1: PSCNT4 Mask        */
-
-#define EPWM_EADCPSCNT1_PSCNT5_Pos       (8)                                               /*!< EPWM_T::EADCPSCNT1: PSCNT5 Position    */
-#define EPWM_EADCPSCNT1_PSCNT5_Msk       (0xful << EPWM_EADCPSCNT1_PSCNT5_Pos)             /*!< EPWM_T::EADCPSCNT1: PSCNT5 Mask        */
 
 #define EPWM_CAPINEN_CAPINEN0_Pos        (0)                                               /*!< EPWM_T::CAPINEN: CAPINEN0 Position     */
 #define EPWM_CAPINEN_CAPINEN0_Msk        (0x1ul << EPWM_CAPINEN_CAPINEN0_Pos)              /*!< EPWM_T::CAPINEN: CAPINEN0 Mask         */

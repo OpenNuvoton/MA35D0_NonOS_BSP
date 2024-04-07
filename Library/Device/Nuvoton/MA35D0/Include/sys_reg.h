@@ -615,11 +615,6 @@ typedef struct
      * |        |          |1 = CAN FD 1 reset Enabled.
      * |        |          |Note: This bit is write protected
      * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
-     * |[28]    |EADC0RST  |EADC 0 Reset Enable Bit (Write Protect)
-     * |        |          |0 = EADC 0 reset Disabled.
-     * |        |          |1 = EADC 0 reset Enabled.
-     * |        |          |Note: This bit is write protected
-     * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
      * |[29]    |I2S0RST   |I2S 0 Reset Enable Bit (Write Protect)
      * |        |          |0 = I2S 0 reset Disabled.
      * |        |          |1 = I2S 0 reset Enabled.
@@ -658,26 +653,6 @@ typedef struct
      * |[17]    |EPWM1RST  |EPWM 1 Reset Enable Bit (Write Protect)
      * |        |          |0 = EPWM 1 reset Disabled.
      * |        |          |1 = EPWM 1 reset Enabled.
-     * |        |          |Note: This bit is write protected
-     * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
-     * |[22]    |QEI0RST   |QEI 0 Reset Enable Bit (Write Protect)
-     * |        |          |0 = QEI 0 reset Disabled.
-     * |        |          |1 = QEI 0 reset Enabled.
-     * |        |          |Note: This bit is write protected
-     * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
-     * |[23]    |QEI1RST   |QEI 1 Reset Enable Bit (Write Protect)
-     * |        |          |0 = QEI 1 reset Disabled.
-     * |        |          |1 = QEI 1 reset Enabled.
-     * |        |          |Note: This bit is write protected
-     * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
-     * |[26]    |ECAP0RST  |ECAP 0 Reset Enable Bit (Write Protect)
-     * |        |          |0 = ECAP 0 reset Disabled.
-     * |        |          |1 = ECAP 0 reset Enabled.
-     * |        |          |Note: This bit is write protected
-     * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
-     * |[27]    |ECAP1RST  |ECAP 1 Reset Enable Bit (Write Protect)
-     * |        |          |0 = ECAP 1 reset Disabled.
-     * |        |          |1 = ECAP 1 reset Enabled.
      * |        |          |Note: This bit is write protected
      * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
      * |[28]    |CANFD2RST |CAN FD 2 Reset Enable Bit (Write Protect)
@@ -798,16 +773,6 @@ typedef struct
      * |[20]    |EPWM2RST  |EPWM 2 Reset Enable Bit (Write Protect)
      * |        |          |0 = EPWM 2 reset Disabled.
      * |        |          |1 = EPWM 2 reset Enabled.
-     * |        |          |Note: This bit is write protected
-     * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
-     * |[21]    |ECAP2RST  |ECAP 2 Reset Enable Bit (Write Protect)
-     * |        |          |0 = ECAP 2 reset Disabled.
-     * |        |          |1 = ECAP 2 reset Enabled.
-     * |        |          |Note: This bit is write protected
-     * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
-     * |[22]    |QEI2RST   |QEI 2 Reset Enable Bit (Write Protect)
-     * |        |          |0 = QEI 2 reset Disabled.
-     * |        |          |1 = QEI 2 reset Enabled.
      * |        |          |Note: This bit is write protected
      * |        |          |Refer to the SYS_RLKTZS, SYS_RLKTZNS or SYS_RLKSUBM register according to security attribute of each circuit.
      * |[23]    |CANFD3RST |CAN FD 3 Reset Enable Bit (Write Protect)
@@ -3906,9 +3871,6 @@ typedef struct
 #define SYS_IPRST1_CANFD1RST_Pos         (25)                                              /*!< SYS_T::IPRST1: CANFD1RST Position      */
 #define SYS_IPRST1_CANFD1RST_Msk         (0x1ul << SYS_IPRST1_CANFD1RST_Pos)               /*!< SYS_T::IPRST1: CANFD1RST Mask          */
 
-#define SYS_IPRST1_EADC0RST_Pos          (28)                                              /*!< SYS_T::IPRST1: EADC0RST Position       */
-#define SYS_IPRST1_EADC0RST_Msk          (0x1ul << SYS_IPRST1_EADC0RST_Pos)                /*!< SYS_T::IPRST1: EADC0RST Mask           */
-
 #define SYS_IPRST1_I2S0RST_Pos           (29)                                              /*!< SYS_T::IPRST1: I2S0RST Position        */
 #define SYS_IPRST1_I2S0RST_Msk           (0x1ul << SYS_IPRST1_I2S0RST_Pos)                 /*!< SYS_T::IPRST1: I2S0RST Mask            */
 
@@ -3929,18 +3891,6 @@ typedef struct
 
 #define SYS_IPRST2_EPWM1RST_Pos          (17)                                              /*!< SYS_T::IPRST2: EPWM1RST Position       */
 #define SYS_IPRST2_EPWM1RST_Msk          (0x1ul << SYS_IPRST2_EPWM1RST_Pos)                /*!< SYS_T::IPRST2: EPWM1RST Mask           */
-
-#define SYS_IPRST2_QEI0RST_Pos           (22)                                              /*!< SYS_T::IPRST2: QEI0RST Position        */
-#define SYS_IPRST2_QEI0RST_Msk           (0x1ul << SYS_IPRST2_QEI0RST_Pos)                 /*!< SYS_T::IPRST2: QEI0RST Mask            */
-
-#define SYS_IPRST2_QEI1RST_Pos           (23)                                              /*!< SYS_T::IPRST2: QEI1RST Position        */
-#define SYS_IPRST2_QEI1RST_Msk           (0x1ul << SYS_IPRST2_QEI1RST_Pos)                 /*!< SYS_T::IPRST2: QEI1RST Mask            */
-
-#define SYS_IPRST2_ECAP0RST_Pos          (26)                                              /*!< SYS_T::IPRST2: ECAP0RST Position       */
-#define SYS_IPRST2_ECAP0RST_Msk          (0x1ul << SYS_IPRST2_ECAP0RST_Pos)                /*!< SYS_T::IPRST2: ECAP0RST Mask           */
-
-#define SYS_IPRST2_ECAP1RST_Pos          (27)                                              /*!< SYS_T::IPRST2: ECAP1RST Position       */
-#define SYS_IPRST2_ECAP1RST_Msk          (0x1ul << SYS_IPRST2_ECAP1RST_Pos)                /*!< SYS_T::IPRST2: ECAP1RST Mask           */
 
 #define SYS_IPRST2_CANFD2RST_Pos         (28)                                              /*!< SYS_T::IPRST2: CANFD2RST Position      */
 #define SYS_IPRST2_CANFD2RST_Msk         (0x1ul << SYS_IPRST2_CANFD2RST_Pos)               /*!< SYS_T::IPRST2: CANFD2RST Mask          */
@@ -4010,12 +3960,6 @@ typedef struct
 
 #define SYS_IPRST3_EPWM2RST_Pos          (20)                                              /*!< SYS_T::IPRST3: EPWM2RST Position       */
 #define SYS_IPRST3_EPWM2RST_Msk          (0x1ul << SYS_IPRST3_EPWM2RST_Pos)                /*!< SYS_T::IPRST3: EPWM2RST Mask           */
-
-#define SYS_IPRST3_ECAP2RST_Pos          (21)                                              /*!< SYS_T::IPRST3: ECAP2RST Position       */
-#define SYS_IPRST3_ECAP2RST_Msk          (0x1ul << SYS_IPRST3_ECAP2RST_Pos)                /*!< SYS_T::IPRST3: ECAP2RST Mask           */
-
-#define SYS_IPRST3_QEI2RST_Pos           (22)                                              /*!< SYS_T::IPRST3: QEI2RST Position        */
-#define SYS_IPRST3_QEI2RST_Msk           (0x1ul << SYS_IPRST3_QEI2RST_Pos)                 /*!< SYS_T::IPRST3: QEI2RST Mask            */
 
 #define SYS_IPRST3_CANFD3RST_Pos         (23)                                              /*!< SYS_T::IPRST3: CANFD3RST Position      */
 #define SYS_IPRST3_CANFD3RST_Msk         (0x1ul << SYS_IPRST3_CANFD3RST_Pos)               /*!< SYS_T::IPRST3: CANFD3RST Mask          */

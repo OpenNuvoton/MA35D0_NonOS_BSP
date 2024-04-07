@@ -575,30 +575,9 @@ typedef struct
  * |[7]     |SPI3CKEN  |SPI3 Clock Enable Bit
  * |        |          |0 = SPI3 clock Disabled.
  * |        |          |1 = SPI3 clock Enabled.
- * |[8]     |ECAP0CKEN |ECAP0 Clock Enable Bit
- * |        |          |0 = ECAP0 clock Disabled.
- * |        |          |1 = ECAP0 clock Enabled.
- * |[9]     |ECAP1CKEN |ECAP1 Clock Enable Bit
- * |        |          |0 = ECAP1 clock Disabled.
- * |        |          |1 = ECAP1 clock Enabled.
- * |[10]    |ECAP2CKEN |ECAP2 Clock Enable Bit
- * |        |          |0 = ECAP2 clock Disabled.
- * |        |          |1 = ECAP2 clock Enabled.
- * |[12]    |QEI0CKEN  |QEI0 Clock Enable Bit
- * |        |          |0 = QEI0 clock Disabled.
- * |        |          |1 = QEI0 clock Enabled.
- * |[13]    |QEI1CKEN  |QEI1 Clock Enable Bit
- * |        |          |0 = QEI1 clock Disabled.
- * |        |          |1 = QEI1 clock Enabled.
- * |[14]    |QEI2CKEN  |QEI2 Clock Enable Bit
- * |        |          |0 = QEI2 clock Disabled.
- * |        |          |1 = QEI2 clock Enabled.
  * |[24]    |ADCCKEN   |ADC Clock Enable Bit
  * |        |          |0 = ADC clock Disabled.
  * |        |          |1 = ADC clock Enabled.
- * |[25]    |EADCCKEN  |EADC Clock Enable Bit
- * |        |          |0 = EADC clock Disabled.
- * |        |          |1 = EADC clock Enabled.
  * @var CLK_T::CLKSEL0
  * Offset: 0x18  Clock Source Select Control Register 0
  * ---------------------------------------------------------------------------------------------------
@@ -1107,8 +1086,6 @@ typedef struct
  * ---------------------------------------------------------------------------------------------------
  * |Bits    |Field     |Descriptions
  * | :----: | :----:   | :---- |
- * |[3:0]   |EADCDIV   |EADC Clock Divide Number From EADC Clock Source
- * |        |          |EADC clock frequency = (EADC clock source frequency) / (EADCDIV + 1).
  * |[20:4]  |ADCDIV    |ADC Clock Divide Number From ADC Clock Source
  * |        |          |ADC clock frequency = (ADC clock source frequency) / (ADCDIV + 1).
  * |[31:24] |KPIDIV    |Keypad Interface Clock Divide Number From KPI Clock Source
@@ -2140,29 +2117,8 @@ typedef struct
 #define CLK_APBCLK2_SPI3CKEN_Pos         (7)                                               /*!< CLK_T::APBCLK2: SPI3CKEN Position      */
 #define CLK_APBCLK2_SPI3CKEN_Msk         (0x1ul << CLK_APBCLK2_SPI3CKEN_Pos)               /*!< CLK_T::APBCLK2: SPI3CKEN Mask          */
 
-#define CLK_APBCLK2_ECAP0CKEN_Pos        (8)                                               /*!< CLK_T::APBCLK2: ECAP0CKEN Position     */
-#define CLK_APBCLK2_ECAP0CKEN_Msk        (0x1ul << CLK_APBCLK2_ECAP0CKEN_Pos)              /*!< CLK_T::APBCLK2: ECAP0CKEN Mask         */
-
-#define CLK_APBCLK2_ECAP1CKEN_Pos        (9)                                               /*!< CLK_T::APBCLK2: ECAP1CKEN Position     */
-#define CLK_APBCLK2_ECAP1CKEN_Msk        (0x1ul << CLK_APBCLK2_ECAP1CKEN_Pos)              /*!< CLK_T::APBCLK2: ECAP1CKEN Mask         */
-
-#define CLK_APBCLK2_ECAP2CKEN_Pos        (10)                                              /*!< CLK_T::APBCLK2: ECAP2CKEN Position     */
-#define CLK_APBCLK2_ECAP2CKEN_Msk        (0x1ul << CLK_APBCLK2_ECAP2CKEN_Pos)              /*!< CLK_T::APBCLK2: ECAP2CKEN Mask         */
-
-#define CLK_APBCLK2_QEI0CKEN_Pos         (12)                                              /*!< CLK_T::APBCLK2: QEI0CKEN Position      */
-#define CLK_APBCLK2_QEI0CKEN_Msk         (0x1ul << CLK_APBCLK2_QEI0CKEN_Pos)               /*!< CLK_T::APBCLK2: QEI0CKEN Mask          */
-
-#define CLK_APBCLK2_QEI1CKEN_Pos         (13)                                              /*!< CLK_T::APBCLK2: QEI1CKEN Position      */
-#define CLK_APBCLK2_QEI1CKEN_Msk         (0x1ul << CLK_APBCLK2_QEI1CKEN_Pos)               /*!< CLK_T::APBCLK2: QEI1CKEN Mask          */
-
-#define CLK_APBCLK2_QEI2CKEN_Pos         (14)                                              /*!< CLK_T::APBCLK2: QEI2CKEN Position      */
-#define CLK_APBCLK2_QEI2CKEN_Msk         (0x1ul << CLK_APBCLK2_QEI2CKEN_Pos)               /*!< CLK_T::APBCLK2: QEI2CKEN Mask          */
-
 #define CLK_APBCLK2_ADCCKEN_Pos          (24)                                              /*!< CLK_T::APBCLK2: ADCCKEN Position       */
 #define CLK_APBCLK2_ADCCKEN_Msk          (0x1ul << CLK_APBCLK2_ADCCKEN_Pos)                /*!< CLK_T::APBCLK2: ADCCKEN Mask           */
-
-#define CLK_APBCLK2_EADCCKEN_Pos         (25)                                              /*!< CLK_T::APBCLK2: EADCCKEN Position      */
-#define CLK_APBCLK2_EADCCKEN_Msk         (0x1ul << CLK_APBCLK2_EADCCKEN_Pos)               /*!< CLK_T::APBCLK2: EADCCKEN Mask          */
 
 #define CLK_CLKSEL0_CA35CKSEL_Pos        (0)                                               /*!< CLK_T::CLKSEL0: CA35CKSEL Position     */
 #define CLK_CLKSEL0_CA35CKSEL_Msk        (0x3ul << CLK_CLKSEL0_CA35CKSEL_Pos)              /*!< CLK_T::CLKSEL0: CA35CKSEL Mask         */
@@ -2439,9 +2395,6 @@ typedef struct
 
 #define CLK_CLKDIV3_UART16DIV_Pos        (16)                                              /*!< CLK_T::CLKDIV3: UART16DIV Position     */
 #define CLK_CLKDIV3_UART16DIV_Msk        (0xful << CLK_CLKDIV3_UART16DIV_Pos)              /*!< CLK_T::CLKDIV3: UART16DIV Mask         */
-
-#define CLK_CLKDIV4_EADCDIV_Pos          (0)                                               /*!< CLK_T::CLKDIV4: EADCDIV Position       */
-#define CLK_CLKDIV4_EADCDIV_Msk          (0xful << CLK_CLKDIV4_EADCDIV_Pos)                /*!< CLK_T::CLKDIV4: EADCDIV Mask           */
 
 #define CLK_CLKDIV4_ADCDIV_Pos           (4)                                               /*!< CLK_T::CLKDIV4: ADCDIV Position        */
 #define CLK_CLKDIV4_ADCDIV_Msk           (0x1fffful << CLK_CLKDIV4_ADCDIV_Pos)             /*!< CLK_T::CLKDIV4: ADCDIV Mask            */

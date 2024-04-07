@@ -194,7 +194,6 @@ void PDMA_SetTransferAddr(PDMA_T *pdma, uint32_t u32Ch, uint32_t u32SrcAddr, uin
  *                - \ref PDMA_TMR1
  *                - \ref PDMA_TMR2
  *                - \ref PDMA_TMR3
- *                - \ref PDMA_EADC0_RX
  *                - \ref PDMA_EPWM0_CH0_TX
  *                - \ref PDMA_EPWM0_CH1_TX
  *                - \ref PDMA_EPWM0_CH2_TX

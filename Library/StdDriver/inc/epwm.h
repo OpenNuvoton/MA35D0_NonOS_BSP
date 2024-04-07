@@ -94,7 +94,6 @@ extern "C"
 #define EPWM_FB_EDGE_ACMP1                        (EPWM_BRKCTL0_1_CPO1EBEN_Msk)    /*!< Comparator 1 as edge-detect fault brake source \hideinitializer */
 #define EPWM_FB_EDGE_BKP0                         (EPWM_BRKCTL0_1_BRKP0EEN_Msk)    /*!< BKP0 pin as edge-detect fault brake source \hideinitializer */
 #define EPWM_FB_EDGE_BKP1                         (EPWM_BRKCTL0_1_BRKP1EEN_Msk)    /*!< BKP1 pin as edge-detect fault brake source \hideinitializer */
-#define EPWM_FB_EDGE_ADCRM                        (EPWM_BRKCTL0_1_EADCEBEN_Msk)     /*!< ADC Result Monitor (ADCRM) as edge-detect fault brake source \hideinitializer */
 #define EPWM_FB_EDGE_SYS_CSS                      (EPWM_BRKCTL0_1_SYSEBEN_Msk | EPWM_FAILBRK_CSSBRKEN_Msk)    /*!< System fail condition: clock security system detection as edge-detect fault brake source \hideinitializer */
 #define EPWM_FB_EDGE_SYS_BOD                      (EPWM_BRKCTL0_1_SYSEBEN_Msk | EPWM_FAILBRK_BODBRKEN_Msk)    /*!< System fail condition: brown-out detection as edge-detect fault brake source \hideinitializer */
 #define EPWM_FB_EDGE_SYS_RAM                      (EPWM_BRKCTL0_1_SYSEBEN_Msk | EPWM_FAILBRK_RAMBRKEN_Msk)    /*!< System fail condition: SRAM parity error detection as edge-detect fault brake source \hideinitializer */
@@ -104,7 +103,6 @@ extern "C"
 #define EPWM_FB_LEVEL_ACMP1                       (EPWM_BRKCTL0_1_CPO1LBEN_Msk)    /*!< Comparator 1 as level-detect fault brake source \hideinitializer */
 #define EPWM_FB_LEVEL_BKP0                        (EPWM_BRKCTL0_1_BRKP0LEN_Msk)    /*!< BKP0 pin as level-detect fault brake source \hideinitializer */
 #define EPWM_FB_LEVEL_BKP1                        (EPWM_BRKCTL0_1_BRKP1LEN_Msk)    /*!< BKP1 pin as level-detect fault brake source \hideinitializer */
-#define EPWM_FB_LEVEL_ADCRM                       (EPWM_BRKCTL0_1_EADCLBEN_Msk)     /*!< ADC Result Monitor (ADCRM) as level-detect fault brake source \hideinitializer */
 #define EPWM_FB_LEVEL_SYS_CSS                     (EPWM_BRKCTL0_1_SYSLBEN_Msk | EPWM_FAILBRK_CSSBRKEN_Msk)    /*!< System fail condition: clock security system detection as level-detect fault brake source \hideinitializer */
 #define EPWM_FB_LEVEL_SYS_BOD                     (EPWM_BRKCTL0_1_SYSLBEN_Msk | EPWM_FAILBRK_BODBRKEN_Msk)    /*!< System fail condition: brown-out detection as level-detect fault brake source \hideinitializer */
 #define EPWM_FB_LEVEL_SYS_RAM                     (EPWM_BRKCTL0_1_SYSLBEN_Msk | EPWM_FAILBRK_RAMBRKEN_Msk)    /*!< System fail condition: SRAM parity error detection as level-detect fault brake source \hideinitializer */
@@ -547,12 +545,6 @@ uint32_t EPWM_ConfigOutputChannel(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t
 void EPWM_Start(EPWM_T *epwm, uint32_t u32ChannelMask);
 void EPWM_Stop(EPWM_T *epwm, uint32_t u32ChannelMask);
 void EPWM_ForceStop(EPWM_T *epwm, uint32_t u32ChannelMask);
-void EPWM_EnableADCTrigger(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Condition);
-void EPWM_DisableADCTrigger(EPWM_T *epwm, uint32_t u32ChannelNum);
-int32_t EPWM_EnableADCTriggerPrescale(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Prescale, uint32_t u32PrescaleCnt);
-void EPWM_DisableADCTriggerPrescale(EPWM_T *epwm, uint32_t u32ChannelNum);
-void EPWM_ClearADCTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Condition);
-uint32_t EPWM_GetADCTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum);
 void EPWM_EnableFaultBrake(EPWM_T *epwm, uint32_t u32ChannelMask, uint32_t u32LevelMask, uint32_t u32BrakeSource);
 void EPWM_EnableCapture(EPWM_T *epwm, uint32_t u32ChannelMask);
 void EPWM_DisableCapture(EPWM_T *epwm, uint32_t u32ChannelMask);

@@ -377,7 +377,6 @@ uint32_t CLK_GetPCLK3Freq(void)
   * |\ref KPI_MODULE       |\ref CLK_CLKSEL4_KPISEL_HXT             |\ref CLK_CLKDIV4_KPI(x)    |
   * |\ref KPI_MODULE       |\ref CLK_CLKSEL4_KPISEL_LXT             |\ref CLK_CLKDIV4_KPI(x)    |
   * |\ref ADC_MODULE       | x                                      |\ref CLK_CLKDIV4_ADC(x)    |
-  * |\ref EADC_MODULE      | x                                      |\ref CLK_CLKDIV4_EADC(x)   |
   *
   */
 void CLK_SetModuleClock(uint32_t u32ModuleIdx, uint32_t u32ClkSrc, uint32_t u32ClkDiv)
@@ -578,14 +577,7 @@ void CLK_DisableXtalRC(uint32_t u32ClkMask)
   *             - \ref SPI1_MODULE
   *             - \ref SPI2_MODULE
   *             - \ref SPI3_MODULE
-  *             - \ref ECAP0_MODULE
-  *             - \ref ECAP1_MODULE
-  *             - \ref ECAP2_MODULE
-  *             - \ref QEI0_MODULE
-  *             - \ref QEI1_MODULE
-  *             - \ref QEI2_MODULE
   *             - \ref ADC_MODULE
-  *             - \ref EADC_MODULE
   * @details    This function is used to enable module clock.
   */
 void CLK_EnableModuleClock(uint32_t u32ModuleIdx)
@@ -716,14 +708,7 @@ void CLK_EnableModuleClock(uint32_t u32ModuleIdx)
   *             - \ref SPI1_MODULE
   *             - \ref SPI2_MODULE
   *             - \ref SPI3_MODULE
-  *             - \ref ECAP0_MODULE
-  *             - \ref ECAP1_MODULE
-  *             - \ref ECAP2_MODULE
-  *             - \ref QEI0_MODULE
-  *             - \ref QEI1_MODULE
-  *             - \ref QEI2_MODULE
   *             - \ref ADC_MODULE
-  *             - \ref EADC_MODULE
   * @details    This function is used to disable module clock.
   */
 void CLK_DisableModuleClock(uint32_t u32ModuleIdx)
@@ -1040,14 +1025,7 @@ uint64_t CLK_SetPLLClockFreq(uint32_t u32PllIdx, uint32_t u32OpMode, uint64_t u6
   *             - \ref SPI1_MODULE
   *             - \ref SPI2_MODULE
   *             - \ref SPI3_MODULE
-  *             - \ref ECAP0_MODULE
-  *             - \ref ECAP1_MODULE
-  *             - \ref ECAP2_MODULE
-  *             - \ref QEI0_MODULE
-  *             - \ref QEI1_MODULE
-  *             - \ref QEI2_MODULE
   *             - \ref ADC_MODULE
-  *             - \ref EADC_MODULE
   * @return     Selected module clock source setting
   * @details    This function get selected module clock source.
   */
@@ -1185,14 +1163,7 @@ uint32_t CLK_GetModuleClockSource(uint32_t u32ModuleIdx)
   *             - \ref SPI1_MODULE
   *             - \ref SPI2_MODULE
   *             - \ref SPI3_MODULE
-  *             - \ref ECAP0_MODULE
-  *             - \ref ECAP1_MODULE
-  *             - \ref ECAP2_MODULE
-  *             - \ref QEI0_MODULE
-  *             - \ref QEI1_MODULE
-  *             - \ref QEI2_MODULE
   *             - \ref ADC_MODULE
-  *             - \ref EADC_MODULE
   * @return     Selected module clock divider number setting
   * @details    This function get selected module clock divider number.
   */

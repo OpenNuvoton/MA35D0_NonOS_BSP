@@ -51,7 +51,6 @@ extern "C"
 #define TIMER_TRGSRC_TIMEOUT_EVENT              (0UL << TIMER_TRGCTL_TRGSSEL_Pos) /*!< Select internal trigger source from timer time-out event \hideinitializer */
 #define TIMER_TRGSRC_CAPTURE_EVENT              (1UL << TIMER_TRGCTL_TRGSSEL_Pos) /*!< Select internal trigger source from timer capture event \hideinitializer */
 #define TIMER_TRG_TO_EPWM                       (TIMER_TRGCTL_TRGEPWM_Msk)        /*!< Each timer event as EPWM counter clock source \hideinitializer */
-#define TIMER_TRG_TO_EADC                       (TIMER_TRGCTL_TRGEADC_Msk)        /*!< Each timer event to start ADC conversion \hideinitializer */
 #define TIMER_TRG_TO_DAC                        (TIMER_TRGCTL_TRGDAC_Msk)         /*!< Each timer event to start DAC conversion \hideinitializer */
 #define TIMER_TRG_TO_PDMA                       (TIMER_TRGCTL_TRGPDMA_Msk)        /*!< Each timer event to trigger PDMA transfer \hideinitializer */
 

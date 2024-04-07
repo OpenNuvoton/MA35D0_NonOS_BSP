@@ -79,7 +79,6 @@ extern "C"
 #define UART7_RST           ((4UL<<24) | SYS_IPRST1_UART7RST_Pos)       /*!< Reset UART7 \hideinitializer */
 #define CANFD0_RST          ((4UL<<24) | SYS_IPRST1_CANFD0RST_Pos)       /*!< Reset MCAN0 \hideinitializer */
 #define CANFD1_RST          ((4UL<<24) | SYS_IPRST1_CANFD1RST_Pos)       /*!< Reset MCAN1 \hideinitializer */
-#define EADC0_RST           ((4UL<<24) | SYS_IPRST1_EADC0RST_Pos)       /*!< Reset EADC0 \hideinitializer */
 #define I2S0_RST            ((4UL<<24) | SYS_IPRST1_I2S0RST_Pos)        /*!< Reset I2S0 \hideinitializer */
 
 #define SC0_RST             ((8UL<<24) | SYS_IPRST2_SC0RST_Pos)         /*!< Reset SC0 \hideinitializer */
@@ -88,10 +87,6 @@ extern "C"
 #define SPI3_RST            ((8UL<<24) | SYS_IPRST2_SPI3RST_Pos)        /*!< Reset SPI3 \hideinitializer */
 #define EPWM0_RST           ((8UL<<24) | SYS_IPRST2_EPWM0RST_Pos)       /*!< Reset EPWM0 \hideinitializer */
 #define EPWM1_RST           ((8UL<<24) | SYS_IPRST2_EPWM1RST_Pos)       /*!< Reset EPWM1 \hideinitializer */
-#define QEI0_RST            ((8UL<<24) | SYS_IPRST2_QEI0RST_Pos)        /*!< Reset QEI0 \hideinitializer */
-#define QEI1_RST            ((8UL<<24) | SYS_IPRST2_QEI1RST_Pos)        /*!< Reset QEI1 \hideinitializer */
-#define ECAP0_RST           ((8UL<<24) | SYS_IPRST2_ECAP0RST_Pos)       /*!< Reset ECAP0 \hideinitializer */
-#define ECAP1_RST           ((8UL<<24) | SYS_IPRST2_ECAP1RST_Pos)       /*!< Reset ECAP1 \hideinitializer */
 #define CANFD2_RST          ((8UL<<24) | SYS_IPRST2_CANFD2RST_Pos)      /*!< Reset CANFD2 \hideinitializer */
 #define ADC0_RST            ((8UL<<24) | SYS_IPRST2_ADC0RST_Pos)        /*!< Reset ADC0 \hideinitializer */
 
@@ -116,8 +111,6 @@ extern "C"
 #define I2C4_RST            ((16UL<<24) | SYS_IPRST3_I2C4RST_Pos)       /*!< Reset I2C4 \hideinitializer */
 #define I2C5_RST            ((16UL<<24) | SYS_IPRST3_I2C5RST_Pos)       /*!< Reset I2C5 \hideinitializer */
 #define EPWM2_RST           ((16UL<<24) | SYS_IPRST3_EPWM2RST_Pos)      /*!< Reset EPWM2 \hideinitializer */
-#define ECAP2_RST           ((16UL<<24) | SYS_IPRST3_ECAP2RST_Pos)      /*!< Reset ECAP2 \hideinitializer */
-#define QEI2_RST            ((16UL<<24) | SYS_IPRST3_QEI2RST_Pos)       /*!< Reset QEI2 \hideinitializer */
 #define CANFD3_RST          ((16UL<<24) | SYS_IPRST3_CANFD3RST_Pos)     /*!< Reset MCAN3 \hideinitializer */
 #define KPI_RST             ((16UL<<24) | SYS_IPRST3_KPIRST_Pos)        /*!< Reset KPI \hideinitializer */
 #define GIC_RST             ((16UL<<24) | SYS_IPRST3_GICRST_Pos)        /*!< Reset GIC \hideinitializer */
@@ -229,27 +222,18 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPA_MFPH_PA15MFP_CAN2_RXD         (0x05UL<<SYS_GPA_MFPH_PA15MFP_Pos) /*!< CAN2 bus receiver input. */
 #define SYS_GPA_MFPH_PA15MFP_USBHL0_DM        (0x06UL<<SYS_GPA_MFPH_PA15MFP_Pos) /*!< USB 1.1 host-lite 0 differential signal D-. */
 #define SYS_GPA_MFPH_PA15MFP_EBI_ALE          (0x07UL<<SYS_GPA_MFPH_PA15MFP_Pos) /*!< EBI address latch enable output pin. */
-#define SYS_GPA_MFPH_PA15MFP_QEI0_A           (0x09UL<<SYS_GPA_MFPH_PA15MFP_Pos) /*!< Quadrature encoder phase A input of QEI Unit 0. */
 #define SYS_GPA_MFPH_PA15MFP_TM1              (0x0BUL<<SYS_GPA_MFPH_PA15MFP_Pos) /*!< Timer1 event counter input / toggle output */
 #define SYS_GPA_MFPH_PA15MFP_RGMII0_PPS       (0x0EUL<<SYS_GPA_MFPH_PA15MFP_Pos) /*!< RGMII0 Pulse Per Second output pin. */
 #define SYS_GPA_MFPH_PA15MFP_RMII0_PPS        (0x0FUL<<SYS_GPA_MFPH_PA15MFP_Pos) /*!< RMII0 Pulse Per Second output pin. */
 /********************* Bit definition of GPB_MFPL register **********************/
 #define SYS_GPB_MFPL_PB0MFP_GPIO              (0x00UL<<SYS_GPB_MFPL_PB0MFP_Pos)  /*!< General purpose digital I/O pin. */
-#define SYS_GPB_MFPL_PB0MFP_EADC0_CH0         (0x08UL<<SYS_GPB_MFPL_PB0MFP_Pos)  /*!< EADC0 channel0 analog input. */
 #define SYS_GPB_MFPL_PB1MFP_GPIO              (0x00UL<<SYS_GPB_MFPL_PB1MFP_Pos)  /*!< General purpose digital I/O pin. */
-#define SYS_GPB_MFPL_PB1MFP_EADC0_CH1         (0x08UL<<SYS_GPB_MFPL_PB1MFP_Pos)  /*!< EADC0 channel1 analog input. */
 #define SYS_GPB_MFPL_PB2MFP_GPIO              (0x00UL<<SYS_GPB_MFPL_PB2MFP_Pos)  /*!< General purpose digital I/O pin. */
-#define SYS_GPB_MFPL_PB2MFP_EADC0_CH2         (0x08UL<<SYS_GPB_MFPL_PB2MFP_Pos)  /*!< EADC0 channel2 analog input. */
 #define SYS_GPB_MFPL_PB3MFP_GPIO              (0x00UL<<SYS_GPB_MFPL_PB3MFP_Pos)  /*!< General purpose digital I/O pin. */
-#define SYS_GPB_MFPL_PB3MFP_EADC0_CH3         (0x08UL<<SYS_GPB_MFPL_PB3MFP_Pos)  /*!< EADC0 channel3 analog input. */
 #define SYS_GPB_MFPL_PB4MFP_GPIO              (0x00UL<<SYS_GPB_MFPL_PB4MFP_Pos)  /*!< General purpose digital I/O pin. */
-#define SYS_GPB_MFPL_PB4MFP_EADC0_CH4         (0x08UL<<SYS_GPB_MFPL_PB4MFP_Pos)  /*!< EADC0 channel4 analog input. */
 #define SYS_GPB_MFPL_PB5MFP_GPIO              (0x00UL<<SYS_GPB_MFPL_PB5MFP_Pos)  /*!< General purpose digital I/O pin. */
-#define SYS_GPB_MFPL_PB5MFP_EADC0_CH5         (0x08UL<<SYS_GPB_MFPL_PB5MFP_Pos)  /*!< EADC0 channel5 analog input. */
 #define SYS_GPB_MFPL_PB6MFP_GPIO              (0x00UL<<SYS_GPB_MFPL_PB6MFP_Pos)  /*!< General purpose digital I/O pin. */
-#define SYS_GPB_MFPL_PB6MFP_EADC0_CH6         (0x08UL<<SYS_GPB_MFPL_PB6MFP_Pos)  /*!< EADC0 channel6 analog input. */
 #define SYS_GPB_MFPL_PB7MFP_GPIO              (0x00UL<<SYS_GPB_MFPL_PB7MFP_Pos)  /*!< General purpose digital I/O pin. */
-#define SYS_GPB_MFPL_PB7MFP_EADC0_CH7         (0x08UL<<SYS_GPB_MFPL_PB7MFP_Pos)  /*!< EADC0 channel7 analog input. */
 /********************* Bit definition of GPB_MFPH register **********************/
 #define SYS_GPB_MFPH_PB8MFP_GPIO              (0x00UL<<SYS_GPB_MFPH_PB8MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPB_MFPH_PB8MFP_EPWM2_BRAKE0      (0x01UL<<SYS_GPB_MFPH_PB8MFP_Pos)  /*!< Brake input pin 0 of EPWM2. */
@@ -261,7 +245,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPB_MFPH_PB8MFP_ADC0_CH0          (0x08UL<<SYS_GPB_MFPH_PB8MFP_Pos)  /*!< ADC0 channel 0 analog input. */
 #define SYS_GPB_MFPH_PB8MFP_EBI_nCS0          (0x09UL<<SYS_GPB_MFPH_PB8MFP_Pos)  /*!< EBI chip select enable output pin. */
 #define SYS_GPB_MFPH_PB8MFP_TM4               (0x0BUL<<SYS_GPB_MFPH_PB8MFP_Pos)  /*!< Timer4 event counter input / toggle output */
-#define SYS_GPB_MFPH_PB8MFP_QEI2_INDEX        (0x0EUL<<SYS_GPB_MFPH_PB8MFP_Pos)  /*!< Quadrature encoder index input of QEI Unit 2. */
 #define SYS_GPB_MFPH_PB9MFP_GPIO              (0x00UL<<SYS_GPB_MFPH_PB9MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPB_MFPH_PB9MFP_EPWM2_CH4         (0x01UL<<SYS_GPB_MFPH_PB9MFP_Pos)  /*!< EPWM2 channel4 output/capture input. */
 #define SYS_GPB_MFPH_PB9MFP_UART2_nRTS        (0x02UL<<SYS_GPB_MFPH_PB9MFP_Pos)  /*!< Request to Send output pin for UART2. */
@@ -276,7 +259,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPB_MFPH_PB9MFP_TM0_EXT           (0x0BUL<<SYS_GPB_MFPH_PB9MFP_Pos)  /*!< Timer0 event counter input / toggle output */
 #define SYS_GPB_MFPH_PB9MFP_I2S1_MCLK         (0x0CUL<<SYS_GPB_MFPH_PB9MFP_Pos)  /*!< I2S1 master clock output pin. */
 #define SYS_GPB_MFPH_PB9MFP_SC0_nCD           (0x0DUL<<SYS_GPB_MFPH_PB9MFP_Pos)  /*!< SmartCard0 card detect pin. */
-#define SYS_GPB_MFPH_PB9MFP_QEI2_A            (0x0EUL<<SYS_GPB_MFPH_PB9MFP_Pos)  /*!< Quadrature encoder phase A input of QEI Unit 2. */
 #define SYS_GPB_MFPH_PB10MFP_GPIO             (0x00UL<<SYS_GPB_MFPH_PB10MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPB_MFPH_PB10MFP_EPWM2_CH5        (0x01UL<<SYS_GPB_MFPH_PB10MFP_Pos) /*!< EPWM2 channel5 output/capture input. */
 #define SYS_GPB_MFPH_PB10MFP_UART2_RXD        (0x02UL<<SYS_GPB_MFPH_PB10MFP_Pos) /*!< Data receiver input pin for UART2. */
@@ -291,7 +273,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPB_MFPH_PB10MFP_TM5              (0x0BUL<<SYS_GPB_MFPH_PB10MFP_Pos) /*!< Timer5 event counter input / toggle output */
 #define SYS_GPB_MFPH_PB10MFP_I2C1_SDA         (0x0CUL<<SYS_GPB_MFPH_PB10MFP_Pos) /*!< I2C1 data input/output pin. */
 #define SYS_GPB_MFPH_PB10MFP_INT1             (0x0DUL<<SYS_GPB_MFPH_PB10MFP_Pos) /*!< External interrupt1 input pin. */
-#define SYS_GPB_MFPH_PB10MFP_QEI2_B           (0x0EUL<<SYS_GPB_MFPH_PB10MFP_Pos) /*!< Quadrature encoder phase B input of QEI Unit 2. */
 #define SYS_GPB_MFPH_PB11MFP_GPIO             (0x00UL<<SYS_GPB_MFPH_PB11MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPB_MFPH_PB11MFP_EPWM2_BRAKE1     (0x01UL<<SYS_GPB_MFPH_PB11MFP_Pos) /*!< Brake input pin 1 of EPWM2. */
 #define SYS_GPB_MFPH_PB11MFP_UART2_TXD        (0x02UL<<SYS_GPB_MFPH_PB11MFP_Pos) /*!< Data transmitter output pin for UART2. */
@@ -306,7 +287,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPB_MFPH_PB11MFP_TM5_EXT          (0x0BUL<<SYS_GPB_MFPH_PB11MFP_Pos) /*!< Timer5 event counter input / toggle output */
 #define SYS_GPB_MFPH_PB11MFP_I2C1_SCL         (0x0CUL<<SYS_GPB_MFPH_PB11MFP_Pos) /*!< I2C1 clock pin. */
 #define SYS_GPB_MFPH_PB11MFP_INT2             (0x0DUL<<SYS_GPB_MFPH_PB11MFP_Pos) /*!< External interrupt2 input pin. */
-#define SYS_GPB_MFPH_PB11MFP_QEI2_INDEX       (0x0EUL<<SYS_GPB_MFPH_PB11MFP_Pos) /*!< Quadrature encoder index input of QEI Unit 2. */
 #define SYS_GPB_MFPH_PB12MFP_GPIO             (0x00UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPB_MFPH_PB12MFP_EPWM2_CH0        (0x01UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< EPWM2 channel0 output/capture input. */
 #define SYS_GPB_MFPH_PB12MFP_UART4_nCTS       (0x02UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< Clear to Send input pin for UART4. */
@@ -317,7 +297,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPB_MFPH_PB12MFP_USBHL1_DM        (0x07UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< USB 1.1 host-lite 1 differential signal D-. */
 #define SYS_GPB_MFPH_PB12MFP_ADC0_CH4         (0x08UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< ADC0 channel 4 analog input. */
 #define SYS_GPB_MFPH_PB12MFP_EBI_ADR16        (0x09UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< EBI address/data bus bit*. */
-#define SYS_GPB_MFPH_PB12MFP_ECAP2_IC0        (0x0EUL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< Input 0 of enhanced capture unit 2. */
 #define SYS_GPB_MFPH_PB13MFP_GPIO             (0x00UL<<SYS_GPB_MFPH_PB13MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPB_MFPH_PB13MFP_EPWM2_CH1        (0x01UL<<SYS_GPB_MFPH_PB13MFP_Pos) /*!< EPWM2 channel1 output/capture input. */
 #define SYS_GPB_MFPH_PB13MFP_UART4_nRTS       (0x02UL<<SYS_GPB_MFPH_PB13MFP_Pos) /*!< Request to Send output pin for UART4. */
@@ -328,7 +307,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPB_MFPH_PB13MFP_USBHL1_DP        (0x07UL<<SYS_GPB_MFPH_PB13MFP_Pos) /*!< USB 1.1 host-lite 1 differential signal D+. */
 #define SYS_GPB_MFPH_PB13MFP_ADC0_CH5         (0x08UL<<SYS_GPB_MFPH_PB13MFP_Pos) /*!< ADC0 channel 5 analog input. */
 #define SYS_GPB_MFPH_PB13MFP_EBI_ADR17        (0x09UL<<SYS_GPB_MFPH_PB13MFP_Pos) /*!< EBI address/data bus bit*. */
-#define SYS_GPB_MFPH_PB13MFP_ECAP2_IC1        (0x0EUL<<SYS_GPB_MFPH_PB13MFP_Pos) /*!< Input 1 of enhanced capture unit 2. */
 #define SYS_GPB_MFPH_PB14MFP_GPIO             (0x00UL<<SYS_GPB_MFPH_PB14MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPB_MFPH_PB14MFP_EPWM2_CH2        (0x01UL<<SYS_GPB_MFPH_PB14MFP_Pos) /*!< EPWM2 channel2 output/capture input. */
 #define SYS_GPB_MFPH_PB14MFP_UART4_RXD        (0x02UL<<SYS_GPB_MFPH_PB14MFP_Pos) /*!< Data receiver input pin for UART4. */
@@ -338,7 +316,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPB_MFPH_PB14MFP_I2S1_DI          (0x06UL<<SYS_GPB_MFPH_PB14MFP_Pos) /*!< I2S1 data input. */
 #define SYS_GPB_MFPH_PB14MFP_ADC0_CH6         (0x08UL<<SYS_GPB_MFPH_PB14MFP_Pos) /*!< ADC0 channel 6 analog input. */
 #define SYS_GPB_MFPH_PB14MFP_EBI_ADR18        (0x09UL<<SYS_GPB_MFPH_PB14MFP_Pos) /*!< EBI address/data bus bit*. */
-#define SYS_GPB_MFPH_PB14MFP_ECAP2_IC2        (0x0EUL<<SYS_GPB_MFPH_PB14MFP_Pos) /*!< Input 2 of enhanced capture unit 2. */
 #define SYS_GPB_MFPH_PB15MFP_GPIO             (0x00UL<<SYS_GPB_MFPH_PB15MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPB_MFPH_PB15MFP_EPWM2_CH3        (0x01UL<<SYS_GPB_MFPH_PB15MFP_Pos) /*!< EPWM2 channel3 output/capture input. */
 #define SYS_GPB_MFPH_PB15MFP_UART4_TXD        (0x02UL<<SYS_GPB_MFPH_PB15MFP_Pos) /*!< Data transmitter output pin for UART4. */
@@ -476,7 +453,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPD_MFPL_PD7MFP_EPWM0_CH1         (0x08UL<<SYS_GPD_MFPL_PD7MFP_Pos)  /*!< EPWM0 channel1 output/capture input. */
 #define SYS_GPD_MFPL_PD7MFP_EBI_AD6           (0x09UL<<SYS_GPD_MFPL_PD7MFP_Pos)  /*!< EBI address/data bus bit6. */
 #define SYS_GPD_MFPL_PD7MFP_SC1_nCD           (0x0AUL<<SYS_GPD_MFPL_PD7MFP_Pos)  /*!< SmartCard1 card detect pin. */
-#define SYS_GPD_MFPL_PD7MFP_EADC0_ST          (0x0BUL<<SYS_GPD_MFPL_PD7MFP_Pos)  /*!< EADC external trigger input. */
 /********************* Bit definition of GPD_MFPH register **********************/
 #define SYS_GPD_MFPH_PD8MFP_GPIO              (0x00UL<<SYS_GPD_MFPH_PD8MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPD_MFPH_PD8MFP_EPWM0_BRAKE0      (0x01UL<<SYS_GPD_MFPH_PD8MFP_Pos)  /*!< Brake input pin 0 of EPWM0. */
@@ -524,7 +500,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPD_MFPH_PD12MFP_TRACE_DATA0      (0x06UL<<SYS_GPD_MFPH_PD12MFP_Pos) /*!< ETM Rx input bus bit0. */
 #define SYS_GPD_MFPH_PD12MFP_EBI_nCS1         (0x07UL<<SYS_GPD_MFPH_PD12MFP_Pos) /*!< EBI chip select enable output pin. */
 #define SYS_GPD_MFPH_PD12MFP_EBI_AD4          (0x08UL<<SYS_GPD_MFPH_PD12MFP_Pos) /*!< EBI address/data bus bit4. */
-#define SYS_GPD_MFPH_PD12MFP_QEI0_INDEX       (0x09UL<<SYS_GPD_MFPH_PD12MFP_Pos) /*!< Quadrature encoder index input of QEI Unit 0. */
 #define SYS_GPD_MFPH_PD12MFP_TM5              (0x0BUL<<SYS_GPD_MFPH_PD12MFP_Pos) /*!< Timer5 event counter input / toggle output */
 #define SYS_GPD_MFPH_PD12MFP_I2S1_LRCK        (0x0CUL<<SYS_GPD_MFPH_PD12MFP_Pos) /*!< I2S1 left right channel clock. */
 #define SYS_GPD_MFPH_PD12MFP_INT1             (0x0DUL<<SYS_GPD_MFPH_PD12MFP_Pos) /*!< External interrupt1 input pin. */
@@ -536,7 +511,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPD_MFPH_PD13MFP_TRACE_DATA1      (0x06UL<<SYS_GPD_MFPH_PD13MFP_Pos) /*!< ETM Rx input bus bit1. */
 #define SYS_GPD_MFPH_PD13MFP_EBI_nCS2         (0x07UL<<SYS_GPD_MFPH_PD13MFP_Pos) /*!< EBI chip select enable output pin. */
 #define SYS_GPD_MFPH_PD13MFP_EBI_AD5          (0x08UL<<SYS_GPD_MFPH_PD13MFP_Pos) /*!< EBI address/data bus bit5. */
-#define SYS_GPD_MFPH_PD13MFP_ECAP0_IC0        (0x09UL<<SYS_GPD_MFPH_PD13MFP_Pos) /*!< Input 0 of enhanced capture unit 0. */
 #define SYS_GPD_MFPH_PD13MFP_TM5_EXT          (0x0BUL<<SYS_GPD_MFPH_PD13MFP_Pos) /*!< Timer5 event counter input / toggle output */
 #define SYS_GPD_MFPH_PD13MFP_I2S1_BCLK        (0x0CUL<<SYS_GPD_MFPH_PD13MFP_Pos) /*!< I2S1 bit clock pin. */
 #define SYS_GPD_MFPH_PD14MFP_GPIO             (0x00UL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< General purpose digital I/O pin. */
@@ -547,7 +521,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPD_MFPH_PD14MFP_TRACE_DATA2      (0x06UL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< ETM Rx input bus bit2. */
 #define SYS_GPD_MFPH_PD14MFP_EBI_MCLK         (0x07UL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< EBI external clock output pin. */
 #define SYS_GPD_MFPH_PD14MFP_EBI_AD6          (0x08UL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< EBI address/data bus bit6. */
-#define SYS_GPD_MFPH_PD14MFP_ECAP0_IC1        (0x09UL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< Input 1 of enhanced capture unit 0. */
 #define SYS_GPD_MFPH_PD14MFP_TM6              (0x0BUL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< Timer6 event counter input / toggle output */
 #define SYS_GPD_MFPH_PD14MFP_I2S1_DI          (0x0CUL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< I2S1 data input. */
 #define SYS_GPD_MFPH_PD14MFP_INT3             (0x0DUL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< External interrupt3 input pin. */
@@ -559,7 +532,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPD_MFPH_PD15MFP_TRACE_DATA3      (0x06UL<<SYS_GPD_MFPH_PD15MFP_Pos) /*!< ETM Rx input bus bit3. */
 #define SYS_GPD_MFPH_PD15MFP_EBI_ALE          (0x07UL<<SYS_GPD_MFPH_PD15MFP_Pos) /*!< EBI address latch enable output pin. */
 #define SYS_GPD_MFPH_PD15MFP_EBI_AD7          (0x08UL<<SYS_GPD_MFPH_PD15MFP_Pos) /*!< EBI address/data bus bit7. */
-#define SYS_GPD_MFPH_PD15MFP_ECAP0_IC2        (0x09UL<<SYS_GPD_MFPH_PD15MFP_Pos) /*!< Input 0 of enhanced capture unit 2. */
 #define SYS_GPD_MFPH_PD15MFP_TM6_EXT          (0x0BUL<<SYS_GPD_MFPH_PD15MFP_Pos) /*!< Timer6 event counter input / toggle output */
 #define SYS_GPD_MFPH_PD15MFP_I2S1_DO          (0x0CUL<<SYS_GPD_MFPH_PD15MFP_Pos) /*!< I2S1 data output. */
 /********************* Bit definition of GPE_MFPL register **********************/
@@ -756,7 +728,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPF_MFPH_PF13MFP_KPI_ROW5         (0x0EUL<<SYS_GPF_MFPH_PF13MFP_Pos) /*!< Keypad Interface Row 5 input pin. */
 #define SYS_GPF_MFPH_PF14MFP_GPIO             (0x00UL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPF_MFPH_PF14MFP_EPWM2_BRAKE0     (0x01UL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< Brake input pin 0 of EPWM2. */
-#define SYS_GPF_MFPH_PF14MFP_EADC0_ST         (0x02UL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< EADC external trigger input. */
 #define SYS_GPF_MFPH_PF14MFP_RGMII1_PPS       (0x03UL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< RGMII1 Pulse Per Second output pin. */
 #define SYS_GPF_MFPH_PF14MFP_RMII1_PPS        (0x04UL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< RMII1 Pulse Per Second output pin. */
 #define SYS_GPF_MFPH_PF14MFP_SPI0_I2SMCLK     (0x05UL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< SPI0 I2S master clock output pin. */
@@ -767,7 +738,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPF_MFPH_PF14MFP_TM0              (0x0BUL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< Timer0 event counter input / toggle output */
 #define SYS_GPF_MFPH_PF14MFP_INT0             (0x0CUL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< External interrupt0 input pin. */
 #define SYS_GPF_MFPH_PF14MFP_SPI1_SS1         (0x0DUL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< 1st SPI1 slave select pin. */
-#define SYS_GPF_MFPH_PF14MFP_QEI2_INDEX       (0x0EUL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< Quadrature encoder index input of QEI Unit 2. */
 #define SYS_GPF_MFPH_PF14MFP_I2S0_MCLK        (0x0FUL<<SYS_GPF_MFPH_PF14MFP_Pos) /*!< I2S0 master clock output pin. */
 #define SYS_GPF_MFPH_PF15MFP_GPIO             (0x00UL<<SYS_GPF_MFPH_PF15MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPF_MFPH_PF15MFP_HSUSB0_VBUSVLD   (0x01UL<<SYS_GPF_MFPH_PF15MFP_Pos) /*!< HSUSB0 external VBUS regulator status pin. */
@@ -777,10 +747,8 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPG_MFPL_PG0MFP_UART7_TXD         (0x02UL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< Data transmitter output pin for UART7. */
 #define SYS_GPG_MFPL_PG0MFP_CAN3_TXD          (0x03UL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< CAN3 bus transmitter output. */
 #define SYS_GPG_MFPL_PG0MFP_SPI0_SS0          (0x05UL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< 1st SPI0 slave select pin. */
-#define SYS_GPG_MFPL_PG0MFP_EADC0_ST          (0x06UL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< EADC external trigger input. */
 #define SYS_GPG_MFPL_PG0MFP_EBI_AD15          (0x07UL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< EBI address/data bus bit1. */
 #define SYS_GPG_MFPL_PG0MFP_I2S1_MCLK         (0x09UL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< I2S1 master clock output pin. */
-#define SYS_GPG_MFPL_PG0MFP_QEI0_INDEX        (0x0AUL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< Quadrature encoder index input of QEI Unit 0. */
 #define SYS_GPG_MFPL_PG0MFP_TM1               (0x0BUL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< Timer1 event counter input / toggle output */
 #define SYS_GPG_MFPL_PG0MFP_CLKO              (0x0CUL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< Clock Output pin. */
 #define SYS_GPG_MFPL_PG0MFP_INT0              (0x0DUL<<SYS_GPG_MFPL_PG0MFP_Pos)  /*!< External interrupt0 input pin. */
@@ -793,7 +761,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPG_MFPL_PG1MFP_CAN2_TXD          (0x05UL<<SYS_GPG_MFPL_PG1MFP_Pos)  /*!< CAN2 bus transmitter output. */
 #define SYS_GPG_MFPL_PG1MFP_USBHL0_DP         (0x06UL<<SYS_GPG_MFPL_PG1MFP_Pos)  /*!< USB 1.1 host-lite 0 differential signal D+. */
 #define SYS_GPG_MFPL_PG1MFP_EBI_nCS0          (0x07UL<<SYS_GPG_MFPL_PG1MFP_Pos)  /*!< EBI chip select enable output pin. */
-#define SYS_GPG_MFPL_PG1MFP_QEI0_B            (0x09UL<<SYS_GPG_MFPL_PG1MFP_Pos)  /*!< Quadrature encoder phase B input of QEI Unit 0. */
 #define SYS_GPG_MFPL_PG1MFP_TM1_EXT           (0x0BUL<<SYS_GPG_MFPL_PG1MFP_Pos)  /*!< Timer1 event counter input / toggle output */
 #define SYS_GPG_MFPL_PG1MFP_RGMII1_PPS        (0x0EUL<<SYS_GPG_MFPL_PG1MFP_Pos)  /*!< RGMII1 Pulse Per Second output pin. */
 #define SYS_GPG_MFPL_PG1MFP_RMII1_PPS         (0x0FUL<<SYS_GPG_MFPL_PG1MFP_Pos)  /*!< RMII1 Pulse Per Second output pin. */
@@ -805,7 +772,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPG_MFPL_PG2MFP_TSI_SWD_DAT       (0x06UL<<SYS_GPG_MFPL_PG2MFP_Pos)  /*!< Serial wire debug data pin for TSI. */
 #define SYS_GPG_MFPL_PG2MFP_EBI_ADR16         (0x07UL<<SYS_GPG_MFPL_PG2MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPG_MFPL_PG2MFP_EBI_nCS2          (0x08UL<<SYS_GPG_MFPL_PG2MFP_Pos)  /*!< EBI chip select enable output pin. */
-#define SYS_GPG_MFPL_PG2MFP_QEI0_A            (0x0AUL<<SYS_GPG_MFPL_PG2MFP_Pos)  /*!< Quadrature encoder phase A input of QEI Unit 0. */
 #define SYS_GPG_MFPL_PG2MFP_TM3               (0x0BUL<<SYS_GPG_MFPL_PG2MFP_Pos)  /*!< Timer3 event counter input / toggle output */
 #define SYS_GPG_MFPL_PG2MFP_INT1              (0x0DUL<<SYS_GPG_MFPL_PG2MFP_Pos)  /*!< External interrupt1 input pin. */
 #define SYS_GPG_MFPL_PG3MFP_GPIO              (0x00UL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< General purpose digital I/O pin. */
@@ -817,7 +783,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPG_MFPL_PG3MFP_EBI_ADR17         (0x07UL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPG_MFPL_PG3MFP_EBI_nCS1          (0x08UL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< EBI chip select enable output pin. */
 #define SYS_GPG_MFPL_PG3MFP_EBI_MCLK          (0x09UL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< EBI external clock output pin. */
-#define SYS_GPG_MFPL_PG3MFP_QEI0_B            (0x0AUL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< Quadrature encoder phase B input of QEI Unit 0. */
 #define SYS_GPG_MFPL_PG3MFP_TM3_EXT           (0x0BUL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< Timer3 event counter input / toggle output */
 #define SYS_GPG_MFPL_PG3MFP_I2S1_MCLK         (0x0CUL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< I2S1 master clock output pin. */
 #define SYS_GPG_MFPL_PG4MFP_GPIO              (0x00UL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< General purpose digital I/O pin. */
@@ -825,7 +790,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPG_MFPL_PG4MFP_UART5_nCTS        (0x02UL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< Clear to Send input pin for UART5. */
 #define SYS_GPG_MFPL_PG4MFP_UART6_RXD         (0x03UL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< Data receiver input pin for UART6. */
 #define SYS_GPG_MFPL_PG4MFP_SPI3_SS0          (0x05UL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< 1st SPI3 slave select pin. */
-#define SYS_GPG_MFPL_PG4MFP_QEI1_INDEX        (0x06UL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< Quadrature encoder index input of QEI Unit 1. */
 #define SYS_GPG_MFPL_PG4MFP_EBI_ADR18         (0x07UL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPG_MFPL_PG4MFP_EBI_nCS0          (0x08UL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< EBI chip select enable output pin. */
 #define SYS_GPG_MFPL_PG4MFP_I2S1_DO           (0x09UL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< I2S1 data output. */
@@ -833,13 +797,11 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPG_MFPL_PG4MFP_TM4               (0x0BUL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< Timer4 event counter input / toggle output */
 #define SYS_GPG_MFPL_PG4MFP_TSI_UART_RXD      (0x0CUL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< UART data receiver input pin for TSI. */
 #define SYS_GPG_MFPL_PG4MFP_INT2              (0x0DUL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< External interrupt2 input pin. */
-#define SYS_GPG_MFPL_PG4MFP_ECAP1_IC2         (0x0EUL<<SYS_GPG_MFPL_PG4MFP_Pos)  /*!< Input 1 of enhanced capture unit 2. */
 #define SYS_GPG_MFPL_PG5MFP_GPIO              (0x00UL<<SYS_GPG_MFPL_PG5MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPG_MFPL_PG5MFP_EPWM1_CH1         (0x01UL<<SYS_GPG_MFPL_PG5MFP_Pos)  /*!< EPWM1 channel1 output/capture input. */
 #define SYS_GPG_MFPL_PG5MFP_UART5_nRTS        (0x02UL<<SYS_GPG_MFPL_PG5MFP_Pos)  /*!< Request to Send output pin for UART5. */
 #define SYS_GPG_MFPL_PG5MFP_UART6_TXD         (0x03UL<<SYS_GPG_MFPL_PG5MFP_Pos)  /*!< Data transmitter output pin for UART6. */
 #define SYS_GPG_MFPL_PG5MFP_SPI3_CLK          (0x05UL<<SYS_GPG_MFPL_PG5MFP_Pos)  /*!< SPI3 serial clock pin. */
-#define SYS_GPG_MFPL_PG5MFP_ECAP0_IC0         (0x06UL<<SYS_GPG_MFPL_PG5MFP_Pos)  /*!< Input 0 of enhanced capture unit 0. */
 #define SYS_GPG_MFPL_PG5MFP_EBI_ADR19         (0x07UL<<SYS_GPG_MFPL_PG5MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPG_MFPL_PG5MFP_EBI_ALE           (0x08UL<<SYS_GPG_MFPL_PG5MFP_Pos)  /*!< EBI address latch enable output pin. */
 #define SYS_GPG_MFPL_PG5MFP_I2S1_DI           (0x09UL<<SYS_GPG_MFPL_PG5MFP_Pos)  /*!< I2S1 data input. */
@@ -851,7 +813,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPG_MFPL_PG6MFP_UART5_RXD         (0x02UL<<SYS_GPG_MFPL_PG6MFP_Pos)  /*!< Data receiver input pin for UART5. */
 #define SYS_GPG_MFPL_PG6MFP_CAN1_RXD          (0x03UL<<SYS_GPG_MFPL_PG6MFP_Pos)  /*!< CAN1 bus receiver input. */
 #define SYS_GPG_MFPL_PG6MFP_SPI3_MOSI         (0x05UL<<SYS_GPG_MFPL_PG6MFP_Pos)  /*!< 1st SPI3 MOSI (Master Out, Slave In) pin. */
-#define SYS_GPG_MFPL_PG6MFP_ECAP0_IC1         (0x06UL<<SYS_GPG_MFPL_PG6MFP_Pos)  /*!< Input 1 of enhanced capture unit 0. */
 #define SYS_GPG_MFPL_PG6MFP_EBI_nRD           (0x07UL<<SYS_GPG_MFPL_PG6MFP_Pos)  /*!< EBI read enable output pin. */
 #define SYS_GPG_MFPL_PG6MFP_I2S1_BCLK         (0x09UL<<SYS_GPG_MFPL_PG6MFP_Pos)  /*!< I2S1 bit clock pin. */
 #define SYS_GPG_MFPL_PG6MFP_SC1_RST           (0x0AUL<<SYS_GPG_MFPL_PG6MFP_Pos)  /*!< SmartCard1 reset pin. */
@@ -862,7 +823,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPG_MFPL_PG7MFP_UART5_TXD         (0x02UL<<SYS_GPG_MFPL_PG7MFP_Pos)  /*!< Data transmitter output pin for UART5. */
 #define SYS_GPG_MFPL_PG7MFP_CAN1_TXD          (0x03UL<<SYS_GPG_MFPL_PG7MFP_Pos)  /*!< CAN1 bus transmitter output. */
 #define SYS_GPG_MFPL_PG7MFP_SPI3_MISO         (0x05UL<<SYS_GPG_MFPL_PG7MFP_Pos)  /*!< 1st SPI3 MISO (Master In, Slave Out) pin. */
-#define SYS_GPG_MFPL_PG7MFP_ECAP0_IC2         (0x06UL<<SYS_GPG_MFPL_PG7MFP_Pos)  /*!< Input 0 of enhanced capture unit 2. */
 #define SYS_GPG_MFPL_PG7MFP_EBI_nWR           (0x07UL<<SYS_GPG_MFPL_PG7MFP_Pos)  /*!< EBI write enable output pin. */
 #define SYS_GPG_MFPL_PG7MFP_I2S1_LRCK         (0x09UL<<SYS_GPG_MFPL_PG7MFP_Pos)  /*!< I2S1 left right channel clock. */
 #define SYS_GPG_MFPL_PG7MFP_SC1_PWR           (0x0AUL<<SYS_GPG_MFPL_PG7MFP_Pos)  /*!< SmartCard1 power pin. */
@@ -992,7 +952,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPI_MFPL_PI0MFP_SC0_nCD           (0x07UL<<SYS_GPI_MFPL_PI0MFP_Pos)  /*!< SmartCard0 card detect pin. */
 #define SYS_GPI_MFPL_PI0MFP_EBI_ADR0          (0x08UL<<SYS_GPI_MFPL_PI0MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPI_MFPL_PI0MFP_TM0               (0x0BUL<<SYS_GPI_MFPL_PI0MFP_Pos)  /*!< Timer0 event counter input / toggle output */
-#define SYS_GPI_MFPL_PI0MFP_ECAP1_IC0         (0x0CUL<<SYS_GPI_MFPL_PI0MFP_Pos)  /*!< Input 0 of enhanced capture unit 1. */
 #define SYS_GPI_MFPL_PI1MFP_GPIO              (0x00UL<<SYS_GPI_MFPL_PI1MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPI_MFPL_PI1MFP_EPWM0_CH1         (0x01UL<<SYS_GPI_MFPL_PI1MFP_Pos)  /*!< EPWM0 channel1 output/capture input. */
 #define SYS_GPI_MFPL_PI1MFP_UART12_nRTS       (0x02UL<<SYS_GPI_MFPL_PI1MFP_Pos)  /*!< Request to Send output pin for UART12. */
@@ -1002,7 +961,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPI_MFPL_PI1MFP_SC0_CLK           (0x07UL<<SYS_GPI_MFPL_PI1MFP_Pos)  /*!< SmartCard0 clock pin. */
 #define SYS_GPI_MFPL_PI1MFP_EBI_ADR1          (0x08UL<<SYS_GPI_MFPL_PI1MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPI_MFPL_PI1MFP_TM0_EXT           (0x0BUL<<SYS_GPI_MFPL_PI1MFP_Pos)  /*!< Timer0 event counter input / toggle output */
-#define SYS_GPI_MFPL_PI1MFP_ECAP1_IC1         (0x0CUL<<SYS_GPI_MFPL_PI1MFP_Pos)  /*!< Input 1 of enhanced capture unit 1. */
 #define SYS_GPI_MFPL_PI2MFP_GPIO              (0x00UL<<SYS_GPI_MFPL_PI2MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPI_MFPL_PI2MFP_EPWM0_CH2         (0x01UL<<SYS_GPI_MFPL_PI2MFP_Pos)  /*!< EPWM0 channel2 output/capture input. */
 #define SYS_GPI_MFPL_PI2MFP_UART12_RXD        (0x02UL<<SYS_GPI_MFPL_PI2MFP_Pos)  /*!< Data receiver input pin for UART12. */
@@ -1012,7 +970,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPI_MFPL_PI2MFP_SC0_DAT           (0x07UL<<SYS_GPI_MFPL_PI2MFP_Pos)  /*!< SmartCard0 data pin. */
 #define SYS_GPI_MFPL_PI2MFP_EBI_ADR2          (0x08UL<<SYS_GPI_MFPL_PI2MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPI_MFPL_PI2MFP_TM1               (0x0BUL<<SYS_GPI_MFPL_PI2MFP_Pos)  /*!< Timer1 event counter input / toggle output */
-#define SYS_GPI_MFPL_PI2MFP_ECAP1_IC2         (0x0CUL<<SYS_GPI_MFPL_PI2MFP_Pos)  /*!< Input 1 of enhanced capture unit 2. */
 #define SYS_GPI_MFPL_PI3MFP_GPIO              (0x00UL<<SYS_GPI_MFPL_PI3MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPI_MFPL_PI3MFP_EPWM0_CH3         (0x01UL<<SYS_GPI_MFPL_PI3MFP_Pos)  /*!< EPWM0 channel3 output/capture input. */
 #define SYS_GPI_MFPL_PI3MFP_UART12_TXD        (0x02UL<<SYS_GPI_MFPL_PI3MFP_Pos)  /*!< Data transmitter output pin for UART12. */
@@ -1046,7 +1003,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPI_MFPL_PI6MFP_USBHL3_DM         (0x04UL<<SYS_GPI_MFPL_PI6MFP_Pos)  /*!< USB 1.1 host-lite 3 differential signal D-. */
 #define SYS_GPI_MFPL_PI6MFP_I2S1_DI           (0x06UL<<SYS_GPI_MFPL_PI6MFP_Pos)  /*!< I2S1 data input. */
 #define SYS_GPI_MFPL_PI6MFP_EBI_ADR6          (0x08UL<<SYS_GPI_MFPL_PI6MFP_Pos)  /*!< EBI address/data bus bit*. */
-#define SYS_GPI_MFPL_PI6MFP_QEI1_INDEX        (0x0CUL<<SYS_GPI_MFPL_PI6MFP_Pos)  /*!< Quadrature encoder index input of QEI Unit 1. */
 #define SYS_GPI_MFPL_PI6MFP_INT2              (0x0DUL<<SYS_GPI_MFPL_PI6MFP_Pos)  /*!< External interrupt2 input pin. */
 #define SYS_GPI_MFPL_PI7MFP_GPIO              (0x00UL<<SYS_GPI_MFPL_PI7MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPI_MFPL_PI7MFP_EPWM0_BRAKE1      (0x01UL<<SYS_GPI_MFPL_PI7MFP_Pos)  /*!< Brake input pin 1 of EPWM0. */
@@ -1055,7 +1011,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPI_MFPL_PI7MFP_USBHL3_DP         (0x04UL<<SYS_GPI_MFPL_PI7MFP_Pos)  /*!< USB 1.1 host-lite 3 differential signal D+. */
 #define SYS_GPI_MFPL_PI7MFP_I2S1_DO           (0x06UL<<SYS_GPI_MFPL_PI7MFP_Pos)  /*!< I2S1 data output. */
 #define SYS_GPI_MFPL_PI7MFP_EBI_ADR7          (0x08UL<<SYS_GPI_MFPL_PI7MFP_Pos)  /*!< EBI address/data bus bit*. */
-#define SYS_GPI_MFPL_PI7MFP_ECAP0_IC0         (0x0CUL<<SYS_GPI_MFPL_PI7MFP_Pos)  /*!< Input 0 of enhanced capture unit 0. */
 #define SYS_GPI_MFPL_PI7MFP_INT3              (0x0DUL<<SYS_GPI_MFPL_PI7MFP_Pos)  /*!< External interrupt3 input pin. */
 /********************* Bit definition of GPI_MFPH register **********************/
 #define SYS_GPI_MFPH_PI8MFP_GPIO              (0x00UL<<SYS_GPI_MFPH_PI8MFP_Pos)  /*!< General purpose digital I/O pin. */
@@ -1195,7 +1150,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPJ_MFPH_PJ12MFP_SC1_CLK          (0x07UL<<SYS_GPJ_MFPH_PJ12MFP_Pos) /*!< SmartCard1 clock pin. */
 #define SYS_GPJ_MFPH_PJ12MFP_EBI_ADR12        (0x08UL<<SYS_GPJ_MFPH_PJ12MFP_Pos) /*!< EBI address/data bus bit*. */
 #define SYS_GPJ_MFPH_PJ12MFP_TM2              (0x0BUL<<SYS_GPJ_MFPH_PJ12MFP_Pos) /*!< Timer2 event counter input / toggle output */
-#define SYS_GPJ_MFPH_PJ12MFP_QEI0_INDEX       (0x0CUL<<SYS_GPJ_MFPH_PJ12MFP_Pos) /*!< Quadrature encoder index input of QEI Unit 0. */
 #define SYS_GPJ_MFPH_PJ13MFP_GPIO             (0x00UL<<SYS_GPJ_MFPH_PJ13MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPJ_MFPH_PJ13MFP_EPWM1_CH3        (0x01UL<<SYS_GPJ_MFPH_PJ13MFP_Pos) /*!< EPWM1 channel3 output/capture input. */
 #define SYS_GPJ_MFPH_PJ13MFP_UART2_nRTS       (0x02UL<<SYS_GPJ_MFPH_PJ13MFP_Pos) /*!< Request to Send output pin for UART2. */
@@ -1220,7 +1174,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPJ_MFPH_PJ15MFP_CAN3_TXD         (0x03UL<<SYS_GPJ_MFPH_PJ15MFP_Pos) /*!< CAN3 bus transmitter output. */
 #define SYS_GPJ_MFPH_PJ15MFP_USBHL5_DP        (0x04UL<<SYS_GPJ_MFPH_PJ15MFP_Pos) /*!< USB 1.1 host-lite 5 differential signal D+. */
 #define SYS_GPJ_MFPH_PJ15MFP_SPI3_CLK         (0x05UL<<SYS_GPJ_MFPH_PJ15MFP_Pos) /*!< SPI3 serial clock pin. */
-#define SYS_GPJ_MFPH_PJ15MFP_EADC0_ST         (0x06UL<<SYS_GPJ_MFPH_PJ15MFP_Pos) /*!< EADC external trigger input. */
 #define SYS_GPJ_MFPH_PJ15MFP_SC1_PWR          (0x07UL<<SYS_GPJ_MFPH_PJ15MFP_Pos) /*!< SmartCard1 power pin. */
 #define SYS_GPJ_MFPH_PJ15MFP_EBI_ADR15        (0x08UL<<SYS_GPJ_MFPH_PJ15MFP_Pos) /*!< EBI address/data bus bit*. */
 #define SYS_GPJ_MFPH_PJ15MFP_TM3_EXT          (0x0BUL<<SYS_GPJ_MFPH_PJ15MFP_Pos) /*!< Timer3 event counter input / toggle output */
@@ -1234,16 +1187,13 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPK_MFPL_PK0MFP_I2S1_MCLK         (0x06UL<<SYS_GPK_MFPL_PK0MFP_Pos)  /*!< I2S1 master clock output pin. */
 #define SYS_GPK_MFPL_PK0MFP_EBI_ADR8          (0x08UL<<SYS_GPK_MFPL_PK0MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPK_MFPL_PK0MFP_TM7               (0x0BUL<<SYS_GPK_MFPL_PK0MFP_Pos)  /*!< Timer7 event counter input / toggle output */
-#define SYS_GPK_MFPL_PK0MFP_ECAP0_IC1         (0x0CUL<<SYS_GPK_MFPL_PK0MFP_Pos)  /*!< Input 1 of enhanced capture unit 0. */
 #define SYS_GPK_MFPL_PK1MFP_GPIO              (0x00UL<<SYS_GPK_MFPL_PK1MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPK_MFPL_PK1MFP_EPWM0_SYNC_OUT    (0x01UL<<SYS_GPK_MFPL_PK1MFP_Pos)  /*!< EPWM0 counter synchronous trigger output pin. */
 #define SYS_GPK_MFPL_PK1MFP_UART16_nRTS       (0x02UL<<SYS_GPK_MFPL_PK1MFP_Pos)  /*!< Request to Send output pin for UART16. */
 #define SYS_GPK_MFPL_PK1MFP_UART15_TXD        (0x03UL<<SYS_GPK_MFPL_PK1MFP_Pos)  /*!< Data transmitter output pin for UART15. */
 #define SYS_GPK_MFPL_PK1MFP_I2C4_SCL          (0x04UL<<SYS_GPK_MFPL_PK1MFP_Pos)  /*!< I2C4 clock pin. */
-#define SYS_GPK_MFPL_PK1MFP_EADC0_ST          (0x06UL<<SYS_GPK_MFPL_PK1MFP_Pos)  /*!< EADC external trigger input. */
 #define SYS_GPK_MFPL_PK1MFP_EBI_ADR9          (0x08UL<<SYS_GPK_MFPL_PK1MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPK_MFPL_PK1MFP_TM7_EXT           (0x0BUL<<SYS_GPK_MFPL_PK1MFP_Pos)  /*!< Timer7 event counter input / toggle output */
-#define SYS_GPK_MFPL_PK1MFP_ECAP0_IC2         (0x0CUL<<SYS_GPK_MFPL_PK1MFP_Pos)  /*!< Input 0 of enhanced capture unit 2. */
 #define SYS_GPK_MFPL_PK2MFP_GPIO              (0x00UL<<SYS_GPK_MFPL_PK2MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPK_MFPL_PK2MFP_EPWM1_CH0         (0x01UL<<SYS_GPK_MFPL_PK2MFP_Pos)  /*!< EPWM1 channel0 output/capture input. */
 #define SYS_GPK_MFPL_PK2MFP_UART16_RXD        (0x02UL<<SYS_GPK_MFPL_PK2MFP_Pos)  /*!< Data receiver input pin for UART16. */
@@ -1252,7 +1202,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPK_MFPL_PK2MFP_SPI3_I2SMCLK      (0x05UL<<SYS_GPK_MFPL_PK2MFP_Pos)  /*!< SPI3 I2S master clock output pin. */
 #define SYS_GPK_MFPL_PK2MFP_SC0_PWR           (0x07UL<<SYS_GPK_MFPL_PK2MFP_Pos)  /*!< SmartCard0 power pin. */
 #define SYS_GPK_MFPL_PK2MFP_EBI_ADR10         (0x08UL<<SYS_GPK_MFPL_PK2MFP_Pos)  /*!< EBI address/data bus bit*. */
-#define SYS_GPK_MFPL_PK2MFP_QEI0_A            (0x0CUL<<SYS_GPK_MFPL_PK2MFP_Pos)  /*!< Quadrature encoder phase A input of QEI Unit 0. */
 #define SYS_GPK_MFPL_PK3MFP_GPIO              (0x00UL<<SYS_GPK_MFPL_PK3MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPK_MFPL_PK3MFP_EPWM1_CH1         (0x01UL<<SYS_GPK_MFPL_PK3MFP_Pos)  /*!< EPWM1 channel1 output/capture input. */
 #define SYS_GPK_MFPL_PK3MFP_UART16_TXD        (0x02UL<<SYS_GPK_MFPL_PK3MFP_Pos)  /*!< Data transmitter output pin for UART16. */
@@ -1261,7 +1210,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPK_MFPL_PK3MFP_SPI3_SS1          (0x05UL<<SYS_GPK_MFPL_PK3MFP_Pos)  /*!< 1st SPI3 slave select pin. */
 #define SYS_GPK_MFPL_PK3MFP_SC1_nCD           (0x07UL<<SYS_GPK_MFPL_PK3MFP_Pos)  /*!< SmartCard1 card detect pin. */
 #define SYS_GPK_MFPL_PK3MFP_EBI_ADR11         (0x08UL<<SYS_GPK_MFPL_PK3MFP_Pos)  /*!< EBI address/data bus bit*. */
-#define SYS_GPK_MFPL_PK3MFP_QEI0_B            (0x0CUL<<SYS_GPK_MFPL_PK3MFP_Pos)  /*!< Quadrature encoder phase B input of QEI Unit 0. */
 #define SYS_GPK_MFPL_PK4MFP_GPIO              (0x00UL<<SYS_GPK_MFPL_PK4MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPK_MFPL_PK4MFP_UART12_nCTS       (0x02UL<<SYS_GPK_MFPL_PK4MFP_Pos)  /*!< Clear to Send input pin for UART12. */
 #define SYS_GPK_MFPL_PK4MFP_UART13_RXD        (0x03UL<<SYS_GPK_MFPL_PK4MFP_Pos)  /*!< Data receiver input pin for UART13. */
@@ -1278,7 +1226,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPK_MFPL_PK5MFP_SPI2_CLK          (0x05UL<<SYS_GPK_MFPL_PK5MFP_Pos)  /*!< SPI2 serial clock pin. */
 #define SYS_GPK_MFPL_PK5MFP_I2S1_DI           (0x07UL<<SYS_GPK_MFPL_PK5MFP_Pos)  /*!< I2S1 data input. */
 #define SYS_GPK_MFPL_PK5MFP_SC0_DAT           (0x08UL<<SYS_GPK_MFPL_PK5MFP_Pos)  /*!< SmartCard0 data pin. */
-#define SYS_GPK_MFPL_PK5MFP_EADC0_ST          (0x09UL<<SYS_GPK_MFPL_PK5MFP_Pos)  /*!< EADC external trigger input. */
 #define SYS_GPK_MFPL_PK5MFP_TM8_EXT           (0x0BUL<<SYS_GPK_MFPL_PK5MFP_Pos)  /*!< Timer8 event counter input / toggle output */
 #define SYS_GPK_MFPL_PK5MFP_INT1              (0x0DUL<<SYS_GPK_MFPL_PK5MFP_Pos)  /*!< External interrupt1 input pin. */
 #define SYS_GPK_MFPL_PK6MFP_GPIO              (0x00UL<<SYS_GPK_MFPL_PK6MFP_Pos)  /*!< General purpose digital I/O pin. */
@@ -1307,12 +1254,10 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPK_MFPH_PK8MFP_EPWM1_CH0         (0x01UL<<SYS_GPK_MFPH_PK8MFP_Pos)  /*!< EPWM1 channel0 output/capture input. */
 #define SYS_GPK_MFPH_PK8MFP_I2C3_SDA          (0x04UL<<SYS_GPK_MFPH_PK8MFP_Pos)  /*!< I2C3 data input/output pin. */
 #define SYS_GPK_MFPH_PK8MFP_SPI3_CLK          (0x05UL<<SYS_GPK_MFPH_PK8MFP_Pos)  /*!< SPI3 serial clock pin. */
-#define SYS_GPK_MFPH_PK8MFP_EADC0_ST          (0x07UL<<SYS_GPK_MFPH_PK8MFP_Pos)  /*!< EADC external trigger input. */
 #define SYS_GPK_MFPH_PK8MFP_EBI_AD15          (0x08UL<<SYS_GPK_MFPH_PK8MFP_Pos)  /*!< EBI address/data bus bit1. */
 #define SYS_GPK_MFPH_PK8MFP_EBI_MCLK          (0x09UL<<SYS_GPK_MFPH_PK8MFP_Pos)  /*!< EBI external clock output pin. */
 #define SYS_GPK_MFPH_PK8MFP_EBI_ADR15         (0x0AUL<<SYS_GPK_MFPH_PK8MFP_Pos)  /*!< EBI address/data bus bit*. */
 #define SYS_GPK_MFPH_PK8MFP_TM8               (0x0BUL<<SYS_GPK_MFPH_PK8MFP_Pos)  /*!< Timer8 event counter input / toggle output */
-#define SYS_GPK_MFPH_PK8MFP_QEI1_INDEX        (0x0CUL<<SYS_GPK_MFPH_PK8MFP_Pos)  /*!< Quadrature encoder index input of QEI Unit 1. */
 #define SYS_GPK_MFPH_PK9MFP_GPIO              (0x00UL<<SYS_GPK_MFPH_PK9MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPK_MFPH_PK9MFP_I2C3_SCL          (0x04UL<<SYS_GPK_MFPH_PK9MFP_Pos)  /*!< I2C3 clock pin. */
 #define SYS_GPK_MFPH_PK9MFP_VCAP0_SCLK        (0x06UL<<SYS_GPK_MFPH_PK9MFP_Pos)  /*!< Camera capture 0 interface sensor clock output pin. */
@@ -1382,7 +1327,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPL_PL0MFP_EBI_AD11          (0x08UL<<SYS_GPL_MFPL_PL0MFP_Pos)  /*!< EBI address/data bus bit1. */
 #define SYS_GPL_MFPL_PL0MFP_SC1_CLK           (0x09UL<<SYS_GPL_MFPL_PL0MFP_Pos)  /*!< SmartCard1 clock pin. */
 #define SYS_GPL_MFPL_PL0MFP_TM5               (0x0BUL<<SYS_GPL_MFPL_PL0MFP_Pos)  /*!< Timer5 event counter input / toggle output */
-#define SYS_GPL_MFPL_PL0MFP_QEI1_A            (0x0CUL<<SYS_GPL_MFPL_PL0MFP_Pos)  /*!< Quadrature encoder phase A input of QEI Unit 1. */
 #define SYS_GPL_MFPL_PL1MFP_GPIO              (0x00UL<<SYS_GPL_MFPL_PL1MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPL_PL1MFP_EPWM1_CH1         (0x01UL<<SYS_GPL_MFPL_PL1MFP_Pos)  /*!< EPWM1 channel1 output/capture input. */
 #define SYS_GPL_MFPL_PL1MFP_UART11_nRTS       (0x02UL<<SYS_GPL_MFPL_PL1MFP_Pos)  /*!< Request to Send output pin for UART11. */
@@ -1394,7 +1338,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPL_PL1MFP_EBI_AD12          (0x08UL<<SYS_GPL_MFPL_PL1MFP_Pos)  /*!< EBI address/data bus bit1. */
 #define SYS_GPL_MFPL_PL1MFP_SC1_DAT           (0x09UL<<SYS_GPL_MFPL_PL1MFP_Pos)  /*!< SmartCard1 data pin. */
 #define SYS_GPL_MFPL_PL1MFP_TM5_EXT           (0x0BUL<<SYS_GPL_MFPL_PL1MFP_Pos)  /*!< Timer5 event counter input / toggle output */
-#define SYS_GPL_MFPL_PL1MFP_QEI1_B            (0x0CUL<<SYS_GPL_MFPL_PL1MFP_Pos)  /*!< Quadrature encoder phase B input of QEI Unit 1. */
 #define SYS_GPL_MFPL_PL2MFP_GPIO              (0x00UL<<SYS_GPL_MFPL_PL2MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPL_PL2MFP_EPWM1_CH2         (0x01UL<<SYS_GPL_MFPL_PL2MFP_Pos)  /*!< EPWM1 channel2 output/capture input. */
 #define SYS_GPL_MFPL_PL2MFP_UART11_RXD        (0x02UL<<SYS_GPL_MFPL_PL2MFP_Pos)  /*!< Data receiver input pin for UART11. */
@@ -1406,7 +1349,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPL_PL2MFP_EBI_AD13          (0x08UL<<SYS_GPL_MFPL_PL2MFP_Pos)  /*!< EBI address/data bus bit1. */
 #define SYS_GPL_MFPL_PL2MFP_SC1_RST           (0x09UL<<SYS_GPL_MFPL_PL2MFP_Pos)  /*!< SmartCard1 reset pin. */
 #define SYS_GPL_MFPL_PL2MFP_TM7               (0x0BUL<<SYS_GPL_MFPL_PL2MFP_Pos)  /*!< Timer7 event counter input / toggle output */
-#define SYS_GPL_MFPL_PL2MFP_QEI1_INDEX        (0x0CUL<<SYS_GPL_MFPL_PL2MFP_Pos)  /*!< Quadrature encoder index input of QEI Unit 1. */
 #define SYS_GPL_MFPL_PL3MFP_GPIO              (0x00UL<<SYS_GPL_MFPL_PL3MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPL_PL3MFP_EPWM1_CH3         (0x01UL<<SYS_GPL_MFPL_PL3MFP_Pos)  /*!< EPWM1 channel3 output/capture input. */
 #define SYS_GPL_MFPL_PL3MFP_UART11_TXD        (0x02UL<<SYS_GPL_MFPL_PL3MFP_Pos)  /*!< Data transmitter output pin for UART11. */
@@ -1418,7 +1360,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPL_PL3MFP_EBI_AD14          (0x08UL<<SYS_GPL_MFPL_PL3MFP_Pos)  /*!< EBI address/data bus bit1. */
 #define SYS_GPL_MFPL_PL3MFP_SC1_PWR           (0x09UL<<SYS_GPL_MFPL_PL3MFP_Pos)  /*!< SmartCard1 power pin. */
 #define SYS_GPL_MFPL_PL3MFP_TM7_EXT           (0x0BUL<<SYS_GPL_MFPL_PL3MFP_Pos)  /*!< Timer7 event counter input / toggle output */
-#define SYS_GPL_MFPL_PL3MFP_ECAP0_IC0         (0x0CUL<<SYS_GPL_MFPL_PL3MFP_Pos)  /*!< Input 0 of enhanced capture unit 0. */
 #define SYS_GPL_MFPL_PL4MFP_GPIO              (0x00UL<<SYS_GPL_MFPL_PL4MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPL_PL4MFP_EPWM1_CH4         (0x01UL<<SYS_GPL_MFPL_PL4MFP_Pos)  /*!< EPWM1 channel4 output/capture input. */
 #define SYS_GPL_MFPL_PL4MFP_UART2_nCTS        (0x02UL<<SYS_GPL_MFPL_PL4MFP_Pos)  /*!< Clear to Send input pin for UART2. */
@@ -1430,7 +1371,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPL_PL4MFP_EBI_nRD           (0x08UL<<SYS_GPL_MFPL_PL4MFP_Pos)  /*!< EBI read enable output pin. */
 #define SYS_GPL_MFPL_PL4MFP_SC1_nCD           (0x09UL<<SYS_GPL_MFPL_PL4MFP_Pos)  /*!< SmartCard1 card detect pin. */
 #define SYS_GPL_MFPL_PL4MFP_TM9               (0x0BUL<<SYS_GPL_MFPL_PL4MFP_Pos)  /*!< Timer9 event counter input / toggle output */
-#define SYS_GPL_MFPL_PL4MFP_ECAP0_IC1         (0x0CUL<<SYS_GPL_MFPL_PL4MFP_Pos)  /*!< Input 1 of enhanced capture unit 0. */
 #define SYS_GPL_MFPL_PL5MFP_GPIO              (0x00UL<<SYS_GPL_MFPL_PL5MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPL_PL5MFP_EPWM1_CH5         (0x01UL<<SYS_GPL_MFPL_PL5MFP_Pos)  /*!< EPWM1 channel5 output/capture input. */
 #define SYS_GPL_MFPL_PL5MFP_UART2_nRTS        (0x02UL<<SYS_GPL_MFPL_PL5MFP_Pos)  /*!< Request to Send output pin for UART2. */
@@ -1442,7 +1382,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPL_PL5MFP_EBI_nWR           (0x08UL<<SYS_GPL_MFPL_PL5MFP_Pos)  /*!< EBI write enable output pin. */
 #define SYS_GPL_MFPL_PL5MFP_SC0_nCD           (0x09UL<<SYS_GPL_MFPL_PL5MFP_Pos)  /*!< SmartCard0 card detect pin. */
 #define SYS_GPL_MFPL_PL5MFP_TM9_EXT           (0x0BUL<<SYS_GPL_MFPL_PL5MFP_Pos)  /*!< Timer* event counter input / toggle output */
-#define SYS_GPL_MFPL_PL5MFP_ECAP0_IC2         (0x0CUL<<SYS_GPL_MFPL_PL5MFP_Pos)  /*!< Input 0 of enhanced capture unit 2. */
 #define SYS_GPL_MFPL_PL6MFP_GPIO              (0x00UL<<SYS_GPL_MFPL_PL6MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPL_PL6MFP_EPWM0_CH0         (0x01UL<<SYS_GPL_MFPL_PL6MFP_Pos)  /*!< EPWM0 channel0 output/capture input. */
 #define SYS_GPL_MFPL_PL6MFP_UART2_RXD         (0x02UL<<SYS_GPL_MFPL_PL6MFP_Pos)  /*!< Data receiver input pin for UART2. */
@@ -1452,7 +1391,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPL_PL6MFP_TRACE_CLK         (0x07UL<<SYS_GPL_MFPL_PL6MFP_Pos)  /*!< ETM Rx clock input pin. */
 #define SYS_GPL_MFPL_PL6MFP_EBI_AD5           (0x08UL<<SYS_GPL_MFPL_PL6MFP_Pos)  /*!< EBI address/data bus bit5. */
 #define SYS_GPL_MFPL_PL6MFP_TM3               (0x0BUL<<SYS_GPL_MFPL_PL6MFP_Pos)  /*!< Timer3 event counter input / toggle output */
-#define SYS_GPL_MFPL_PL6MFP_ECAP1_IC0         (0x0CUL<<SYS_GPL_MFPL_PL6MFP_Pos)  /*!< Input 0 of enhanced capture unit 1. */
 #define SYS_GPL_MFPL_PL6MFP_INT0              (0x0DUL<<SYS_GPL_MFPL_PL6MFP_Pos)  /*!< External interrupt0 input pin. */
 #define SYS_GPL_MFPL_PL7MFP_GPIO              (0x00UL<<SYS_GPL_MFPL_PL7MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPL_PL7MFP_EPWM0_CH1         (0x01UL<<SYS_GPL_MFPL_PL7MFP_Pos)  /*!< EPWM0 channel1 output/capture input. */
@@ -1462,7 +1400,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPL_PL7MFP_QSPI1_MISO1       (0x06UL<<SYS_GPL_MFPL_PL7MFP_Pos)  /*!< Quad SPI1 MISO1 (Master In, Slave Out) pin. */
 #define SYS_GPL_MFPL_PL7MFP_EBI_AD6           (0x08UL<<SYS_GPL_MFPL_PL7MFP_Pos)  /*!< EBI address/data bus bit6. */
 #define SYS_GPL_MFPL_PL7MFP_TM3_EXT           (0x0BUL<<SYS_GPL_MFPL_PL7MFP_Pos)  /*!< Timer3 event counter input / toggle output */
-#define SYS_GPL_MFPL_PL7MFP_ECAP1_IC1         (0x0CUL<<SYS_GPL_MFPL_PL7MFP_Pos)  /*!< Input 1 of enhanced capture unit 1. */
 #define SYS_GPL_MFPL_PL7MFP_INT1              (0x0DUL<<SYS_GPL_MFPL_PL7MFP_Pos)  /*!< External interrupt1 input pin. */
 /********************* Bit definition of GPL_MFPH register **********************/
 #define SYS_GPL_MFPH_PL8MFP_GPIO              (0x00UL<<SYS_GPL_MFPH_PL8MFP_Pos)  /*!< General purpose digital I/O pin. */
@@ -1476,7 +1413,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPH_PL8MFP_EBI_AD7           (0x08UL<<SYS_GPL_MFPH_PL8MFP_Pos)  /*!< EBI address/data bus bit7. */
 #define SYS_GPL_MFPH_PL8MFP_SC0_CLK           (0x09UL<<SYS_GPL_MFPH_PL8MFP_Pos)  /*!< SmartCard0 clock pin. */
 #define SYS_GPL_MFPH_PL8MFP_TM4               (0x0BUL<<SYS_GPL_MFPH_PL8MFP_Pos)  /*!< Timer4 event counter input / toggle output */
-#define SYS_GPL_MFPH_PL8MFP_ECAP1_IC2         (0x0CUL<<SYS_GPL_MFPH_PL8MFP_Pos)  /*!< Input 1 of enhanced capture unit 2. */
 #define SYS_GPL_MFPH_PL8MFP_INT2              (0x0DUL<<SYS_GPL_MFPH_PL8MFP_Pos)  /*!< External interrupt2 input pin. */
 #define SYS_GPL_MFPH_PL9MFP_GPIO              (0x00UL<<SYS_GPL_MFPH_PL9MFP_Pos)  /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPH_PL9MFP_EPWM0_CH3         (0x01UL<<SYS_GPL_MFPH_PL9MFP_Pos)  /*!< EPWM0 channel3 output/capture input. */
@@ -1489,7 +1425,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPH_PL9MFP_EBI_AD8           (0x08UL<<SYS_GPL_MFPH_PL9MFP_Pos)  /*!< EBI address/data bus bit8. */
 #define SYS_GPL_MFPH_PL9MFP_SC0_DAT           (0x09UL<<SYS_GPL_MFPH_PL9MFP_Pos)  /*!< SmartCard0 data pin. */
 #define SYS_GPL_MFPH_PL9MFP_TM4_EXT           (0x0BUL<<SYS_GPL_MFPH_PL9MFP_Pos)  /*!< Timer4 event counter input / toggle output */
-#define SYS_GPL_MFPH_PL9MFP_QEI0_A            (0x0CUL<<SYS_GPL_MFPH_PL9MFP_Pos)  /*!< Quadrature encoder phase A input of QEI Unit 0. */
 #define SYS_GPL_MFPH_PL9MFP_INT3              (0x0DUL<<SYS_GPL_MFPH_PL9MFP_Pos)  /*!< External interrupt3 input pin. */
 #define SYS_GPL_MFPH_PL10MFP_GPIO             (0x00UL<<SYS_GPL_MFPH_PL10MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPH_PL10MFP_EPWM0_CH4        (0x01UL<<SYS_GPL_MFPH_PL10MFP_Pos) /*!< EPWM0 channel4 output/capture input. */
@@ -1502,7 +1437,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPH_PL10MFP_EBI_AD9          (0x08UL<<SYS_GPL_MFPH_PL10MFP_Pos) /*!< EBI address/data bus bit9. */
 #define SYS_GPL_MFPH_PL10MFP_SC0_RST          (0x09UL<<SYS_GPL_MFPH_PL10MFP_Pos) /*!< SmartCard0 reset pin. */
 #define SYS_GPL_MFPH_PL10MFP_EBI_nWRH         (0x0BUL<<SYS_GPL_MFPH_PL10MFP_Pos) /*!< EBI write enable output pin. */
-#define SYS_GPL_MFPH_PL10MFP_QEI0_B           (0x0CUL<<SYS_GPL_MFPH_PL10MFP_Pos) /*!< Quadrature encoder phase B input of QEI Unit 0. */
 #define SYS_GPL_MFPH_PL11MFP_GPIO             (0x00UL<<SYS_GPL_MFPH_PL11MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPH_PL11MFP_EPWM0_CH5        (0x01UL<<SYS_GPL_MFPH_PL11MFP_Pos) /*!< EPWM0 channel5 output/capture input. */
 #define SYS_GPL_MFPH_PL11MFP_UART14_TXD       (0x02UL<<SYS_GPL_MFPH_PL11MFP_Pos) /*!< Data transmitter output pin for UART14. */
@@ -1514,11 +1448,9 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPH_PL11MFP_EBI_AD10         (0x08UL<<SYS_GPL_MFPH_PL11MFP_Pos) /*!< EBI address/data bus bit1. */
 #define SYS_GPL_MFPH_PL11MFP_SC0_PWR          (0x09UL<<SYS_GPL_MFPH_PL11MFP_Pos) /*!< SmartCard0 power pin. */
 #define SYS_GPL_MFPH_PL11MFP_EBI_nWRL         (0x0BUL<<SYS_GPL_MFPH_PL11MFP_Pos) /*!< EBI write enable output pin. */
-#define SYS_GPL_MFPH_PL11MFP_QEI0_INDEX       (0x0CUL<<SYS_GPL_MFPH_PL11MFP_Pos) /*!< Quadrature encoder index input of QEI Unit 0. */
 #define SYS_GPL_MFPH_PL12MFP_GPIO             (0x00UL<<SYS_GPL_MFPH_PL12MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPH_PL12MFP_EPWM0_SYNC_IN    (0x01UL<<SYS_GPL_MFPH_PL12MFP_Pos) /*!< EPWM0 counter synchronous trigger input pin. */
 #define SYS_GPL_MFPH_PL12MFP_UART7_nCTS       (0x02UL<<SYS_GPL_MFPH_PL12MFP_Pos) /*!< Clear to Send input pin for UART7. */
-#define SYS_GPL_MFPH_PL12MFP_ECAP1_IC0        (0x03UL<<SYS_GPL_MFPH_PL12MFP_Pos) /*!< Input 0 of enhanced capture unit 1. */
 #define SYS_GPL_MFPH_PL12MFP_UART14_RXD       (0x04UL<<SYS_GPL_MFPH_PL12MFP_Pos) /*!< Data receiver input pin for UART14. */
 #define SYS_GPL_MFPH_PL12MFP_SPI0_SS0         (0x05UL<<SYS_GPL_MFPH_PL12MFP_Pos) /*!< 1st SPI0 slave select pin. */
 #define SYS_GPL_MFPH_PL12MFP_I2S1_LRCK        (0x06UL<<SYS_GPL_MFPH_PL12MFP_Pos) /*!< I2S1 left right channel clock. */
@@ -1534,7 +1466,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPL_MFPH_PL13MFP_GPIO             (0x00UL<<SYS_GPL_MFPH_PL13MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPL_MFPH_PL13MFP_EPWM0_SYNC_OUT   (0x01UL<<SYS_GPL_MFPH_PL13MFP_Pos) /*!< EPWM0 counter synchronous trigger output pin. */
 #define SYS_GPL_MFPH_PL13MFP_UART7_nRTS       (0x02UL<<SYS_GPL_MFPH_PL13MFP_Pos) /*!< Request to Send output pin for UART7. */
-#define SYS_GPL_MFPH_PL13MFP_ECAP1_IC1        (0x03UL<<SYS_GPL_MFPH_PL13MFP_Pos) /*!< Input 1 of enhanced capture unit 1. */
 #define SYS_GPL_MFPH_PL13MFP_UART14_TXD       (0x04UL<<SYS_GPL_MFPH_PL13MFP_Pos) /*!< Data transmitter output pin for UART14. */
 #define SYS_GPL_MFPH_PL13MFP_SPI0_CLK         (0x05UL<<SYS_GPL_MFPH_PL13MFP_Pos) /*!< SPI0 serial clock pin. */
 #define SYS_GPL_MFPH_PL13MFP_I2S1_BCLK        (0x06UL<<SYS_GPL_MFPH_PL13MFP_Pos) /*!< I2S1 bit clock pin. */
@@ -1662,7 +1593,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPM_MFPH_PM13MFP_UART11_TXD       (0x04UL<<SYS_GPM_MFPH_PM13MFP_Pos) /*!< Data transmitter output pin for UART11. */
 #define SYS_GPM_MFPH_PM13MFP_I2C2_SCL         (0x05UL<<SYS_GPM_MFPH_PM13MFP_Pos) /*!< I2C2 clock pin. */
 #define SYS_GPM_MFPH_PM13MFP_EBI_AD9          (0x08UL<<SYS_GPM_MFPH_PM13MFP_Pos) /*!< EBI address/data bus bit9. */
-#define SYS_GPM_MFPH_PM13MFP_ECAP1_IC0        (0x09UL<<SYS_GPM_MFPH_PM13MFP_Pos) /*!< Input 0 of enhanced capture unit 1. */
 #define SYS_GPM_MFPH_PM13MFP_TM8_EXT          (0x0BUL<<SYS_GPM_MFPH_PM13MFP_Pos) /*!< Timer8 event counter input / toggle output */
 #define SYS_GPM_MFPH_PM14MFP_GPIO             (0x00UL<<SYS_GPM_MFPH_PM14MFP_Pos) /*!< General purpose digital I/O pin. */
 #define SYS_GPM_MFPH_PM14MFP_EPWM1_BRAKE0     (0x01UL<<SYS_GPM_MFPH_PM14MFP_Pos) /*!< Brake input pin 0 of EPWM1. */
@@ -1672,7 +1602,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPM_MFPH_PM14MFP_USBHL3_DM        (0x05UL<<SYS_GPM_MFPH_PM14MFP_Pos) /*!< USB 1.1 host-lite 3 differential signal D-. */
 #define SYS_GPM_MFPH_PM14MFP_I2C3_SDA         (0x06UL<<SYS_GPM_MFPH_PM14MFP_Pos) /*!< I2C3 data input/output pin. */
 #define SYS_GPM_MFPH_PM14MFP_EBI_AD10         (0x08UL<<SYS_GPM_MFPH_PM14MFP_Pos) /*!< EBI address/data bus bit1. */
-#define SYS_GPM_MFPH_PM14MFP_ECAP1_IC1        (0x09UL<<SYS_GPM_MFPH_PM14MFP_Pos) /*!< Input 1 of enhanced capture unit 1. */
 #define SYS_GPM_MFPH_PM14MFP_TM10             (0x0BUL<<SYS_GPM_MFPH_PM14MFP_Pos) /*!< Timer1 event counter input / toggle output */
 #define SYS_GPM_MFPH_PM14MFP_INT1             (0x0DUL<<SYS_GPM_MFPH_PM14MFP_Pos) /*!< External interrupt1 input pin. */
 #define SYS_GPM_MFPH_PM15MFP_GPIO             (0x00UL<<SYS_GPM_MFPH_PM15MFP_Pos) /*!< General purpose digital I/O pin. */
@@ -1683,7 +1612,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPM_MFPH_PM15MFP_USBHL3_DP        (0x05UL<<SYS_GPM_MFPH_PM15MFP_Pos) /*!< USB 1.1 host-lite 3 differential signal D+. */
 #define SYS_GPM_MFPH_PM15MFP_I2C3_SCL         (0x06UL<<SYS_GPM_MFPH_PM15MFP_Pos) /*!< I2C3 clock pin. */
 #define SYS_GPM_MFPH_PM15MFP_EBI_AD11         (0x08UL<<SYS_GPM_MFPH_PM15MFP_Pos) /*!< EBI address/data bus bit1. */
-#define SYS_GPM_MFPH_PM15MFP_ECAP1_IC2        (0x09UL<<SYS_GPM_MFPH_PM15MFP_Pos) /*!< Input 1 of enhanced capture unit 2. */
 #define SYS_GPM_MFPH_PM15MFP_TM10_EXT         (0x0BUL<<SYS_GPM_MFPH_PM15MFP_Pos) /*!< Timer1 event counter input / toggle output */
 #define SYS_GPM_MFPH_PM15MFP_INT2             (0x0DUL<<SYS_GPM_MFPH_PM15MFP_Pos) /*!< External interrupt2 input pin. */
 /********************* Bit definition of GPN_MFPL register **********************/
@@ -1760,7 +1688,6 @@ Example 1: If user want to set PA.0 as SC0_CLK in initial function,
 #define SYS_GPN_MFPH_PN15MFP_SPI1_SS1         (0x06UL<<SYS_GPN_MFPH_PN15MFP_Pos) /*!< 1st SPI1 slave select pin. */
 #define SYS_GPN_MFPH_PN15MFP_SPI1_I2SMCLK     (0x07UL<<SYS_GPN_MFPH_PN15MFP_Pos) /*!< SPI1 I2S master clock output pin. */
 #define SYS_GPN_MFPH_PN15MFP_SC0_nCD          (0x08UL<<SYS_GPN_MFPH_PN15MFP_Pos) /*!< SmartCard0 card detect pin. */
-#define SYS_GPN_MFPH_PN15MFP_EADC0_ST         (0x09UL<<SYS_GPN_MFPH_PN15MFP_Pos) /*!< EADC external trigger input. */
 #define SYS_GPN_MFPH_PN15MFP_CLKO             (0x0AUL<<SYS_GPN_MFPH_PN15MFP_Pos) /*!< Clock Output pin. */
 #define SYS_GPN_MFPH_PN15MFP_TM6              (0x0BUL<<SYS_GPN_MFPH_PN15MFP_Pos) /*!< Timer6 event counter input / toggle output */
 

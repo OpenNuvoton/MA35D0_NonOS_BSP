@@ -171,36 +171,6 @@ void TPWM_DisableCounter(TIMER_T *timer)
 }
 
 /**
-  * @brief      Enable Trigger ADC
-  *
-  * @param[in]  timer           The pointer of the specified Timer module. It could be TIMER0 ~ TIMER11.
-  * @param[in]  u32Condition    The condition to trigger ADC. It could be one of following conditions:
-  *                                 - \ref TPWM_TRIGGER_ADC_AT_ZERO_POINT
-  *                                 - \ref TPWM_TRIGGER_ADC_AT_PERIOD_POINT
-  *                                 - \ref TPWM_TRIGGER_ADC_AT_ZERO_OR_PERIOD_POINT
-  *                                 - \ref TPWM_TRIGGER_ADC_AT_COMPARE_UP_COUNT_POINT
-  *                                 - \ref TPWM_TRIGGER_ADC_AT_COMPARE_DOWN_COUNT_POINT
-  *
-  * @details    This function is used to enable specified counter compare event to trigger ADC.
-  */
-void TPWM_EnableTriggerADC(TIMER_T *timer, uint32_t u32Condition)
-{
-    timer->PWMEADCTS = TIMER_PWMEADCTS_TRGEN_Msk | u32Condition;
-}
-
-/**
-  * @brief      Disable Trigger ADC
-  *
-  * @param[in]  timer       The pointer of the specified Timer module. It could be TIMER0 ~ TIMER11.
-  *
-  * @details    This function is used to disable counter compare event to trigger ADC.
-  */
-void TPWM_DisableTriggerADC(TIMER_T *timer)
-{
-    timer->PWMEADCTS = 0x0UL;
-}
-
-/**
   * @brief      Enable Fault Brake Function
   *
   * @param[in]  timer           The pointer of the specified Timer module. It could be TIMER0 ~ TIMER11.

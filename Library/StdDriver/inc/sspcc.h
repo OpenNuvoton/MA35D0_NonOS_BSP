@@ -52,7 +52,6 @@ typedef enum
 	SSPCC_ID_CAN2      = 11,  /*!< SSPCC ID of CAN2 \hideinitializer */
 	SSPCC_ID_CAN3      = 12,  /*!< SSPCC ID of CAN3 \hideinitializer */
 	SSPCC_ID_ADC0      = 13,  /*!< SSPCC ID of ADC0 \hideinitializer */
-	SSPCC_ID_EADC0     = 14,  /*!< SSPCC ID of EADC0 \hideinitializer */
 	SSPCC_ID_WDT1      = 15,  /*!< SSPCC ID of WDT1 \hideinitializer */
 	SSPCC_ID_I2S0      = 16,  /*!< SSPCC ID of I2S0 \hideinitializer */
 	SSPCC_ID_I2S1      = 17,  /*!< SSPCC ID of I2S1 \hideinitializer */
@@ -99,12 +98,6 @@ typedef enum
 	SSPCC_ID_UART16    = 58,  /*!< SSPCC ID of UART16 \hideinitializer */
 	SSPCC_ID_SC0       = 59,  /*!< SSPCC ID of SC0 \hideinitializer */
 	SSPCC_ID_SC1       = 60,  /*!< SSPCC ID of SC1 \hideinitializer */
-	SSPCC_ID_QEI0      = 61,  /*!< SSPCC ID of QEI0 \hideinitializer */
-	SSPCC_ID_QEI1      = 62,  /*!< SSPCC ID of QEI1 \hideinitializer */
-	SSPCC_ID_QEI2      = 63,  /*!< SSPCC ID of QEI2 \hideinitializer */
-	SSPCC_ID_ECAP0     = 64,  /*!< SSPCC ID of ECAP0 \hideinitializer */
-	SSPCC_ID_ECAP1     = 65,  /*!< SSPCC ID of ECAP1 \hideinitializer */
-	SSPCC_ID_ECAP2     = 66,  /*!< SSPCC ID of ECAP2 \hideinitializer */
 	SSPCC_ID_EBIBK0    = 67,  /*!< SSPCC ID of EBI BANK0 \hideinitializer */
 	SSPCC_ID_EBIBK1    = 68,  /*!< SSPCC ID of EBI BANK1 \hideinitializer */
 	SSPCC_ID_EBIBK2    = 69,  /*!< SSPCC ID of EBI BANK2 \hideinitializer */

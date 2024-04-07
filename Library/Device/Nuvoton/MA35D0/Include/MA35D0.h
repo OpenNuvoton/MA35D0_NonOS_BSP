@@ -275,7 +275,6 @@ typedef enum IRQn
 #define WWDT0_BASE              (0x40400100UL)
 #define RTC_BASE                (0x40410000UL)
 #define ADC0_BASE               (0x40420000UL)
-#define EADC0_BASE              (0x40430000UL)
 #define WDT1_BASE               (0x40440000UL)
 #define WWDT1_BASE              (0x40440100UL)
 #define I2S0_BASE               (0x40480000UL)
@@ -364,7 +363,6 @@ typedef enum IRQn
 #define HWSEM0                  ((HWSEM_T *) HWSEM_BASE)
 #define RTC                     ((RTC_T *)   RTC_BASE)
 #define ADC0                    ((ADC_T *)   ADC0_BASE)
-#define EADC0                   ((EADC_T *)  EADC0_BASE)
 #define I2S0                    ((I2S_T *)   I2S0_BASE)
 #define KPI                     ((KPI_T *)   KPI_BASE)
 #define TIMER0                  ((TIMER_T *) TIMER0_BASE)
@@ -459,9 +457,7 @@ extern int  sysIsKbHit(void);
 #include "clk_reg.h"
 #include "crypto_reg.h"
 #include "disp_reg.h"
-#include "eadc_reg.h"
 #include "ebi_reg.h"
-#include "ecap_reg.h"
 #include "epwm_reg.h"
 #include "emac_reg.h"
 #include "gpio_reg.h"
@@ -473,7 +469,6 @@ extern int  sysIsKbHit(void);
 #include "ks_reg.h"
 #include "nfi_reg.h"
 #include "pdma_reg.h"
-#include "qei_reg.h"
 #include "qspi_reg.h"
 #include "rtc_reg.h"
 #include "sc_reg.h"
@@ -572,7 +567,6 @@ extern int  sysIsKbHit(void);
 #include "i2s.h"
 #include "ks.h"
 #include "epwm.h"
-#include "eadc.h"
 #include "adc.h"
 #include "wdt.h"
 #include "wwdt.h"

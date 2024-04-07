@@ -71,7 +71,6 @@
   *             - \ref UART7_RST
   *             - \ref CANFD0_RST
   *             - \ref CANFD1_RST
-  *             - \ref EADC0_RST
   *             - \ref I2S0_RST
   *             - \ref SC0_RST
   *             - \ref SC1_RST
@@ -79,10 +78,6 @@
   *             - \ref SPI3_RST
   *             - \ref EPWM0_RST
   *             - \ref EPWM1_RST
-  *             - \ref QEI0_RST
-  *             - \ref QEI1_RST
-  *             - \ref ECAP0_RST
-  *             - \ref ECAP1_RST
   *             - \ref CANFD2_RST
   *             - \ref ADC0_RST
   *             - \ref TMR4_RST
@@ -106,8 +101,6 @@
   *             - \ref I2C4_RST
   *             - \ref I2C5_RST
   *             - \ref EPWM2_RST
-  *             - \ref ECAP2_RST
-  *             - \ref QEI2_RST
   *             - \ref CANFD3_RST
   *             - \ref KPI_RST
   *             - \ref GIC_RST
