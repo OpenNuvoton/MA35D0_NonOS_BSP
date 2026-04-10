@@ -50,6 +50,8 @@ extern "C"
 #define AES_MODE_DECRYPT        0       /*!< AES decrypt mode \hideinitializer */
 #define AES_MODE_ENCRYPT        1       /*!< AES encrypt mode \hideinitializer */
 
+#define AES_SM4EN               (0x1UL << 17) /*!< AES SM4 mode                      \hideinitializer */
+
 #define AES_MODE_ECB            0UL     /*!< AES select ECB mode                     \hideinitializer */
 #define AES_MODE_CBC            1UL     /*!< AES select CBC mode                     \hideinitializer */
 #define AES_MODE_CFB            2UL     /*!< AES select CFB mode                     \hideinitializer */

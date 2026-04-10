@@ -70,8 +70,16 @@ int main(void)
        protected register, please issue SYS_UnlockReg()
        to unlock protected register if necessary */
     SYS_Init();
+
     /* Init UART to 115200-8n1 for print message */
     UART_Open(UART0, 115200);
+
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     sysprintf("This sample code demos smartcard interface UART mode\n");
     sysprintf("Please connect SC1 CLK pin(PG.4) with SC1 DAT pin(PG.5)\n");
     sysprintf("Hit any key to continue\n");
@@ -93,7 +101,3 @@ int main(void)
     // Loop forever. There's no where to go without an operating system.
     while(1);
 }
-
-
-
-

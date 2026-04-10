@@ -70,6 +70,15 @@ int32_t main (void)
 
     /* Init UART to 115200-8n1 for print message */
     UART_Open(UART0, 115200);
+
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] Unsupported on MA35D05K series.\n");
+        sysprintf("[REASON] ADC4 (PB.12) pin is not available on this device.\n");
+        sysprintf("[ACTION] Please modify the code to use ADC0 (PB.8) or ADC3 (PB.11).\n\n");
+        while (1);
+    }
+
     sysprintf("\nThis sample code demonstrate ADC channel 4 conversion and prints the result on UART\n");
 
     // Enable channel 0

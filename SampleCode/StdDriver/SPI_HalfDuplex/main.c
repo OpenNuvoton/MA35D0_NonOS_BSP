@@ -82,6 +82,12 @@ int main(void)
     /* Configure UART0: 115200, 8-bit word, no parity bit, 1 stop bit. */
     UART_Open(UART0, 115200);
 
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     /* Init SPI */
     SPI_Init();
 

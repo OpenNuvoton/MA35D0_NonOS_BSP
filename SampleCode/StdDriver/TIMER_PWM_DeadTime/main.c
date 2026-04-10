@@ -52,6 +52,12 @@ int main(void)
     /* Configure UART0 and set UART0 Baudrate */
     UART_Open(UART0, 115200);
 
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     sysprintf("+--------------------------------------------------------------+\n");
     sysprintf("|    Timer PWM Complementary mode and Dead-Time Sample Code    |\n");
     sysprintf("+--------------------------------------------------------------+\n\n");

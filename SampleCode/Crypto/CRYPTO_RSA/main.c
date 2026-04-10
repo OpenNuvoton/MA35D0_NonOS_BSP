@@ -10,6 +10,8 @@
 
 #include "NuMicro.h"
 
+extern int32_t main_tsi(void);
+
 struct rsa_tv_t {
 	int bitlen;       /* should be 1024, 2048, 3072, or 4096 */
 	int mlen;
@@ -303,6 +305,12 @@ int32_t main(void)
 
 	/* Unlock protected registers */
 	SYS_UnlockReg();
+
+    if (Is_MA35D05K())
+    {
+    	main_tsi();
+    	while (1);
+    }
 
 	/* Init System, IP clock and multi-function I/O */
 	SYS_Init();

@@ -35,6 +35,12 @@ int32_t main(void)
     /* Init UART0 to 115200-8n1 for printing messages */
     UART_Open(UART0, 115200);
 
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     sysprintf("+----------------------------------------------------------+\n");
     sysprintf("|            SPII2S Driver Sample Code (slave mode)        |\n");
     sysprintf("+----------------------------------------------------------+\n");

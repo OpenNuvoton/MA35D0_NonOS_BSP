@@ -190,6 +190,23 @@ void SYS_NPD(void)
 
 }
 
+/**
+  * @brief      Check if the chip is MA35D05K series.
+  *
+  * @details    This function read chip PID and check if the chip is MA35D05K series or not.
+  *
+  * @retval     1       The chip is MA35D05K series.
+  * @retval     0       The chip is not MA35D05K series.
+  */
+int32_t Is_MA35D05K(void)
+{
+    // sysprintf("SYS->PDID = 0x%x\n", SYS->PDID);
+    if ((SYS->PDID & 0xf00000) == 0x900000)
+        return 1;
+    else
+        return 0;
+}
+
 /*! @}*/ /* end of group SYS_EXPORTED_FUNCTIONS */
 
 /*! @}*/ /* end of group SYS_Driver */

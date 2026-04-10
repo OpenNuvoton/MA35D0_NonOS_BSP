@@ -181,7 +181,13 @@ s32 EMAC_open(int intf, int mode)
     if(intf == EMACINTF0) {
         CLK->SYSCLK0 |= CLK_SYSCLK0_EMAC0EN_Msk; // Enable EMAC0 clock
 
-        if(mode == RGMII_1G) {
+        if (Is_MA35D05K()) {
+            SYS->GPE_MFPL = 0x88888888;
+            SYS->GPE_MFPH = (SYS->GPE_MFPH & ~0xFF) | 0x88;
+            SYS->GPF_MFPL = (SYS->GPF_MFPL & ~0x0000FFFF) | 0x00008888;
+            SYS->EMAC0MISCR &= ~SYS_EMAC0MISCR_RMIIEN_Msk;
+        }
+        else if(mode == RGMII_1G) {
             SYS->GPE_MFPL = 0x88888888;
             SYS->GPE_MFPH = (SYS->GPE_MFPH & ~0x00FFFFFF) | 0x00888888;
             SYS->EMAC0MISCR &= ~SYS_EMAC0MISCR_RMIIEN_Msk;

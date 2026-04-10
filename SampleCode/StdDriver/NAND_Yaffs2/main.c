@@ -97,6 +97,12 @@ int main(void)
     /* Initialize UART to 115200-8n1 for print message */
     UART0_Init();
 
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     global_timer_init();
 
     /* Initialize System, IP clock and multi-function I/O */

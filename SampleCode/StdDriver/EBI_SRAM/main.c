@@ -89,6 +89,12 @@ int main(void)
     /* Init UART0 for sysprintf */
     UART_Open(UART0, 115200);
 
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     sysprintf("\n\nCPU @ %d Hz\n", SystemCoreClock);
     sysprintf("+--------------------------------------------------------+\n");
     sysprintf("|    EBI SRAM Sample Code on Bank0 with PDMA transfer    |\n");

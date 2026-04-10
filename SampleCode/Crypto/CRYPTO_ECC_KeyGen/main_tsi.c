@@ -1,8 +1,7 @@
 /**************************************************************************//**
  * @file     main.c
- * @brief    This sample program demonstrates the Crypto ECC key generation
- *           function. Given a private key and generate the expected public
- *           key pairs.
+ * @brief    This sample program demonstrates how to use the TSI commands to
+ *           perform ECC public key generation.
  *
  * @copyright (C) 2023 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
@@ -10,12 +9,12 @@
 #include <string.h>
 
 #include "NuMicro.h"
+#include "tsi_cmd.h"
+#include "crypto.h"
 
-#define BUFF_SIZE      0x10000
+#define MAX_KEY_LEN		168
 
-#define MAX_KEY_LEN     168
-
-extern int32_t main_tsi(void);
+static char kbuff_pool[4096] __attribute__((aligned(32)));
 
 typedef struct kp_tv_t
 {
@@ -27,7 +26,7 @@ typedef struct kp_tv_t
 	char   Qy[MAX_KEY_LEN];
 }  KP_TV_T;
 
-KP_TV_T _kp_pool[] __attribute__((aligned(32))) =
+static KP_TV_T _kp_pool[] __attribute__((aligned(32))) =
 {
 	{
 		"K-233", CURVE_K_233, 233,
@@ -163,15 +162,6 @@ KP_TV_T _kp_pool[] __attribute__((aligned(32))) =
 	},
 };
 
-char kbuff_pool[4096] __attribute__((aligned(32)));
-
-static volatile uint64_t  _start_time = 0;
-
-void start_timer(void)
-{
-	_start_time = EL0_GetCurrentPhysicalValue();
-}
-
 static int ecc_strcmp(char *s1, char *s2)
 {
 	char  c1, c2;
@@ -197,79 +187,87 @@ static int ecc_strcmp(char *s1, char *s2)
 	return 0;
 }
 
-void SYS_Init(void)
+static void SYS_Init(void)
 {
-	/* Waiting LXT ready */
-	CLK_WaitClockReady(CLK_STATUS_LXTSTB_Msk);
-
 	/* Enable UART module clock */
 	CLK_EnableModuleClock(UART0_MODULE);
 
 	/* Select UART module clock source as SYSCLK1 and UART module clock divider as 15 */
 	CLK_SetModuleClock(UART0_MODULE, CLK_CLKSEL2_UART0SEL_SYSCLK1_DIV2, CLK_CLKDIV1_UART0(15));
 
-	/* Enable Crypto engine clock */
-	outpw(TSI_CLK_BASE + 0x4, inpw(TSI_CLK_BASE + 0x4) | (1 << 12));
+	/* enable Wormhole 1 clock */
+	CLK_EnableModuleClock(WH1_MODULE);
 
 	/* Set GPE multi-function pins for UART0 RXD and TXD */
 	SYS->GPE_MFPH &= ~(SYS_GPE_MFPH_PE14MFP_Msk | SYS_GPE_MFPH_PE15MFP_Msk);
 	SYS->GPE_MFPH |= (SYS_GPE_MFPH_PE14MFP_UART0_TXD | SYS_GPE_MFPH_PE15MFP_UART0_RXD);
 }
 
-int32_t main(void)
+static void UART0_Init()
 {
-	char *pub_x, *pub_y;
-	KP_TV_T *tv;
-	char name[16];
-	int i;
+	/* Configure UART0 and set UART0 baud rate */
+	UART_Open(UART0, 115200);
+}
+
+static void delay_us(int usec)
+{
+	uint64_t   t0;
+	t0  = EL0_GetCurrentPhysicalValue();
+	while ((EL0_GetCurrentPhysicalValue() - t0) < (usec * 12));
+}
+
+int32_t main_tsi(void)
+{
+	int         i, ret;
+	char        name[16];
+	char        *pub_x, *pub_y;       /* temporary buffer used to keep output public keys */
+	KP_TV_T     *tv;
 
 	/* Unlock protected registers */
 	SYS_UnlockReg();
 
-    if (Is_MA35D05K())
-    {
-    	main_tsi();
-    	while (1);
-    }
-
 	/* Init System, IP clock and multi-function I/O */
 	SYS_Init();
 
-	/* Init UART to 115200-8n1 for print message */
-	UART_Open(UART0, 115200);
+	/* Init UART0 for sysprintf */
+	UART0_Init();
 
-	Crypto_Init();
+	if (TSI_Init() != 0)
+	{
+		sysprintf("TSI Init failed!\n");
+		while (1);
+	}
 
 	pub_x = nc_ptr(kbuff_pool);
-	pub_y = nc_ptr(kbuff_pool + 576);
-
+	pub_y = nc_ptr(ptr_to_u32(kbuff_pool) + 576);
 	tv = nc_ptr(_kp_pool);
-
-	start_timer();
 
 	sysprintf("+---------------------------------------------+\n");
 	sysprintf("|   Crypto ECC Public Key Generation Demo     |\n");
 	sysprintf("+---------------------------------------------+\n");
 
-	for (i = 0; i < sizeof(_kp_pool)/sizeof(KP_TV_T); i++) {
+	for (i = 0; i < sizeof(_kp_pool) / sizeof(KP_TV_T); i++) {
 		memset(name, 0, sizeof(name));
 		strncpy(name, tv[i].curve_name, 5);
 		sysprintf("Run curve %s test.......", name);
 
-		if (ECC_GeneratePublicKey(CRPT, tv[i].curve, (char *)tv[i].d, pub_x, pub_y) < 0) {
+		ret = TSI_ECC_GenPublicKey(tv[i].curve,           /* curve_id  */
+					   0,                     /* is_ecdh   */
+					   ECC_KEY_SEL_USER,      /* psel      */
+					   0,                     /* d_knum    */
+					   ptr_to_u32(tv[i].d),   /* priv_key  */
+					   ptr_to_u32(pub_x)      /* pub_key   */
+					   );
+		if (ret != 0) {
 			sysprintf("ECC key generation failed!!\n");
+			TSI_Print_Error(ret);
 			while (1);
 		}
-
 		sysprintf("ECC done, compare...\n");
-
-		//if (memcmp(tv[i].Qx, pub_x, (tv[i].keylen+3)/4))
 		if (ecc_strcmp(tv[i].Qx, pub_x) != 0) {
 			sysprintf("Public key X [%s] is not matched with expected [%s]!\n", pub_x, tv[i].Qx);
 			while (1);
 		}
-
-		//if (memcmp(tv[i].Qy, pub_y, (tv[i].keylen+3)/4))
 		if (ecc_strcmp(tv[i].Qy, pub_y) != 0) {
 			sysprintf("Public key Y [%s] is not matched with expected [%s]!\n", pub_y, tv[i].Qy);
 			while (1);

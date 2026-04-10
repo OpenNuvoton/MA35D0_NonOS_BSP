@@ -121,6 +121,12 @@ int main(void)
     /* Init UART to 115200-8n1 for print message */
     UART_Open(UART0, 115200);
 
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     /* Open DISP IP Clock and set multi-function pins */
     DISP_Open();
 

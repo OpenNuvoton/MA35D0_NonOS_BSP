@@ -60,14 +60,24 @@
 			<locationURI>PARENT-1-PROJECT_LOC/main.c</locationURI>
 		</link>
 		<link>
+			<name>User/main_tsi.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/main_tsi.c</locationURI>
+		</link>
+		<link>
 			<name>User/sha_image.gnu.S</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/sha_image.gnu.S</locationURI>
 		</link>
+		<link>
+			<name>User/sha_kat_tsi.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/sha_kat_tsi.c</locationURI>
+		</link>
 	</linkedResources>
 	<filteredResources>
 		<filter>
-			<id>1702362504168</id>
+			<id>1775709538443</id>
 			<name>Library/Library</name>
 			<type>5</type>
 			<matcher>
@@ -76,7 +86,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1702362504179</id>
+			<id>1775709538453</id>
 			<name>Library/Library</name>
 			<type>5</type>
 			<matcher>
@@ -85,7 +95,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1702362504188</id>
+			<id>1775709538466</id>
 			<name>Library/Library</name>
 			<type>5</type>
 			<matcher>
@@ -94,7 +104,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1702362504195</id>
+			<id>1775709538478</id>
 			<name>Library/Library</name>
 			<type>5</type>
 			<matcher>
@@ -103,7 +113,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1702362504202</id>
+			<id>1775709538493</id>
 			<name>Library/Library</name>
 			<type>5</type>
 			<matcher>
@@ -112,7 +122,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1702362504209</id>
+			<id>1775709538506</id>
 			<name>Library/Library</name>
 			<type>5</type>
 			<matcher>
@@ -121,12 +131,21 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1702362504215</id>
+			<id>1775709538518</id>
 			<name>Library/Library</name>
 			<type>5</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-name-matches-false-false-crypto.c</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1775709538533</id>
+			<name>Library/Library</name>
+			<type>5</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-tsi_cmd.c</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>

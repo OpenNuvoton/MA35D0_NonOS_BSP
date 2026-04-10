@@ -21,6 +21,8 @@ int        g_msg_bit_len;
 int        g_digest_len = 32;
 int        g_sha_mode;
 
+extern int32_t main_tsi(void);
+
 #include "SHA_vector_parser_image.c"
 
 void do_swap(uint8_t *buff, int len)
@@ -198,6 +200,12 @@ int32_t main(void)
 
 	/* Unlock protected registers */
 	SYS_UnlockReg();
+
+    if (Is_MA35D05K())
+    {
+    	main_tsi();
+    	while (1);
+    }
 
 	/* Init System, IP clock and multi-function I/O */
 	SYS_Init();

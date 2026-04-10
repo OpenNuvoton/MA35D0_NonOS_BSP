@@ -11,6 +11,8 @@
 
 #define TEST_SEED   0x76223
 
+extern int32_t main_tsi(void);
+
 void  dump_prng_key_buff(uint32_t *buff)
 {
 	int   i;
@@ -60,6 +62,12 @@ int32_t main(void)
 
 	/* Unlock protected registers */
 	SYS_UnlockReg();
+
+    if (Is_MA35D05K())
+    {
+    	main_tsi();
+    	while (1);
+    }
 
 	/* Init System, IP clock and multi-function I/O */
 	SYS_Init();

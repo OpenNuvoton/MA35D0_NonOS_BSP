@@ -31,6 +31,8 @@ int   key_size_meta[] = { KS_META_128, KS_META_128, KS_META_128, KS_META_256, KS
 
 static volatile uint64_t  _start_time = 0;
 
+extern int32_t main_tsi(void);
+
 void start_timer(void)
 {
 	_start_time = EL0_GetCurrentPhysicalValue();
@@ -415,6 +417,12 @@ int32_t main(void)
 
 	/* Unlock protected registers */
 	SYS_UnlockReg();
+
+    if (Is_MA35D05K())
+    {
+    	main_tsi();
+    	while (1);
+    }
 
 	/* Init System, IP clock and multi-function I/O */
 	SYS_Init();

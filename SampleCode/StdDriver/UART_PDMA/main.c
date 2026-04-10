@@ -110,6 +110,12 @@ int main(void)
     /* Init UART0 for sysprintf */
     UART_Init();
 
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     /* Init UART6 */
     UART6_Init();
 

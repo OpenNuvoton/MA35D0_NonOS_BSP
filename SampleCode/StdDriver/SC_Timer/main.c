@@ -61,7 +61,15 @@ int main(void)
        to unlock protected register if necessary */
     SYS_Init();
     /* Init UART to 115200-8n1 for print message */
+
     UART_Open(UART0, 115200);
+
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     sysprintf("\nThis sample code demo how to use SC embedded timer. \n");
 
     /* Open smartcard interface */
@@ -80,5 +88,3 @@ int main(void)
 
     while (1);
 }
-
-

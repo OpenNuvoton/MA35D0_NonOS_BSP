@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file     main.c
- * @brief    This sample program demonstrates the Crypto ECC ECDSA signature
- *           generation and verification.
+ * @brief    This sample program demonstrates how to use the TSI commands to
+ *           perform ECC ECDSA signature generation and verification.
  *
  * @copyright (C) 2023 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
@@ -9,10 +9,10 @@
 #include <string.h>
 
 #include "NuMicro.h"
+#include "tsi_cmd.h"
+#include "crypto.h"
 
 #define MAX_KEY_LEN     512
-
-extern int32_t main_tsi(void);
 
 typedef struct sg_tv_t
 {
@@ -29,14 +29,17 @@ typedef struct sg_tv_t
 	char   S[MAX_KEY_LEN];
 }  SG_TV_T;
 
-char  sig_R[MAX_KEY_LEN] __attribute__((aligned(32)));
-char  sig_S[MAX_KEY_LEN] __attribute__((aligned(32)));
+static char  sig_R[MAX_KEY_LEN] __attribute__((aligned(32)));
+static char  sig_S[MAX_KEY_LEN] __attribute__((aligned(32)));
+
+static char param_mem[8192] __attribute__((aligned(32)));
+static char sbuff_mem[4096] __attribute__((aligned(32)));
 
 static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 {
 	{
 		"P-224", CURVE_P_224, 224,
-		224,  // SHA-224
+		224,  /* SHA-224 */
 		"07eb2a50bf70eee87467600614a490e7600437d077ec651a27e65e67",
 		"16797b5c0c7ed5461e2ff1b88e6eafa03c0f46bf072000dfc830d615",
 		"605495756e6e88f1d07ae5f98787af9b4da8a641d1a9492a12174eab",
@@ -47,7 +50,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-256", CURVE_P_256, 256,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"a3f91ae21ba6b3039864472f184144c6af62cd0e",
 		"be34baa8d040a3b991f9075b56ba292f755b90e4b6dc10dad36715c33cfdac25",
 		"fa2737fb93488d19caef11ae7faf6b7f4bcd67b286e3fc54e8a65c2b74aeccb0",
@@ -58,7 +61,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-521", CURVE_P_521, 521,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"1bf7039cca2394273f11a1d48dccb4466f3161df",
 		"1bd56bd106118eda246155bd43b42b8e13f0a6e25dd3bb376026fab4dc92b6157bc6dfec2d15dd3d0cf2a39aa68494042af48ba9601118da82c6f2108a3a203ad74",
 		"12fbcaeffa6a51f3ee4d3d2b51c5dec6d7c726ca353fc014ea2bf7cfbb9b910d32cbfa6a00fe39b6cdb8946f22775398b2e233c0cf144d78c8a7742b5c7a3bb5d23",
@@ -69,7 +72,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-192", CURVE_P_192, 192,
-		224,  // SHA-224
+		224,  /* SHA-224 */
 		"4faffccea0c4d580f9b3dccfd4639a9364f14536d02cfc50",
 		"694b9faf76b8c6be78bb33ccf1cd6f34809ab57d049f8eeb",
 		"db4388f00504a57b8ce69bc48953d251575becf9ef0a7430",
@@ -80,7 +83,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-192", CURVE_P_192, 192,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"7f276bf574a4c80a68edd070385d8bbcbee084a5",
 		"f310bd616126225ddf94fb886b62f894585619365aba1317",
 		"fc044c1dc333da8ec98e6598ffaef60e5b230d098102791a",
@@ -91,7 +94,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-192", CURVE_P_192, 192,
-		256,  // SHA-256
+		256,  /* SHA-256 */
 		"5ae8317d34d1e595e3fa7247db80c0af4320cce1116de187",
 		"24edd22f7ddd6fa5bc61fc0653479aa40809ef865cf27a47",
 		"9bf12d7174b7708a076a38bc80aa28662f251e2ed8d414dc",
@@ -102,7 +105,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-224", CURVE_P_224, 224,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"6cae5f54a0c89f810b57cfed811b44a58327ce35",
 		"e6f0a6ab81b7bd50dc5581b03d43308fb28356408392e29a5321ca7f",
 		"c87c46fb7a07789aa352d0055b3a4ad588851a80f6f0915ab5547dda",
@@ -113,7 +116,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-224", CURVE_P_224, 224,
-		224,  // SHA-224
+		224,  /* SHA-224 */
 		"07eb2a50bf70eee87467600614a490e7600437d077ec651a27e65e67",
 		"16797b5c0c7ed5461e2ff1b88e6eafa03c0f46bf072000dfc830d615",
 		"605495756e6e88f1d07ae5f98787af9b4da8a641d1a9492a12174eab",
@@ -124,7 +127,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-256", CURVE_P_256, 256,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"a3f91ae21ba6b3039864472f184144c6af62cd0e",
 		"be34baa8d040a3b991f9075b56ba292f755b90e4b6dc10dad36715c33cfdac25",
 		"fa2737fb93488d19caef11ae7faf6b7f4bcd67b286e3fc54e8a65c2b74aeccb0",
@@ -135,7 +138,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-384", CURVE_P_384, 384,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"9b9f8c9535a5ca26605db7f2fa573bdfc32eab8b",
 		"a492ce8fa90084c227e1a32f7974d39e9ff67a7e8705ec3419b35fb607582bebd461e0b1520ac76ec2dd4e9b63ebae71",
 		"e55fee6c49d8d523f5ce7bf9c0425ce4ff650708b7de5cfb095901523979a7f042602db30854735369813b5c3f5ef868",
@@ -146,7 +149,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"P-521", CURVE_P_521, 521,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"1bf7039cca2394273f11a1d48dccb4466f3161df",
 		"1bd56bd106118eda246155bd43b42b8e13f0a6e25dd3bb376026fab4dc92b6157bc6dfec2d15dd3d0cf2a39aa68494042af48ba9601118da82c6f2108a3a203ad74",
 		"12fbcaeffa6a51f3ee4d3d2b51c5dec6d7c726ca353fc014ea2bf7cfbb9b910d32cbfa6a00fe39b6cdb8946f22775398b2e233c0cf144d78c8a7742b5c7a3bb5d23",
@@ -157,18 +160,18 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"K-163", CURVE_K_163, 163,
-		160,  // SHA-1
-		"48011d541ec726c67ddb4a48b84d459f3baf5fd1",    // e
-		"093c46340022f6f6e668693ef277a41ec25fbb46c",   // d
-		"5ef1a3a8748356ada9dcaa2d2a30ba3a56c51bc8a",   // Qx
-		"6c0b5f0d40199d759583aa594be3787b760020ee9",   // Qy
-		"33ba961eb737ffdff6e3a61eec8b32b16d8adafc0",   // k
-		"3cb596165dd34f99f73036f69fc8c72bbc588cd3b",   // r
-		"191a23c0186f25d0837d77313dc7a9333883eac9e"    // s
+		160,  /* SHA-1 */
+		"48011d541ec726c67ddb4a48b84d459f3baf5fd1",
+		"093c46340022f6f6e668693ef277a41ec25fbb46c",
+		"5ef1a3a8748356ada9dcaa2d2a30ba3a56c51bc8a",
+		"6c0b5f0d40199d759583aa594be3787b760020ee9",
+		"33ba961eb737ffdff6e3a61eec8b32b16d8adafc0",
+		"3cb596165dd34f99f73036f69fc8c72bbc588cd3b",
+		"191a23c0186f25d0837d77313dc7a9333883eac9e"
 	},
 	{
 		"K-233", CURVE_K_233, 233,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"9b237d72c5a4370532f5d21a1d2de316535469dd",
 		"07527560e0ff2873d0376c61a574bb26ef6ea7e24cb4cd981e811207b93",
 		"116bff61d54ef7453b53c6c7e512bc5ff5c3d21384ae084dbc4e787a3a4",
@@ -179,7 +182,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"K-283", CURVE_K_283, 283,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"76083ee70e726311c3e114f7f9a566bfba2f3514",
 		"16a372a6678f48cf7f08ec30e24983f1eaa305afe99fac77b2b3b63669479995839bbd0",
 		"55c98a8556ef969538be24bf52fb70fd285a62987ebd726c7a14ba14f2cb129f3e9e84b",
@@ -190,7 +193,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"K-409", CURVE_K_409, 409,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"8c5d3d80e6d03556cd458e6d67b8e5b4b15d3948",
 		"020949c88cd44684f6d19c0d7b385796760f1c31f34beb3b8a26ca421eb62fccc51bcd5d1029a648ea1ca16c8f032dc3ebe2472",
 		"077ae5742fffe220aef07e5cdc001e17f223c22eff6eb5bcfee4d9c9677377f82fcbcd04a6f2a88586802f9dbfabcbe88e1d9c2",
@@ -201,7 +204,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"K-571", CURVE_K_571, 571,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"37c99c912a0ba82801261e22bfcb75e4827f8c89",
 		"0a21e0bbe904738a47ae93d3798b8423ae87351d4705b461634a544bccea500c21d832e7ce62f024af2d9618b12abe323ab3bb8d966add118fb00df5fa80a992585a003e9b8526b",
 		"2bf77bc3d81c9e3aa0657c5051a2fe5091ff88186de4dc000ba4686317601971cdec69b2f336e9662ef73d94a618226a33cdd3154f361b40855d394b4fc3d77758b35e0efa221fe",
@@ -212,7 +215,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"B-163", CURVE_B_163, 163,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"86752230200fc292fcb89597605c9ce117397779",
 		"13486dc5ca0ba84956d2f6dc43df0415656f0eac5",
 		"71765ccb031969d7332cc53890ee209520fb8ceab",
@@ -223,7 +226,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"B-233", CURVE_B_233, 233,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"5b68920962ef6bcb6ed40ef143f9eb8038eb7c78",
 		"0e06e069767ebe602c3a7c62bfc17f1234fc7f4715b056c8196e985a04b",
 		"100f28fee82546b6b823e539617f35ff548247b0b9d2cc85cdb501628af",
@@ -234,7 +237,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"B-283", CURVE_B_283, 283,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"351d43907b0f62eb5950d6045108027b4456fb44",
 		"385f5bbd23b5028a66168359927a850fe1b0e9e6c8ed351a63bc2430ffc7816e0f24ed2",
 		"4ea11a96ed2d2067e639fffab0c9e1b3e54288012b831c12e1a8bc5d4081e56efd9c023",
@@ -245,7 +248,7 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 	},
 	{
 		"B-571", CURVE_B_571, 571,
-		160,  // SHA-1
+		160,  /* SHA-1 */
 		"88a0d0b3c8d0002ce947cb9ac5f89c7f6adae6d3",
 
 		"0cb1580ec606dc554dbf10ec12972016add2434ef6a1e6babfed818321b64ffbcc71fdb661ce26cef3f97084ab666da43d8e6504718c3d2ee91899b2735e0f8d1aa660efbdeed95",
@@ -256,24 +259,6 @@ static SG_TV_T _sg_pool[] __attribute__((aligned(32))) =
 		"1d5dc1e051ab0807a50829045be38be3be581b6609f63331852923b1fa4e7baae45825a88fe52afdb14ace9f8c8a269160a8de55312ed09476da71bba3a98775b96a4424a7ffe7d"
 	},
 };
-
-char param_pool[8192] __attribute__((aligned(32)));
-char sbuff_pool[4096] __attribute__((aligned(32)));
-
-static volatile uint64_t  _start_time = 0;
-
-void start_timer(void)
-{
-	_start_time = EL0_GetCurrentPhysicalValue();
-}
-
-uint32_t get_ticks(void)
-{
-	uint64_t   t_off;
-	t_off = EL0_GetCurrentPhysicalValue() - _start_time;
-	t_off = t_off / 120000;
-	return (uint32_t)t_off;
-}
 
 static int ecc_strcmp(char *s1, char *s2)
 {
@@ -300,108 +285,136 @@ static int ecc_strcmp(char *s1, char *s2)
 	return 0;
 }
 
-void SYS_Init(void)
+static void SYS_Init(void)
 {
-	/* Waiting LXT ready */
-	CLK_WaitClockReady(CLK_STATUS_LXTSTB_Msk);
-
 	/* Enable UART module clock */
 	CLK_EnableModuleClock(UART0_MODULE);
 
 	/* Select UART module clock source as SYSCLK1 and UART module clock divider as 15 */
 	CLK_SetModuleClock(UART0_MODULE, CLK_CLKSEL2_UART0SEL_SYSCLK1_DIV2, CLK_CLKDIV1_UART0(15));
 
-	/* Enable Crypto engine clock */
-	outpw(TSI_CLK_BASE + 0x4, inpw(TSI_CLK_BASE + 0x4) | (1 << 12));
+	/* enable Wormhole 1 clock */
+	CLK_EnableModuleClock(WH1_MODULE);
 
 	/* Set GPE multi-function pins for UART0 RXD and TXD */
 	SYS->GPE_MFPH &= ~(SYS_GPE_MFPH_PE14MFP_Msk | SYS_GPE_MFPH_PE15MFP_Msk);
 	SYS->GPE_MFPH |= (SYS_GPE_MFPH_PE14MFP_UART0_TXD | SYS_GPE_MFPH_PE15MFP_UART0_RXD);
 }
 
-int32_t main(void)
+static void UART0_Init()
 {
-	int         i, ret;
-	char        name[16];
-	SG_TV_T     *sg_tv;
-	char        *sig_r, *sig_s;
+	/* Configure UART0 and set UART0 baud rate */
+	UART_Open(UART0, 115200);
+}
+
+static void delay_us(int usec)
+{
+	uint64_t   t0;
+	t0  = EL0_GetCurrentPhysicalValue();
+	while ((EL0_GetCurrentPhysicalValue() - t0) < (usec * 12));
+}
+
+int32_t main_tsi(void)
+{
+	int      i, ret;
+	char     name[16];
+	SG_TV_T  *sg_tv;
+	char     *sig_r, *sig_s;
+	char     *param_block;   // param_block[576*6 + 4];
+	char     *sbuff;         // sbuff[576*2 + 4];
+
+	param_block = nc_ptr(param_mem);
+	sbuff = nc_ptr(sbuff_mem);
+
 
 	/* Unlock protected registers */
 	SYS_UnlockReg();
 
-    if (Is_MA35D05K())
-    {
-    	main_tsi();
-    	while (1);
-    }
-
 	/* Init System, IP clock and multi-function I/O */
 	SYS_Init();
 
-	/* Init UART to 115200-8n1 for print message */
-	UART_Open(UART0, 115200);
+	/* Init UART0 for sysprintf */
+	UART0_Init();
 
-	Crypto_Init();
+	if (TSI_Init() != 0)
+	{
+		sysprintf("TSI Init failed!\n");
+		while (1);
+	}
 
-	sig_r = nc_ptr(sig_R);
-	sig_s = nc_ptr(sig_S);
+	sig_r = &sbuff[0];
+	sig_s = &sbuff[576];
 	sg_tv = nc_ptr(_sg_pool);
 
-	start_timer();
-
 	sysprintf("+---------------------------------------------+\n");
-	sysprintf("|   Crypto ECC Signature Generation Test      |\n");
+	sysprintf("|   MA35D1 Crypto ECDSA sign and verify       |\n");
 	sysprintf("+---------------------------------------------+\n");
 
-	for (i = 0; i < sizeof(_sg_pool)/sizeof(SG_TV_T); i++)
-	{
+	for (i = 0; i < sizeof(_sg_pool)/sizeof(SG_TV_T); i++) {
 		memset(name, 0, sizeof(name));
 		strncpy(name, sg_tv[i].curve_name, 6);
 
 		sysprintf("SigGen [%d] Run curve %s test.......", i, name);
 		sysprintf("  %s\n", sg_tv[i].Msg);
 
-		if (ECC_GenerateSignature(CRPT, sg_tv[i].curve, (char *)sg_tv[i].Msg,
-					(char *)sg_tv[i].d, (char *)sg_tv[i].k, sig_r, sig_s) < 0)
-		{
+		memcpy(param_block, sg_tv[i].Msg, MAX_KEY_LEN);
+		memcpy(&param_block[576], sg_tv[i].d, MAX_KEY_LEN);
+		memcpy(&param_block[1152], sg_tv[i].k, MAX_KEY_LEN);
+
+		ret = TSI_ECC_GenSignature(sg_tv[i].curve,            /* curve_id   */
+					   0,                       /* rsel       */
+					   ECC_KEY_SEL_USER,        /* psel       */
+					   0,                       /* d_knum     */
+					   ptr_to_u32(param_block), /* param_addr */
+					   ptr_to_u32(sbuff)        /* sig_addr   */
+					   );
+		if (ret != 0) {
 			sysprintf("ECC signature generation failed!!\n");
+			TSI_Print_Error(ret);
 			while (1);
 		}
-		if (ecc_strcmp(sig_r, sg_tv[i].R) != 0)
-		{
+		if (ecc_strcmp(sig_r, sg_tv[i].R) != 0) {
 			sysprintf("Signature R [%s] is not matched with expected [%s]!\n", sig_r, sg_tv[i].R);
 			while (1);
 		}
-		if (ecc_strcmp(sig_s, sg_tv[i].S) != 0)
-		{
+		if (ecc_strcmp(sig_s, sg_tv[i].S) != 0) {
 			sysprintf("Signature S [%s] is not matched with expected [%s]!\n", sig_s, sg_tv[i].S);
 			while (1);
 		}
 		sysprintf("[PASS]\n");
 	}
-	sysprintf("ECC signature generation test passed.\n");
+	sysprintf("ECC signature generation demo done.\n\n\n");
 
 	sysprintf("+---------------------------------------------+\n");
 	sysprintf("|   Crypto ECC Signature Verification Test    |\n");
 	sysprintf("+---------------------------------------------+\n");
 
-	for (i = 0; i < sizeof(_sg_pool)/sizeof(SG_TV_T); i++)
-	{
+	for (i = 0; i < sizeof(_sg_pool)/sizeof(SG_TV_T); i++) {
 		memset(name, 0, sizeof(name));
 		strncpy(name, sg_tv[i].curve_name, 6);
 
 		sysprintf("SigVerify [%d] Run curve %s test.......", i, name);
 		sysprintf("  %s\n", sg_tv[i].Msg);
 
-		if (ECC_VerifySignature(CRPT, sg_tv[i].curve, (char *)sg_tv[i].Msg,
-					(char *)sg_tv[i].Qx, (char *)sg_tv[i].Qy,
-					(char *)sg_tv[i].R, (char *)sg_tv[i].S) < 0)
-		{
+		memcpy(param_block, sg_tv[i].Msg, MAX_KEY_LEN);
+		memcpy(&param_block[576], sg_tv[i].Qx, MAX_KEY_LEN);
+		memcpy(&param_block[1152], sg_tv[i].Qy, MAX_KEY_LEN);
+		memcpy(&param_block[1728], sg_tv[i].R, MAX_KEY_LEN);
+		memcpy(&param_block[2304], sg_tv[i].S, MAX_KEY_LEN);
+
+		ret = TSI_ECC_VerifySignature(sg_tv[i].curve,            /* curve_id   */
+					  ECC_KEY_SEL_USER,        /* psel       */
+					  0,                       /* x_knum     */
+					  0,                       /* y_knum     */
+					  ptr_to_u32(param_block)  /* param_addr */
+					  );
+		if (ret != 0) {
 			sysprintf("ECC signature verification failed!!\n");
+			TSI_Print_Error(ret);
 			while (1);
 		}
 		sysprintf("[PASS]\n");
 	}
-	sysprintf("ECC signature verification test passed.\n");
+	sysprintf("ECC signature verification demo done.\n");
 	while (1);
 }

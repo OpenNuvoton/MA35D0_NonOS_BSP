@@ -1756,6 +1756,7 @@ __STATIC_INLINE void SYS_LockReg(void)
 void SYS_ResetModule(uint32_t u32ModuleIndex);
 void SYS_NPD(void);
 void SYS_DPD(void);
+int32_t Is_MA35D05K(void);
 
 /*! @}*/ /* end of group SYS_EXPORTED_FUNCTIONS */
 

@@ -120,6 +120,12 @@ int32_t main (void)
     /* Init UART to 115200-8n1 for print message */
     UART_Open(UART0, 115200);
 
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
     /* KPI setting */
     KPI_Open(KPI, u32RowNum, u32ColNum);
     KPI_ConfigKeyScanTiming(KPI, 50, 3, KPI_ROW_SCAN_DELAY4CLK);

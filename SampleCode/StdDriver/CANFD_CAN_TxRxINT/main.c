@@ -105,9 +105,18 @@ void SYS_Init(void)
     /* Set GPE multi-function pins for UART0 RXD and TXD */
     SYS->GPE_MFPH &= ~(SYS_GPE_MFPH_PE14MFP_Msk | SYS_GPE_MFPH_PE15MFP_Msk);
     SYS->GPE_MFPH |= (SYS_GPE_MFPH_PE14MFP_UART0_TXD | SYS_GPE_MFPH_PE15MFP_UART0_RXD);
+
     /* Set multi-function pins for CANFD0 RXD and TXD */
-    SYS->GPN_MFPL &= ~(SYS_GPN_MFPL_PN2MFP_Msk | SYS_GPN_MFPL_PN3MFP_Msk);
-    SYS->GPN_MFPL |= SYS_GPN_MFPL_PN2MFP_CAN0_RXD | SYS_GPN_MFPL_PN3MFP_CAN0_TXD;
+    if (Is_MA35D05K())
+    {
+        SYS->GPB_MFPH &= ~(SYS_GPB_MFPH_PB10MFP_Msk | SYS_GPB_MFPH_PB11MFP_Msk);
+        SYS->GPB_MFPH |= SYS_GPB_MFPH_PB10MFP_CAN0_RXD | SYS_GPB_MFPH_PB11MFP_CAN0_TXD;
+    }
+    else
+    {
+        SYS->GPN_MFPL &= ~(SYS_GPN_MFPL_PN2MFP_Msk | SYS_GPN_MFPL_PN3MFP_Msk);
+        SYS->GPN_MFPL |= SYS_GPN_MFPL_PN2MFP_CAN0_RXD | SYS_GPN_MFPL_PN3MFP_CAN0_TXD;
+    }
 }
 
 /*---------------------------------------------------------------------------------------------------------*/

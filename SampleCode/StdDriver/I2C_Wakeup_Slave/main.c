@@ -152,12 +152,25 @@ void SYS_Init(void)
     /* Set GPE multi-function pins for UART0 RXD and TXD */
     SYS->GPE_MFPH &= ~(SYS_GPE_MFPH_PE14MFP_Msk | SYS_GPE_MFPH_PE15MFP_Msk);
     SYS->GPE_MFPH |= (SYS_GPE_MFPH_PE14MFP_UART0_TXD | SYS_GPE_MFPH_PE15MFP_UART0_RXD);
-    /* Set multi-function pins for I2C4 */
-    SYS->GPM_MFPL &= ~(SYS_GPM_MFPL_PM0MFP_Msk | SYS_GPM_MFPL_PM1MFP_Msk);
-    SYS->GPM_MFPL |= SYS_GPM_MFPL_PM0MFP_I2C4_SDA | SYS_GPM_MFPL_PM1MFP_I2C4_SCL;
 
-    /* I2C pin enable schmitt trigger */
-    PM->SMTEN |= GPIO_SMTEN_SMTEN0_Msk | GPIO_SMTEN_SMTEN1_Msk;
+    if (Is_MA35D05K())
+    {
+        /* Set multi-function pins for I2C4 */
+        SYS->GPC_MFPL &= ~(SYS_GPC_MFPL_PC0MFP_Msk | SYS_GPC_MFPL_PC1MFP_Msk);
+        SYS->GPC_MFPL |= SYS_GPC_MFPL_PC0MFP_I2C4_SDA | SYS_GPC_MFPL_PC1MFP_I2C4_SCL;
+
+        /* I2C pin enable schmitt trigger */
+        PC->SMTEN |= GPIO_SMTEN_SMTEN0_Msk | GPIO_SMTEN_SMTEN1_Msk;
+    }
+    else
+    {
+        /* Set multi-function pins for I2C4 */
+        SYS->GPM_MFPL &= ~(SYS_GPM_MFPL_PM0MFP_Msk | SYS_GPM_MFPL_PM1MFP_Msk);
+        SYS->GPM_MFPL |= SYS_GPM_MFPL_PM0MFP_I2C4_SDA | SYS_GPM_MFPL_PM1MFP_I2C4_SCL;
+
+        /* I2C pin enable schmitt trigger */
+        PM->SMTEN |= GPIO_SMTEN_SMTEN0_Msk | GPIO_SMTEN_SMTEN1_Msk;
+    }
 
     /* Lock protected registers */
     SYS_LockReg();

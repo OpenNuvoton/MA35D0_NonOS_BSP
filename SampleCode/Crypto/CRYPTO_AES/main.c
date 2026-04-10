@@ -9,6 +9,7 @@
 #include <string.h>
 
 #include "NuMicro.h"
+#include "tsi_cmd.h"
 
 #define BUFF_SIZE       0x10000
 
@@ -36,6 +37,7 @@ uint8_t  *au8CascadeOut;
 uint8_t  *au8FDBCK;
 
 extern int  AES_KAT_test(void);
+extern int  AES_KAT_TSI(void);
 
 void  dump_buff_hex(uint8_t *pucBuff, int nBytes)
 {
@@ -81,8 +83,11 @@ void SYS_Init(void)
 	/* Select UART module clock source as SYSCLK1 and UART module clock divider as 15 */
 	CLK_SetModuleClock(UART0_MODULE, CLK_CLKSEL2_UART0SEL_SYSCLK1_DIV2, CLK_CLKDIV1_UART0(15));
 
-	/* Enable Crypto engine clock */
-	outpw(TSI_CLK_BASE + 0x4, inpw(TSI_CLK_BASE + 0x4) | (1 << 12));
+    if (!Is_MA35D05K())
+    {
+	    /* Enable Crypto engine clock */
+	    outpw(TSI_CLK_BASE + 0x4, inpw(TSI_CLK_BASE + 0x4) | (1 << 12));
+    }
 
 	/* Set GPE multi-function pins for UART0 RXD and TXD */
 	SYS->GPE_MFPH &= ~(SYS_GPE_MFPH_PE14MFP_Msk | SYS_GPE_MFPH_PE15MFP_Msk);
@@ -108,9 +113,20 @@ int32_t main(void)
 	au8CascadeOut = nc_ptr(au8CascadeOut_Pool);
 	au8FDBCK = nc_ptr(au8FDBCK_Pool);
 
-	Crypto_Init();
-
-	AES_KAT_test();
+    if (Is_MA35D05K())
+    {
+        if (TSI_Init() != 0)
+	    {
+		    sysprintf("TSI Init failed!\n");
+			while (1);
+		}
+		AES_KAT_TSI();
+    }
+    else
+    {
+		Crypto_Init();
+		AES_KAT_test();
+	}
 
 	while (1);
 }

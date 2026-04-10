@@ -19,6 +19,8 @@ uint32_t  user_nonce[48] = {
 	0xdec69b2f, 0x336e9662, 0xef73d94a, 0x618226a3, 0x3cdd3154, 0xf361b408, 0x55d394b4, 0xfc3d7775,
 };
 
+extern int32_t main_tsi(void);
+
 static volatile uint64_t  _start_time = 0;
 
 void start_timer(void)
@@ -97,6 +99,12 @@ int32_t main(void)
 
 	/* Unlock protected registers */
 	SYS_UnlockReg();
+
+    if (Is_MA35D05K())
+    {
+    	main_tsi();
+    	while (1);
+    }
 
 	/* Init System, IP clock and multi-function I/O */
 	SYS_Init();

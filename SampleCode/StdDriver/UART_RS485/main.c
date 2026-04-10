@@ -56,7 +56,8 @@ void SYS_Init(void)
     /* Set multi-function pins for Debug UART RXD and TXD */
     SYS->GPE_MFPH &= ~(SYS_GPE_MFPH_PE14MFP_Msk | SYS_GPE_MFPH_PE15MFP_Msk);
     SYS->GPE_MFPH |= (SYS_GPE_MFPH_PE14MFP_UART0_TXD | SYS_GPE_MFPH_PE15MFP_UART0_RXD);
-    /* Set multi-function pins for UART1 */
+
+    /* Set multi-function pins for UART6 */
     SYS->GPN_MFPH &= ~(SYS_GPN_MFPH_PN12MFP_Msk | SYS_GPN_MFPH_PN13MFP_Msk | SYS_GPN_MFPH_PN14MFP_Msk | SYS_GPN_MFPH_PN15MFP_Msk);
     SYS->GPN_MFPH |= SYS_GPN_MFPH_PN12MFP_UART6_nCTS | SYS_GPN_MFPH_PN13MFP_UART6_nRTS |
     		SYS_GPN_MFPH_PN14MFP_UART6_RXD | SYS_GPN_MFPH_PN15MFP_UART6_TXD;
@@ -70,21 +71,27 @@ void UART_Init()
     UART_Open(UART0, 115200);
 }
 
-void UART1_Init()
+void UART6_Init()
 {
     UART_Open(UART6, 115200);
 }
-
 
 int main(void)
 {
     /* Init System, IP clock and multi-function I/O */
     SYS_Init();
+
     /* Init UART for sysprintf */
     UART_Init();
 
-    /* Init UART1 */
-    UART1_Init();
+    if (Is_MA35D05K())
+    {
+        sysprintf("\n\n[ERROR] This sample does not support MA35D05K series.\n");
+        while (1);
+    }
+
+    /* Init UART6 */
+    UART6_Init();
 
     sysprintf("\n\nCPU @ %dHz\n", SystemCoreClock);
 
